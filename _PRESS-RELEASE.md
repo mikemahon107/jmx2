@@ -18,27 +18,35 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  goodfilms
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Movie lovers will have a place to keep track of all the films they've watched and at personalized elements to all of them.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  goodfilms is an all in once place where film lovers have an access of a library of all the film titles they love. Each user will have a personalized movie library where they can add reviews and ratings.
 
 ## Problem ##
   > Describe the problem your product solves.
+  Film buffs need a place to collect all the movie titles they love or hate with customizable ways to log their movie experience.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  goodfilms give users a one-stop app to collect any movie titles with personalized add-ons.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "I love movies and want everyone to be able to keep track of each and every one of their movie experiences."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  "Sign in and add your first movie!"
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "So easy to use. Now I have all my movies on one easy to use application."
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
