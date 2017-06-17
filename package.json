@@ -4,11 +4,23 @@
   "description": "goodreads for films",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --ignore node_modules server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jolizbish/jmx2.git"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
+    "express": "^4.15.3",
+    "express-session": "^1.13.0",
+    "imdb-api": "^3.1.1",
+    "mongoose": "^4.10.6"
+  },
+  "devDependencies": {
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   },
   "author": "jmx2",
   "license": "UNLICENSED",
