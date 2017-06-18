@@ -1,1 +1,1 @@
-//not sure we actually need this file but ok!
+angular.module('main-app', [/**/]);

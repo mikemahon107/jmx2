@@ -7,10 +7,14 @@ var accounts = require('../db/schema/account');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
+app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
+
 // console.log('hello', users, movies);
 
 app.get('/', function (req, res) {
-  res.render('/signin');
+  // console.log(__dirname.slice(0, __dirname.length - 6));
+  res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html')
+  // res.send('/index.html')
 });
 
 app.get('/signin', function (req, res) {
@@ -62,7 +66,6 @@ app.post('/signup', function (req, res) {
   //find the username
   //if result exists, redirect to signup w/ note that their username is taken
   // else call accounts.insertOne w/ object of the username and pw
-
 
 })
 
