@@ -12,13 +12,6 @@ var accountSchema = mongoose.Schema({
 
 var Account = mongoose.model('Account', accountSchema);
 
-Account.comparePassword = function(candidatePassword, savedPassword, cb) {
-  bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
-    if (err) { return cb(err); }
-    cb(null, isMatch);
-  });
-};
-
 accountSchema.pre('save', function(next) {
   var cipher = Promise.promisify(bcrypt.hash);
   return cipher(this.password, null, null).bind(this)
@@ -28,6 +21,12 @@ accountSchema.pre('save', function(next) {
     });
 });
 
+function comparePassword(candidatePassword, savedPassword, cb) {
+  bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
+    if (err) { return cb(err); }
+    cb(null, isMatch);
+  });
+};
 
 function findAll(cb) {
   Account.find({}, cb);
@@ -41,7 +40,7 @@ function insertOne(user, cb) {
   Account.create(user, cb);
 }
 
-
+exports.comparePassword = comparePassword;
 exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;

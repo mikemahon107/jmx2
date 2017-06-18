@@ -18,9 +18,26 @@ app.get('/signin', function (req, res) {
 });
 
 app.post('/signin', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
 
-
-
+  accounts.findOne({username: username}, (err, user) => {
+    if (!user) {
+      res.send('username does not exist.');
+      res.redirect('/login');
+    } else {
+      accounts.comparePassword(password, user.password, function(err, match) {
+        if (match) {
+          //create session
+        } else {
+          res.redirect('/login');
+        }
+      });
+        //
+        res.redirect('/index');
+      });
+    }
+  });
 });
 
 app.get('/signup', function (req, res) {
@@ -32,7 +49,7 @@ app.post('/signup', function (req, res) {
   var password = req.body.password;
 
   accounts.findOne({username: username}, (err, user) => {
-    if (!user) {
+    if (user) {
       res.send('Username already exists');
       res.redirect('/signup');
     } else {
