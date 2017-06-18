@@ -20,4 +20,20 @@ var Account = mongoose.model('Account', accountSchema);
 
 //TODO: hash pw before saving
 
-module.exports = Account;
+
+function findAll(cb) {
+  Account.find({}, cb);
+}
+
+function findOne(username, cb) {
+  Account.find({username: username}, cb);
+}
+
+function insertOne(user, cb) {
+  Account.create(user, cb);
+}
+
+
+exports.findOne = findOne;
+exports.findAll = findAll;
+exports.insertOne = insertOne;
