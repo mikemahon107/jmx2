@@ -12,9 +12,19 @@ var movieSchema = mongoose.Schema({
 
 var Movie = mongoose.model('Movie', movieSchema);
 
-Movie.hello = function() {
-  console.log("hi");
-};
-// var movie = new Movie({title:'hello'}).save();
+function findAll(cb) {
+  Movie.find({}, cb);
+}
 
-module.exports = Movie;
+function findOne(title, cb) {
+  Movie.find({title: title}, cb);
+}
+
+function insertOne(movie, cb) {
+  Movie.create(movie, cb);
+}
+
+
+exports.findOne = findOne;
+exports.findAll = findAll;
+exports.insertOne = insertOne;
