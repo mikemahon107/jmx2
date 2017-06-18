@@ -12,15 +12,15 @@
     "url": "git+https://github.com/jolizbish/jmx2.git"
   },
   "dependencies": {
+    "angular": "^1.6.4",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.0",
+    "bootstrap": "^3.3.7",
     "express": "^4.15.3",
     "express-session": "^1.13.0",
     "imdb-api": "^3.1.1",
+    "lodash": "^4.17.4",
     "mongoose": "^4.10.6"
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   },
   "author": "jmx2",
   "license": "UNLICENSED",

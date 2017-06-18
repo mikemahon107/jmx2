@@ -3,14 +3,13 @@ angular.module('main-app')
 .controller('MainCtrl', function() {
 
 })
-.directive('main', function() {
+.directive('app', function() { // directive name is the HTML tag name REMEMBER THIS
   return {
     scope: {},
-    // restrict?
+    restrict: 'E',
     controller: 'MainCtrl',
     controllerAs: 'ctrl',
     bindToController: true,
-    templateUrl: 'client/templates/main.html'
+    templateUrl: 'public/client/templates/app.html'
   };
-
 });
