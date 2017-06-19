@@ -7,10 +7,18 @@ var accounts = require('../db/schema/account');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var utility = require('./utility.js');
 
 app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser('ohhai'));
+app.use(session({
+  secret: 'kthxbai',
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html')
@@ -33,7 +41,8 @@ app.post('/signin', function (req, res) {
       accounts.comparePassword(password, user.password, function(match) {
         if (match) {
           //create session
-          res.send('Everything works')
+          utility.createSession(req, res, user);
+          res.send('Everything works');
         } else {
           res.send('Incorrect password or username.');
           // res.redirect('/login');
