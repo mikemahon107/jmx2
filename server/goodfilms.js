@@ -24,22 +24,21 @@ app.post('/signin', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  accounts.findOne({username: username}, (err, user) => {
+  accounts.findOne(username, (err, user) => {
     if(err) throw err;
     if (!user) {
       res.send('Incorrect password or username.');
-      res.redirect('/login');
+      // res.redirect('/login');
     } else {
-      accounts.comparePassword(password, user.password, function(err, match) {
-        if (err) throw err;
+      accounts.comparePassword(password, user.password, function(match) {
         if (match) {
           //create session
+          res.send('Everything works')
         } else {
           res.send('Incorrect password or username.');
-          res.redirect('/login');
+          // res.redirect('/login');
         }
       });
-      res.redirect('/')
     }
   })
 })
@@ -53,16 +52,17 @@ app.post('/signup', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  accounts.findOne({username: username.toString()}, (err, user) => {
+  accounts.findOne(username, (err, user) => {
     if (err) throw err;
-    if (user) {
-      res.send('Username already exists');
-      res.redirect('/signup');
+    if (user.length) {
+      console.log(user)
+      res.send('Username already exists!');
+      // res.redirect('/signup');
     } else {
       accounts.insertOne({username: username, password: password}, (err, user) => {
         if (err) throw err;
         res.send('Account created.');
-        res.redirect('/');
+        // res.redirect('/');
       });
     }
   });
