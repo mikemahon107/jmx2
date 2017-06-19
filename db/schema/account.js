@@ -20,7 +20,7 @@ accountSchema.pre('save', function(next) {
       next();
     });
 });
-
+    
 function comparePassword(candidatePassword, savedPassword, cb) {
   bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
     if (err) { return cb(err); }
