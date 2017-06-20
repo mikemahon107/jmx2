@@ -17,6 +17,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-session": "^1.13.0",
     "imdb-api": "^3.1.1",
