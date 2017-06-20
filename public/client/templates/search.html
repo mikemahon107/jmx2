@@ -1,10 +1,14 @@
 <div class="search-bar form-inline">
   <input
+    ng-model="ctrl.input"
     class="form-control"
     type="text"
   />
-  <button class="btn">
-    <span class="glyphicon glyphicon-search"></span>
+  <button class="btn" ng-click="ctrl.handleClick()">
+    <span class="glyphicon glyphicon-search">add movie</span>
   </button>
+  <!-- <button class="btn">
+    <span class="glyphicon glyphicon-search">add movie</span>
+  </button> -->
 </div>
 
