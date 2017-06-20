@@ -1,11 +1,16 @@
 angular.module('main-app') //copied mostly from pet-shop
 
-.controller('AuthPanelCtrl', function() {
+.controller('AuthPanelCtrl', function(AuthModel) {
   this.username = '',
   this.password = '',
   this.mode = true,
 
   this.toggleMode = () => {
+    console.log('barbz');
+    this.mode = !this.mode;
+  },
+
+  this.authorize = () => {
     var action = this.mode ? 'signin' : 'signup';
 
     AuthModel[action](this.username, this.password, (err, apiToken) => {
