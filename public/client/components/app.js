@@ -4,7 +4,8 @@ angular.module('main-app')
   this.users = window.exampleData;
   this.searchService = searchOMDB
   // console.log(this.resultMovies);
-  // console.log('search service', this.searchService);
+  // this.loggedIn = false;
+  // this.apiToken = null;
   // console.log('users', this.users);
   // this.searchResults = (data) => {
   //   this.movies = data;
