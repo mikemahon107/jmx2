@@ -34,6 +34,7 @@ app.post('/signin', function (req, res) {
 
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
+    console.log(user);
     if (!user) {
       res.send('Incorrect password or username.');
       // res.redirect('/login');
