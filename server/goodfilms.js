@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/signin', function (req, res) {
-  // res.render('/signin');
+  res.render('/signin');
 });
 
 app.post('/signin', function (req, res) {
@@ -53,7 +53,7 @@ app.post('/signin', function (req, res) {
 })
 
 app.get('/signup', function (req, res) {
-  //res.render('signup');
+  res.render('/signup');
 });
 
 app.post('/signup', function (req, res) {

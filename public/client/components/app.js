@@ -3,6 +3,8 @@ angular.module('main-app')
 .controller('MainCtrl', function() {
 
   this.users = window.exampleData;
+  this.loggedIn = false;
+  this.apiToken = null;
   // console.log('users', this.users);
   // this.searchResults = (data) => {
   //   this.movies = data;
