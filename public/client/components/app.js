@@ -2,10 +2,12 @@ angular.module('main-app')
 
 .controller('MainCtrl', function() {
 
-  this.searchResults = (data) => {
-    this.movies = data;
-    this.currentVideo = this.videos[0];
-  }
+  this.users = window.exampleData;
+  // console.log('users', this.users);
+  // this.searchResults = (data) => {
+  //   this.movies = data;
+  //   this.currentVideo = this.videos[0];
+  // }
 
 })
 .directive('app', function() { // directive name is the HTML tag name REMEMBER THIS
