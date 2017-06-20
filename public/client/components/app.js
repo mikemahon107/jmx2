@@ -1,10 +1,8 @@
 angular.module('main-app')
 
 .controller('MainCtrl', function(searchOMDB) {
-
   this.users = window.exampleData;
-  this.searchService = searchOMDB;
-  this.searchResult = [];
+  this.searchService = searchOMDB
   // console.log(this.resultMovies);
   // this.loggedIn = false;
   // this.apiToken = null;
