@@ -29,11 +29,11 @@ function comparePassword(candidatePassword, savedPassword, cb) {
 };
 
 function findAll(cb) {
-  Account.find({}, cb);
+  Account.findOne({}, cb);
 }
 
 function findOne(username, cb) {
-  Account.find({username: username}, cb);
+  Account.findOne({username: username}, cb);
 }
 
 function insertOne(user, cb) {
