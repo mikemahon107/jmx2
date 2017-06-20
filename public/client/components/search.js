@@ -1,14 +1,11 @@
 angular.module('main-app') // copied mostly from ng-cast
 
-// .controller('SearchCtrl', function() {
-// })
-
 .controller('SearchController', function() {
-  console.log('out', this.searchResult);
+  this.searchResult = []
   this.handleClick = () => {
     this.service.search({t: this.input}, (data) => {
-      // this.searchResult.push(data)
-      console.log(data);
+      this.searchResult.push(data)
+      console.log(this.searchResult);
     })
   }
 })
@@ -19,7 +16,6 @@ angular.module('main-app') // copied mostly from ng-cast
 
     scope: {
       service: '<',
-      searchResult: '<'
     },
     restrict: 'E',
     controller: 'SearchController',
@@ -39,4 +35,3 @@ angular.module('main-app') // copied mostly from ng-cast
 //     templateUrl: 'public/client/templates/search.html'
 //   };
 // });
-

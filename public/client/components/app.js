@@ -1,10 +1,8 @@
 angular.module('main-app')
 
 .controller('MainCtrl', function(searchOMDB) {
-
   this.users = window.exampleData;
   this.searchService = searchOMDB
-  this.searchResult = []
   // console.log(this.resultMovies);
   // console.log('search service', this.searchService);
   // console.log('users', this.users);
