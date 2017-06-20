@@ -2,7 +2,8 @@
   <h1>Welcome {{ctrl.users[0].username}}</h1>
   <nav>
     <!-- <h5>hello</h5> -->
-    <search/>
+    <search service="ctrl.searchService" searchResult="ctrl.searchResult" />
+    <search-result-list movies="ctrl.searchResult" />
   </nav>
   <div id="auth-panel">
     <auth-panel />
