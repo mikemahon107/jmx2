@@ -2,18 +2,16 @@ angular.module('main-app') // copied mostly from ng-cast
 
 // .controller('SearchCtrl', function() {
 // })
-.directive('movieList', function() {
+.directive('movieEntry', function() {
   return {
     scope: {
-      movies: '<'
+      movie: '<'
     },
     restrict: 'E',
-    controller: function() {
-      // console.log(movies);
-    },
+    controller: function() {},
     controllerAs: 'ctrl',
     bindToController: true,
-    templateUrl: 'public/client/templates/movieList.html'
+    templateUrl: 'public/client/templates/movieEntry.html'
   };
 });
 
