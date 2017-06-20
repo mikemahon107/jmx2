@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 node_modules/
+=======
+## NPM ##
+node_modules/
+
+## API keys ##
+./keys.js
+>>>>>>> added gitgnore
