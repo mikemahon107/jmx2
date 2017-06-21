@@ -2,10 +2,10 @@ angular.module('main-app') // copied mostly from ng-cast
 
 // .controller('SearchCtrl', function() {
 // })
-.directive('movieList', function() {
+.directive('searchResultEntry', function() {
   return {
     scope: {
-      movies: '<'
+      movie: '<'
     },
     restrict: 'E',
     controller: function() {
@@ -13,7 +13,6 @@ angular.module('main-app') // copied mostly from ng-cast
     },
     controllerAs: 'ctrl',
     bindToController: true,
-    templateUrl: 'public/client/templates/movieList.html'
+    templateUrl: 'public/client/templates/searchResultEntry.html'
   };
 });
-

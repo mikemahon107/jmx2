@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/signin', function (req, res) {
-  //res.render('/signin');
+  res.render('/signin');
 });
 
 app.post('/signin', function (req, res) {
@@ -53,12 +53,16 @@ app.post('/signin', function (req, res) {
 })
 
 app.get('/signup', function (req, res) {
-  //res.render('signup');
+  res.render('/signup');
 });
 
 app.post('/signup', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
+
+  accounts.findAll((err, user) => {
+    console.log(user);
+  })
 
   accounts.findOne(username, (err, user) => {
     if (err) throw err;

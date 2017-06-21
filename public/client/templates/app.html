@@ -1,10 +1,13 @@
 <div id="main container">
-  <h1>This is rendering!</h1>
+  <h1>Welcome {{ctrl.users[0].username}}</h1>
+  <div id="auth-panel">
+    <auth-panel />
+  </div>
   <nav>
-    <h5>hello</h5>
-    <search/>
+    <!-- <h5>hello</h5> -->
+    <search />
   </nav>
   <div id="movie-list">
-    <movie-list/>
+    <movie-list movies="ctrl.users[0].watched" />
   </div>
 </div>
