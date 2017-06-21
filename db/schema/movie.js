@@ -10,21 +10,21 @@ var movieSchema = mongoose.Schema({
   poster: { type: String }
 });
 
-var Movie = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Movie', movieSchema);
 
-function findAll(cb) {
-  Movie.find({}, cb);
-}
+// function findAll(cb) {
+//   Movie.find({}, cb);
+// }
 
-function findOne(title, cb) {
-  Movie.find({title: title}, cb);
-}
+// function findOne(title, cb) {
+//   Movie.find({title: title}, cb);
+// }
 
-function insertOne(movie, cb) {
-  Movie.create(movie, cb);
-}
+// function insertOne(movie, cb) {
+//   Movie.create(movie, cb);
+// }
 
 
-exports.findOne = findOne;
-exports.findAll = findAll;
-exports.insertOne = insertOne;
+// exports.findOne = findOne;
+// exports.findAll = findAll;
+// exports.insertOne = insertOne;
