@@ -11,6 +11,8 @@ var utility = require('./utility.js');
 var cookieParser = require('cookie-parser');
 // var helpers = require('../dbr/helpers/helpers.js');
 
+// app.use(app.router);
+
 app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,17 +23,20 @@ app.use(session({
 }));
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html')
+   // res.sendFile(__dirname.slice(0, __dirname.length - 6) + '/public/client/index.html')
+  //if not signed in
+  console.log('in here')
+  res.redirect('/login');
 });
 
 app.get('/signin', function (req, res) {
-  res.render('/signin');
+  res.redirect('/login');
 });
 
 app.post('/signin', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
-
+  //res.redirect('/')
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
     if (!user) {
@@ -41,7 +46,7 @@ app.post('/signin', function (req, res) {
       accounts.comparePassword(password, user.password, function(match) {
         if (match) {
           //create session
-          utility.createSession(req, res, user);
+          //utility.createSession(req, res, user);
           console.log('Everything works');
         } else {
           res.send('Incorrect password or username.');
@@ -53,7 +58,7 @@ app.post('/signin', function (req, res) {
 })
 
 app.get('/signup', function (req, res) {
-  res.render('/signup');
+  res.redirect('/login');
 });
 
 // accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); --for testing -JO
@@ -83,6 +88,10 @@ app.post('/signup', function (req, res) {
   
   });
 
+});
+
+app.use('/*', function(req, res){
+  res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html');
 });
 
 module.exports = app;

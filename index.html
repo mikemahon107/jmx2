@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base href="/" />
   <title>Goodfilms.io</title>
   <script src="node_modules/lodash/lodash.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <link rel="stylesheet" href="public/client/styles.css">
+  <script src="node_modules/angular-route/angular-route.js"></script>
 </head>
-<body>
-  <app ng-app="main-app">
-    <h5>This message will disappear!</h5>
-  </app>
+<body ng-app="main-app">
+  
+  <div ng-view></div>
 
   <script src="exampleData.js"></script>
   <script src="public/client/index.js"></script>
