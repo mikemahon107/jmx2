@@ -10,7 +10,7 @@ var accountSchema = mongoose.Schema({
   toWatch: [Object]
 });
 
-var Account = mongoose.model('Account', accountSchema);
+module.exports = mongoose.model('Account', accountSchema);
 
 accountSchema.pre('save', function(next) { // This just isn't working...
   console.log('PRE IS HAPPENING'); // it's not happening
@@ -22,31 +22,32 @@ accountSchema.pre('save', function(next) { // This just isn't working...
     });
 });
 
-function comparePassword(candidatePassword, savedPassword, cb) {
-  bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
-    if (err) { return cb(err); }
-    cb(null, isMatch);
-  });
-};
 
-function findAll(cb) { // I think this should just be find, not findOne -JO
-  // Account.findOne({}, cb);
-  Account.find({}, cb);
-}
+// function comparePassword(candidatePassword, savedPassword, cb) {
+//   bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
+//     if (err) { return cb(err); }
+//     cb(null, isMatch);
+//   });
+// };
 
-function findOne(username, cb) {
-  Account.findOne({username: username}, cb);
-}
+// function findAll(cb) { // I think this should just be find, not findOne -JO
+//   // Account.findOne({}, cb);
+//   Account.find({}, cb);
+// }
 
-function insertOne(user, cb) {
-  bcrypt.hash(user.password, null, null, function(a,b,c) {
-    console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
-    user.password = b;
-    Account.create(user, cb);
-  });
-};
+// function findOne(username, cb) {
+//   Account.findOne({username: username}, cb);
+// }
 
-exports.comparePassword = comparePassword;
-exports.findOne = findOne;
-exports.findAll = findAll;
-exports.insertOne = insertOne;
+// function insertOne(user, cb) {
+//   bcrypt.hash(user.password, null, null, function(a,b,c) {
+//     console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
+//     user.password = b;
+//     Account.create(user, cb);
+//   });
+// };
+
+// exports.comparePassword = comparePassword;
+// exports.findOne = findOne;
+// exports.findAll = findAll;
+// exports.insertOne = insertOne;

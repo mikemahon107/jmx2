@@ -2,12 +2,14 @@ var express = require('express');
 var app = express();
 var config = require('../db/config');
 var movies = require('../db/schema/movie');
-var accounts = require('../db/schema/account');
+var accounts = require('../db/helpers/account');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var utility = require('./utility.js');
+var cookieParser = require('cookie-parser');
+// var helpers = require('../dbr/helpers/helpers.js');
 
 app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
 app.use(bodyParser.json());

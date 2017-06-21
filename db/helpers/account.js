@@ -27,6 +27,10 @@ function insertOne(user, cb) {
   });
 };
 
+function insertMovie(user, movie) {
+
+};
+
 exports.comparePassword = comparePassword;
 exports.findOne = findOne;
 exports.findAll = findAll;
