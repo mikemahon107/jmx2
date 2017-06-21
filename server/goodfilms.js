@@ -8,7 +8,7 @@ var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var utility = require('./utility.js');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 // var helpers = require('../dbr/helpers/helpers.js');
 
 // app.use(app.router);
@@ -61,7 +61,10 @@ app.get('/signup', function (req, res) {
   res.redirect('/login');
 });
 
-// accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); --for testing -JO
+accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); /* --for testing -JO */
+accounts.insertMovie("Jordan", {title:'inception', year:"2010", director: "Christopher Nolan"}); /* --for testing -JB */
+
+accounts.removeMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"});/* --for testing -JB */
 
 app.post('/signup', function (req, res) {
   var username = req.body.username;
@@ -82,10 +85,10 @@ app.post('/signup', function (req, res) {
       });
     }
   });
-  
+
   accounts.findAll((err, user) => {
     console.log(user);
-  
+
   });
 
 });

@@ -34,18 +34,36 @@ function insertMovie(user, movie) {
     // console.log(account);
     account.save(function(err, doc) {
       // console.log('save: ', doc);
-      Account.update({_id: account._id}, 
-        { "$addToSet": { "watched": movie } 
+      Account.update({_id: account._id},
+        { "$addToSet": { "watched": movie }
       }, function (err, numAffected) {
           // numAffected should be 1
       });
     })
     // Account.save();
     // console.log(account, user, movie, 'trying');
-    setTimeout(function() {console.log(account, user, movie, 'trying')}, 2000);
+    setTimeout(function() {console.log('adding...',account, user, movie)}, 2000);
   });
 };
 
+function removeMovie(user, movie) {
+  findOne(user, function (err, account) {
+    if (err) throw err;
+    account.save(function(err, doc) {
+      Account.update({_id: account._id},
+        {"$pull": {"watched": movie}
+      }, function (err, numAffected) {
+        //what?
+      });
+    })
+    setTimeout(function() {
+      console.log('removing...');
+      console.log('account: ', account);
+      console.log('user: ', user);
+      console.log('movie: ', movie);
+    }, 2000);
+  });
+};
 
 
 exports.comparePassword = comparePassword;
@@ -53,3 +71,4 @@ exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
 exports.insertMovie = insertMovie;
+exports.removeMovie = removeMovie;
