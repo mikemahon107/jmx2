@@ -5,11 +5,10 @@ angular.module('main-app')
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
   this.handleClick = () => {
-    this.OMDBService.search(this.input, (data) => {
-      console.log('data', data);
-      this.results = data.Search
-    })
-  console.log('hello', this.results);
+    this.TMDBservice.search(this.input, (data) => {
+      this.results = data.results
+    });
+    console.log(this.results)
   }
 })
 
