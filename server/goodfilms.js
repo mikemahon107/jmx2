@@ -22,13 +22,6 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.get('/', function (req, res) {
-   // res.sendFile(__dirname.slice(0, __dirname.length - 6) + '/public/client/index.html')
-  //if not signed in
-  console.log('in here')
-  res.redirect('/login');
-});
-
 app.get('/signin', function (req, res) {
   res.redirect('/login');
 });
