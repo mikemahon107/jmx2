@@ -6,7 +6,7 @@ angular.module('main-app')
   // console.log(this.resultMovies);
   // this.loggedIn = false;
   // this.apiToken = null;
-  // console.log('users', this.users);
+  console.log('users', this.users);
   // this.searchResults = (data) => {
   //   this.movies = data;
   //   this.currentVideo = this.videos[0];
