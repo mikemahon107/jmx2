@@ -8,12 +8,10 @@ var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var utility = require('./utility.js');
-var cookieParser = require('cookie-parser')
 
 app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser('ohhai'));
 app.use(session({
   secret: 'kthxbai',
   resave: false,
