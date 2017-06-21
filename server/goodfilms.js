@@ -54,10 +54,11 @@ app.get('/signup', function (req, res) {
   res.redirect('/login');
 });
 
-accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); /* --for testing -JO */
+// accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); /* --for testing -JO */
 accounts.insertMovie("Jordan", {title:'inception', year:"2010", director: "Christopher Nolan"}); /* --for testing -JB */
 
-accounts.removeMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"});/* --for testing -JB */
+
+setTimeout(function() {accounts.removeMovie("Jordan", {title:'inception', year:"2010", director: "Christopher Nolan"})}, 3000);/* --for testing -JB */
 
 app.post('/signup', function (req, res) {
   var username = req.body.username;
