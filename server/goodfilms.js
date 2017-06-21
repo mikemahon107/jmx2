@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var config = require('../db/config');
-var movies = require('../db/schema/movie');
+var movies = require('../db/helpers/movie');
 var accounts = require('../db/helpers/account');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
@@ -56,13 +56,12 @@ app.get('/signup', function (req, res) {
   res.render('/signup');
 });
 
+// accounts.insertMovie("Jordan", {title:'sailor moon', year:"1898", director: "Jeremy Odell"}); --for testing -JO
+
 app.post('/signup', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  accounts.findAll((err, user) => {
-    console.log(user);
-  })
 
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
@@ -78,6 +77,12 @@ app.post('/signup', function (req, res) {
       });
     }
   });
-})
+  
+  accounts.findAll((err, user) => {
+    console.log(user);
+  
+  });
+
+});
 
 module.exports = app;
