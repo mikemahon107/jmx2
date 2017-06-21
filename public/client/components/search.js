@@ -1,28 +1,27 @@
-angular.module('main-app') // copied mostly from ng-cast
+angular.module('main-app')
 
-.controller('SearchController', function() {
-  this.searchResult = []
+.controller('SearchController', function(searchTheMovieDB, searchOMDB) {
+  this.results;
+  this.TMDBservice = searchTheMovieDB
+  this.OMDBService = searchOMDB
   this.handleClick = () => {
-    this.service.search({t: this.input}, (data) => {
-      this.searchResult.push(data)
-      console.log(this.searchResult);
+    this.TMDBservice.search(this.input, (data) => {
+      this.results = data.results
     })
+  console.log(this.results)
   }
 })
-    // this.service.search(this.input, (data) => {
-    //   console.log('we are in', data);
+
 .directive('search', function() {
   return {
-
     scope: {
-      service: '<',
     },
     restrict: 'E',
     controller: 'SearchController',
     controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'public/client/templates/search.html'
-      };
+  };
 });
 
 // .directive('search', function() {
