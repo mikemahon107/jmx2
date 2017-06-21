@@ -27,41 +27,36 @@ function insertOne(user, cb) {
 
 // takes a username and a movie, user: String, movie: Object
 // puts the movie into user.watched
-function insertMovie(user, movie) {
+function insertMovie(username, movie) {
 
-  findOne(user, function (err, account) {
+  findOne(username, function (err, account) {
     if (err) throw err;
-    // console.log(account);
-    account.save(function(err, doc) {
-      // console.log('save: ', doc);
-      Account.update({_id: account._id},
-        { "$addToSet": { "watched": movie }
-      }, function (err, numAffected) {
-          // numAffected should be 1
-      });
-    })
-    // Account.save();
-    // console.log(account, user, movie, 'trying');
-    setTimeout(function() {console.log('adding...',account, user, movie)}, 2000);
+    account.watched.push(movie);
+    account.save();
+    console.log('adding movie: ', movie)
+    console.log('to account: ', account);
+    console.log('for user: ', username);
   });
 };
 
 function removeMovie(user, movie) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    account.save(function(err, doc) {
-      Account.update({_id: account._id},
-        {"$pull": {"watched": movie}
-      }, function (err, numAffected) {
-        //what?
-      });
-    })
-    setTimeout(function() {
-      console.log('removing...');
-      console.log('account: ', account);
-      console.log('user: ', user);
-      console.log('movie: ', movie);
-    }, 2000);
+    var index;
+    for (var i = 0; i < account.watched.length; i++) {
+      if (account.watched[i].title === movie.title) {
+        index = i;
+        break;
+      }
+    }
+    if (index !== undefined) {
+      account.watched.splice(index, 1);
+    }
+    account.save();
+    console.log('removing movie: ', movie);
+    console.log('from account: ', account);
+    console.log('at index: ', index);
+    console.log('for user: ', user);
   });
 };
 
