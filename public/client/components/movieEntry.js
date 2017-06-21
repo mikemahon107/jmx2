@@ -1,7 +1,5 @@
 angular.module('main-app') // copied mostly from ng-cast
 
-// .controller('SearchCtrl', function() {
-// })
 .directive('movieEntry', function() {
   return {
     scope: {
@@ -14,4 +12,3 @@ angular.module('main-app') // copied mostly from ng-cast
     templateUrl: 'public/client/templates/movieEntry.html'
   };
 });
-
