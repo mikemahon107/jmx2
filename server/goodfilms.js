@@ -60,6 +60,10 @@ app.post('/signup', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
+  accounts.findAll((err, user) => {
+    console.log(user);
+  })
+
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
     if (user) {

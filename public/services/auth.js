@@ -1,7 +1,7 @@
 angular.module('main-app')
 
 .factory('AuthModel', function($http) {
-  var storeURL = 'localhost:3000'; //<-- fix this
+  var storeURL = 'http://localhost:3000'; //<-- fix this *should be fixed* -JO
   var signin = function(username, password, callback) {
     $http({
       url: `${storeURL}/signin`,

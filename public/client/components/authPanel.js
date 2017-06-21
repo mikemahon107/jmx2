@@ -4,6 +4,8 @@ angular.module('main-app') //copied mostly from pet-shop
   this.username = '',
   this.password = '',
   this.mode = true,
+  this.loggedIn = null, // this is a test, ang doesn't like like 23
+  this.apiToken = ''
 
   this.toggleMode = () => {
     console.log('barbz');
@@ -17,8 +19,8 @@ angular.module('main-app') //copied mostly from pet-shop
       if (err) {
         return console.log(err);
       }
-      this.loggedIn = true;
-      this.apiToken = apiToken;
+      // this.loggedIn = true;
+      // this.apiToken = apiToken;
     });
   };
 })
@@ -31,6 +33,7 @@ angular.module('main-app') //copied mostly from pet-shop
       apiToken: '='
     },
     controller: 'AuthPanelCtrl',
+    controllerAs: 'ctrl',
     bindToController: true,
     templateUrl: 'public/client/templates/authPanel.html'
   };
