@@ -13,7 +13,6 @@ angular.module('main-app') //copied mostly from pet-shop
   },
 
   this.authorize = () => {
-    console.log('this is happening');
     var action = this.mode ? 'signin' : 'signup';
 
     AuthModel[action](this.username, this.password, (err, apiToken) => {

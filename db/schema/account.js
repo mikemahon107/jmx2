@@ -28,8 +28,9 @@ function comparePassword(candidatePassword, savedPassword, cb) {
   });
 };
 
-function findAll(cb) {
-  Account.findOne({}, cb);
+function findAll(cb) { // I think this should just be find, not findOne -JO
+  // Account.findOne({}, cb);
+  Account.find({}, cb);
 }
 
 function findOne(username, cb) {
