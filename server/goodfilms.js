@@ -11,6 +11,8 @@ var utility = require('./utility.js');
 var cookieParser = require('cookie-parser');
 // var helpers = require('../dbr/helpers/helpers.js');
 
+// app.use(app.router);
+
 app.use(express.static(__dirname.slice(0, __dirname.length - 6)));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,6 +44,7 @@ app.post('/signin', function (req, res) {
         if (match) {
           //create session
           utility.createSession(req, res, user);
+          res.redirect('/')
           console.log('Everything works');
         } else {
           res.send('Incorrect password or username.');
@@ -83,6 +86,10 @@ app.post('/signup', function (req, res) {
   
   });
 
+});
+
+app.use('/*', function(req, res){
+  res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html');
 });
 
 module.exports = app;
