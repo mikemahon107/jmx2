@@ -65,5 +65,5 @@ exports.comparePassword = comparePassword;
 exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
-exports.insertMovie = insertMovie;
-exports.removeMovie = removeMovie;
+exports.insertMovie = insertMovieIntoWatched;
+exports.removeMovie = removeMovieFromWatched;

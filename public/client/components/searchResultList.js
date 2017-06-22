@@ -9,8 +9,7 @@ angular.module('main-app') // copied mostly from ng-cast
     },
     restrict: 'E',
     controller: function() {
-       console.log('hello', this.movies);
-       // console.log(this.movies);
+      //console.log(this.movies)
     },
     controllerAs: 'ctrl',
     bindToController: true,
