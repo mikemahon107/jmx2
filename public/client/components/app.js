@@ -8,6 +8,7 @@ angular.module('main-app')
   // this.apiToken = null;
   console.log('current user', this.user);
   console.log('current users watched movies', this.user.watched)
+  // console.log('users', this.users);
   // this.searchResults = (data) => {
   //   this.movies = data;
   //   this.currentVideo = this.videos[0];
