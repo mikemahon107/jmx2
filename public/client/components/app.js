@@ -1,18 +1,23 @@
 angular.module('main-app')
 
-.controller('MainCtrl', function(searchOMDB) {
-  this.user = window.exampleData;// this is dummy data, change this later
+.controller('MainCtrl', function(searchOMDB, $http) {
+  this.user = {};// this is dummy data, change this later
+  // this.user;
   this.searchService = searchOMDB
-  // console.log(this.resultMovies);
-  // this.loggedIn = false;
-  // this.apiToken = null;
+
+  this.intendedUser;
+
+  $http.get('/sess').then((a,b) => {
+    console.log('hello', a,b);
+    this.intendedUser = a;
+    console.log('intendedUser is now: ', this.intendedUser, 'this.user is ', this.user);
+    this.user.username = this.intendedUser.data.username;
+    this.user.watched = this.intendedUser.data.watched;
+  });
+
   console.log('current user', this.user);
-  console.log('current users watched movies', this.user.watched)
-  // console.log('users', this.users);
-  // this.searchResults = (data) => {
-  //   this.movies = data;
-  //   this.currentVideo = this.videos[0];
-  // }
+  console.log('current users watched movies', this.user.watched);
+
 
 })
 .directive('app', function() { // directive name is the HTML tag name REMEMBER THIS

@@ -26,8 +26,8 @@ app.get('/', function(req, res) {
   console.log('test a');
 });
 
-app.get('./', function(req, res) {
-  console.log('test b');
+app.get('/sess', function(req, res) {
+  res.send(req.session.user);
 });
 
 app.get('/signin', function (req, res) {
@@ -45,7 +45,7 @@ app.post('/signin', function (req, res) {
       console.log(user, 'null means no matching user was found');
       // res.redirect('/login');
     } else {
-      accounts.comparePassword(password, user.password, function(a, match) {
+      accounts.comparePassword(password, user.password, function(err, match) {
         if (match) {
           //create session
           utility.createSession(req, res, user);
@@ -65,6 +65,9 @@ app.get('/signup', function (req, res) {
 });
 
 //DATABASE TESTING THINGS-- comment out if necessary
+accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman Begins"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 // accounts.insertMovie("Jordan", {title: "Sailor Moon", year:"1994", director: "Usagi Tsukino"}); /* --for testing -JO */
 // accounts.insertMovie("Jordan", {title: "Inception", year:"2010", director: "Christopher Nolan"}); /* --for testing -JB */
 // setTimeout(function() {accounts.removeMovie("Jordan", {title:'inception', year:"2010", director: "Christopher Nolan"})}, 3000);/* --for testing -JB */
