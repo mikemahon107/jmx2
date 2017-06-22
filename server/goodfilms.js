@@ -22,7 +22,16 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.get('/', function(req, res) {
+  console.log('test a');
+});
+
+app.get('./', function(req, res) {
+  console.log('test b');
+});
+
 app.get('/signin', function (req, res) {
+  console.log('test /signin get');
   res.redirect('/login');
 });
 
@@ -33,16 +42,16 @@ app.post('/signin', function (req, res) {
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
     if (!user) {
-      res.send('Incorrect password or username.');
+      console.log(user, 'null means no matching user was found');
       // res.redirect('/login');
     } else {
-      accounts.comparePassword(password, user.password, function(match) {
+      accounts.comparePassword(password, user.password, function(a, match) {
         if (match) {
           //create session
-          //utility.createSession(req, res, user);
-          console.log('Everything works');
+          utility.createSession(req, res, user);
+          console.log('Everything works /signin');
         } else {
-          res.send('Incorrect password or username.');
+          console.log('A user was found, but the password did not match. /signin');
           // res.redirect('/login');
         }
       });
@@ -51,6 +60,7 @@ app.post('/signin', function (req, res) {
 })
 
 app.get('/signup', function (req, res) {
+  console.log('test /signup get');
   res.redirect('/login');
 });
 
@@ -67,21 +77,15 @@ app.post('/signup', function (req, res) {
   accounts.findOne(username, (err, user) => {
     if (err) throw err;
     if (user) {
-      console.log(user)
-      res.send('Username already exists!');
+      console.log('Username already exists!');
       // res.redirect('/signup');
     } else {
       accounts.insertOne({username: username, password: password}, (err, user) => {
         if (err) throw err;
-        res.send('Account created.');
+        console.log('Account created.');
         // res.redirect('/');
       });
     }
-  });
-
-  accounts.findAll((err, user) => {
-    console.log(user);
-
   });
 
 });
