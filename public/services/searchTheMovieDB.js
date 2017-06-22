@@ -4,7 +4,7 @@ angular.module('main-app')
 
   this.search = function(query, callback) {
     $http({
-    url: 'https://api.themoviedb.org/3/search/movie?api_key=' + API_KEYS + '&query=' + query.split(' ').join('+'),
+    url: 'https://api.themoviedb.org/3/search/movie?include_adult=false&api_key=' + API_KEYS + '&query=' + query.split(' ').join('+'),
     method: 'GET',
     dataType: 'json',
     }).then(function successCallback(response) {
@@ -15,5 +15,19 @@ angular.module('main-app')
       console.log('Error')
     });
   }
+
+  // this.getDetail = function(id, path, callback) {
+  //   $http({
+  //   url: 'https://api.themoviedb.org/3/search/movie/' + id + '/?api_key=' + API_KEYS + (path || '')
+  //   method: 'GET',
+  //   dataType: 'json',
+  //   }).then(function successCallback(response) {
+  //     if (callback) {
+  //       callback(response.data);
+  //     }
+  //   }, function errorCallback(response) {
+  //     console.log('Error')
+  //   });
+  // }
 
 });

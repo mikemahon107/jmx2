@@ -7,6 +7,9 @@ angular.module('main-app')
   this.handleClick = () => {
     this.TMDBservice.search(this.input, (data) => {
       this.results = data.results
+      this.results.map(item => {
+        item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
+      })
     });
     console.log(this.results)
   }
