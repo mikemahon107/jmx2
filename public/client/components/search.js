@@ -11,13 +11,14 @@ angular.module('main-app')
         item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
       })
     });
-    // console.log(this.results)
+    // console.log('search this', this);
   }
 })
 
 .directive('search', function() {
   return {
     scope: {
+      user: '<'
     },
     restrict: 'E',
     controller: 'SearchController',
