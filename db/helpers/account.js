@@ -19,7 +19,7 @@ function findOne(username, cb) {
 
 function insertOne(user, cb) {
   bcrypt.hash(user.password, null, null, function(a,b,c) {
-    console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
+    // console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
     user.password = b;
     Account.create(user, cb);
   });
@@ -60,10 +60,45 @@ function removeMovieFromWatched(user, movie) {
   });
 };
 
+function insertMovieIntoFaves(user, movie) {
+
+  findOne(user, function (err, account) {
+    if (err) throw err;
+    account.favorites.push(movie);
+    account.save();
+    // console.log('adding movie: ', movie)
+    // console.log('to Favorites for account: ', account);
+    // console.log('for user: ', username);
+  });
+};
+
+function removeMovieFromFaves(user, movie) {
+  findOne(user, function (err, account) {
+    if (err) throw err;
+    var index;
+    for (var i = 0; i < account.favorites.length; i++) {
+      if (account.favorites[i].title === movie.title) {
+        index = i;
+        break;
+      }
+    }
+    if (index !== undefined) {
+      account.favorites.splice(index, 1);
+    }
+    account.save();
+    // console.log('removing movie: ', movie);
+    // console.log('from Watched for account: ', account);
+    // console.log('at index: ', index);
+    // console.log('for user: ', user);
+  });
+};
 
 exports.comparePassword = comparePassword;
 exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
-exports.insertMovie = insertMovieIntoWatched;
-exports.removeMovie = removeMovieFromWatched;
+exports.insertMovieIntoWatched = insertMovieIntoWatched;
+exports.removeMovieFromWatched = removeMovieFromWatched;
+exports.insertMovieIntoFaves = insertMovieIntoFaves;
+exports.removeMovieFromFaves = removeMovieFromFaves;
+
