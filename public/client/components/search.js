@@ -6,12 +6,12 @@ angular.module('main-app')
   this.OMDBService = searchOMDB;
   this.handleClick = () => {
     this.TMDBservice.search(this.input, (data) => {
-      this.results = data.results
+      this.results = data.results.slice(0,5)
       this.results.map(item => {
         item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
       })
     });
-    console.log(this.results)
+    // console.log(this.results)
   }
 })
 

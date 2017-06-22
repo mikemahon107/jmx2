@@ -1,8 +1,13 @@
 <div>
-  <a href="/login">{{ctrl.movie.title}}</a>
+  <!-- <a href="/login">{{ctrl.movie.title}}</a> -->
+  <div>{{ctrl.movie.title}}</div>
+  <div>year: {{ctrl.movie.release_date.slice(0,4)}}</div>
   <img ng-src="{{ctrl.movie.poster_path}}">
   <!-- <div>Genre: {{ctrl.movie.Genre}}</div>
   <div>Year: {{ctrl.movie.Year}}</div>
   <div>Rating: {{ctrl.movie.Rated}}</div>
   <div>Rotten Tomatoes: {{ctrl.movie.Ratings[1].Value}}</div> -->
+  <button class="btn" ng-click="ctrl.handleMovieClick()">
+    <span class="glyphicon glyphicon-search">add</span>
+  </button>
 </div>
