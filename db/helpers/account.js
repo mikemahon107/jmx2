@@ -27,19 +27,19 @@ function insertOne(user, cb) {
 
 // takes a username and a movie, user: String, movie: Object
 // puts the movie into user.watched
-function insertMovie(username, movie) {
+function insertMovieIntoWatched(user, movie) {
 
-  findOne(username, function (err, account) {
+  findOne(user, function (err, account) {
     if (err) throw err;
     account.watched.push(movie);
     account.save();
-    console.log('adding movie: ', movie)
-    console.log('to account: ', account);
-    console.log('for user: ', username);
+    // console.log('adding movie: ', movie)
+    // console.log('to Watched for account: ', account);
+    // console.log('for user: ', username);
   });
 };
 
-function removeMovie(user, movie) {
+function removeMovieFromWatched(user, movie) {
   findOne(user, function (err, account) {
     if (err) throw err;
     var index;
@@ -53,10 +53,10 @@ function removeMovie(user, movie) {
       account.watched.splice(index, 1);
     }
     account.save();
-    console.log('removing movie: ', movie);
-    console.log('from account: ', account);
-    console.log('at index: ', index);
-    console.log('for user: ', user);
+    // console.log('removing movie: ', movie);
+    // console.log('from Watched for account: ', account);
+    // console.log('at index: ', index);
+    // console.log('for user: ', user);
   });
 };
 
