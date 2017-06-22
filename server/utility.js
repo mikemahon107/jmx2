@@ -13,6 +13,7 @@ exports.checkUser = function(req, res, next) {
 exports.createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
     req.session.user = newUser;
+    console.log('req.session.user is now: ', req.session.user);
     res.redirect('/');
   });
 };

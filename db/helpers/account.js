@@ -19,7 +19,7 @@ function findOne(username, cb) {
 
 function insertOne(user, cb) {
   bcrypt.hash(user.password, null, null, function(a,b,c) {
-    console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
+    // console.log('a: ', a ,'b: ', b, 'c: ', c); // this just changes the password at insertion
     user.password = b;
     Account.create(user, cb);
   });
