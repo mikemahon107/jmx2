@@ -1,7 +1,7 @@
 <div id="main container">
-  <h1>Welcome, {{ctrl.users[0].username}}!</h1>
-  <div id="auth-panel"></div>
-  <div id="logout-button"></div>
+  <h1>Welcome {{ctrl.user.username}}</h1>
+  <div id="auth-panel">
+  </div>
   <nav>
     <!-- <h5>hello</h5> -->
     <search />
@@ -11,6 +11,6 @@
     <div>movie</div>
     <div>movie</div>
     <div>movie</div> -->
-    <movie-list movies="ctrl.users[0].watched" />
+    <movie-list movies="ctrl.user.watched" />
   </div>
 </div>

@@ -1,12 +1,13 @@
 angular.module('main-app')
 
 .controller('MainCtrl', function(searchOMDB) {
-  this.users = window.exampleData;
+  this.user = window.exampleData;// this is dummy data, change this later
   this.searchService = searchOMDB
   // console.log(this.resultMovies);
   // this.loggedIn = false;
   // this.apiToken = null;
-  console.log('users', this.users);
+  console.log('current user', this.user);
+  console.log('current users watched movies', this.user.watched)
   // this.searchResults = (data) => {
   //   this.movies = data;
   //   this.currentVideo = this.videos[0];

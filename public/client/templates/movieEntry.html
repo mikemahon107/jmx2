@@ -1,9 +1,15 @@
 <div>
-  <img ng-src="{{ctrl.movie.movie.poster}}">
-  <div>{{ctrl.movie.movie.title}}</div>
-  <!-- <div>Genre: {{ctrl.movie.Genre}}</div>
-  <div>Year: {{ctrl.movie.Year}}</div>
-  <div>Rating: {{ctrl.movie.Rated}}</div>
-  <div>Rotten Tomatoes: {{ctrl.movie.Ratings[1].Value}}</div> -->
-</div>
+  <img ng-src="{{ctrl.movie.details.Poster}}">
+  <div>{{ctrl.movie.details.title}}</div>
+  <div>Genre: {{ctrl.movie.details.Genre}}</div>
+  <div>Year: {{ctrl.movie.details.Year}}</div>
+  <div>Rated: {{ctrl.movie.details.Rated}}</div>
+  <div>Director: {{ctrl.movie.details.Director}}</div>
+  <div>Cast: {{ctrl.movie.details.Actors}}</div>
+  <div>IMDB: {{ctrl.movie.details.Ratings[0].Value}}</div>
+  <div>Rotten Tomatoes: {{ctrl.movie.details.Ratings[1].Value}}</div>
+  <div>Metacritic: {{ctrl.movie.details.Ratings[2].Value}}</div>
+  <div>Comment: {{ctrl.movie.comment}}</div>
+  <div>Your Rating: {{ctrl.movie.rating}}/10</div>
 
+</div>

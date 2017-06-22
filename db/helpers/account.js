@@ -101,3 +101,4 @@ exports.insertMovieIntoWatched = insertMovieIntoWatched;
 exports.removeMovieFromWatched = removeMovieFromWatched;
 exports.insertMovieIntoFaves = insertMovieIntoFaves;
 exports.removeMovieFromFaves = removeMovieFromFaves;
+
