@@ -2,6 +2,9 @@
   <h1>Welcome {{ctrl.user.username}}</h1>
   <div id="auth-panel">
   </div>
+  <form id="logout-button" action="/logout" method="get">
+    <button type="submit">Sign Out</button>
+  </form>
   <nav>
     <search user="ctrl.intendedUser.data.username"/>
   </nav>

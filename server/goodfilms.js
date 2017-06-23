@@ -64,6 +64,12 @@ app.get('/signup', function (req, res) {
   res.redirect('/login');
 });
 
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  console.log('session: ', req.session);
+  res.redirect('/login');
+});
+
 //DATABASE TESTING THINGS-- comment out if necessary
 
 // accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman"},rating: '5',comment: 'This movie rules!'});
