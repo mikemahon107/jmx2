@@ -4,6 +4,7 @@ angular.module('main-app')
   this.results;
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
+  console.log('this.user is ', this);
   this.handleClick = () => {
     this.TMDBservice.search(this.input, (data) => {
       this.results = data.results.slice(0,5)
@@ -56,7 +57,7 @@ angular.module('main-app')
         //   return;
         // }
           
-        scope.isPopupVisible = false;
+        scope.isPopupVisible = true;
         scope.$apply();
       });
     }
