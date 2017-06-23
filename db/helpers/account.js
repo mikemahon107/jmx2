@@ -93,11 +93,11 @@ function removeMovieFromFaves(user, movie) {
   });
 };
 
-function addCommentToWatchedMovie(user, movie, comment) {
+function addCommentToWatchedMovie(user, movie, year, comment) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title) {
+      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
         account.watched[i].comment === comment
         break
       }
@@ -106,11 +106,11 @@ function addCommentToWatchedMovie(user, movie, comment) {
   })
 }
 
-function addRatingToWatchedMovie(user, movie, rating) {
+function addRatingToWatchedMovie(user, movie, year, rating) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title) {
+      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
         account.watched[i].rating === rating
         break
       }
