@@ -22,8 +22,8 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.get('/', function(req, res) {
-  console.log('test a');
+app.get('/userCheck', function(req, res) {
+  res.send(req.session);
 });
 
 app.get('/sess', function(req, res) {
