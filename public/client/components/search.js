@@ -36,7 +36,7 @@ angular.module('main-app')
 
       $document.bind('click', function(event){
         // console.log('in link!', 'clicked');
-        // console.log('event target', typeof event.target.id);
+        // console.log('event target', event.target.id);
         // console.log('element', element);
         // console.log('attributes', attr);
         // var isClickedElementChildOfPopup = element
@@ -46,7 +46,7 @@ angular.module('main-app')
         // console.log('isChild', isClickedElementChildOfPopup);
           
         if (event.target.id === 'searchButton') {
-          // console.log('true');
+          console.log('true');
           return;
         }
           
