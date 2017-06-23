@@ -7,16 +7,11 @@ angular.module('main-app')
 
   this.intendedUser;
 
-  $http.get('/sess').then((a,b) => {
-    console.log('hello', a,b);
+  $http.get('/sess').then((a, b) => {
     this.intendedUser = a;
-    console.log('intendedUser is now: ', this.intendedUser, 'this.user is ', this.user);
     this.user.username = this.intendedUser.data.username;
     this.user.watched = this.intendedUser.data.watched;
   });
-
-  console.log('current user', this.user);
-  console.log('current users watched movies', this.user.watched);
 
 
 })

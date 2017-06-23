@@ -65,9 +65,9 @@ app.get('/signup', function (req, res) {
 });
 
 //DATABASE TESTING THINGS-- comment out if necessary
-accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman"},rating: '5',comment: 'This movie rules!'});
-accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman Begins"},rating: '5',comment: 'This movie rules!'});
-accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoWatched("Minh", {details: {title: "Batman"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoWatched("Minh", {details: {title: "Batman Begins"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoWatched("Minh", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 // accounts.insertMovie("Jordan", {title: "Sailor Moon", year:"1994", director: "Usagi Tsukino"}); /* --for testing -JO */
 // accounts.insertMovie("Jordan", {title: "Inception", year:"2010", director: "Christopher Nolan"}); /* --for testing -JB */
 // setTimeout(function() {accounts.removeMovie("Jordan", {title:'inception', year:"2010", director: "Christopher Nolan"})}, 3000);/* --for testing -JB */
