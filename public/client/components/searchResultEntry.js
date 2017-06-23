@@ -6,16 +6,17 @@ angular.module('main-app') // copied mostly from ng-cast
     this.handleMovieClick = function() {
       // console.log(this.movie.title);
       // console.log(this.user);
-      $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]});
 
-      $http.get('/sess').then((session) => {
-        console.log('This is triggered', session, 'this is username: ', this.user.username);
+      $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
+        $http.get('/sess').then((session) => {
+          console.log('This is triggered', session, 'this is username: ', this.user.username);
 
-        // this.intendedUser = session;
-        // this.user.username = session.data.username;
-        this.user.watched = session.data.watched;
+          // this.intendedUser = session;
+          // this.user.username = session.data.username;
+          this.user.watched = session.data.watched;
 
-        // $route.reload();
+          // $route.reload();
+        });
       });
 
     }

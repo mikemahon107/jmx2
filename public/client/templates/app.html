@@ -2,6 +2,9 @@
   <h1>Welcome {{ctrl.user.username}}</h1>
   <div id="auth-panel">
   </div>
+  <form id="logout-button" action="/logout" method="get">   
+    <button type="submit">Sign Out</button>   
+  </form>   
   <nav>
     <search user="ctrl.user"/>
   </nav>
@@ -19,7 +22,7 @@
     </div>
     <div id="menu1" class="tab-pane fade in active">
       <div id="movie-list">
-        <movie-list movies="ctrl.user.watched"/>
+        <movie-list movies="ctrl.user.watched" user="ctrl.user"/>
       </div>
     </div>
     <div id="menu2" class="tab-pane fade">
