@@ -8,7 +8,12 @@ angular.module('main-app')
     this.TMDBservice.search(this.input, (data) => {
       this.results = data.results.slice(0,5)
       this.results.map(item => {
-        item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
+        // console.log(item.poster_path === null);
+        if (item.poster_path === null) {
+          item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
+        } else {
+          item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
+        }
       })
     });
     // console.log('search this', this);
