@@ -15,7 +15,7 @@ angular.module('main-app')
   }
 })
 
-.directive('search', function() {
+.directive('search', function($document) {
   return {
     scope: {
       user: '<'
@@ -24,7 +24,36 @@ angular.module('main-app')
     controller: 'SearchController',
     controllerAs: 'ctrl',
     bindToController: true,
-    templateUrl: 'public/client/templates/search.html'
+    templateUrl: 'public/client/templates/search.html',
+    link: function(scope, element, attr){
+      
+      scope.isPopupVisible = false;
+
+      scope.toggleSelect = function(){
+        // console.log('in toggleSelect');
+        scope.isPopupVisible = !scope.isPopupVisible;
+      }
+
+      $document.bind('click', function(event){
+        // console.log('in link!', 'clicked');
+        // console.log('event target', typeof event.target.id);
+        // console.log('element', element);
+        // console.log('attributes', attr);
+        // var isClickedElementChildOfPopup = element
+        //   .find(event.target)
+        //   .length > 0;
+
+        // console.log('isChild', isClickedElementChildOfPopup);
+          
+        if (event.target.id === 'searchButton') {
+          // console.log('true');
+          return;
+        }
+          
+        scope.isPopupVisible = false;
+        scope.$apply();
+      });
+    }
   };
 });
 
