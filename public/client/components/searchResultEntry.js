@@ -6,7 +6,8 @@ angular.module('main-app') // copied mostly from ng-cast
     this.handleMovieClick = function() {
       // console.log(this.movie.title);
       // console.log(this.user);
-      $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title}).then(() => {
+
+      $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
         $http.get('/sess').then((session) => {
           console.log('This is triggered', session, 'this is username: ', this.user.username);
 
@@ -23,7 +24,7 @@ angular.module('main-app') // copied mostly from ng-cast
    console.log('this.user', this.user)
     // body...
   }
-  
+
 })
 .directive('searchResultEntry', function() {
   return {

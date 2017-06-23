@@ -107,8 +107,9 @@ app.post('/addMovie', function (req, res) {
   // console.log(req.body);
   var user = req.body.user;
   var movieTitle = req.body.movieTitle;
+  var year = req.body.year
 
-  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle}, rating:'?', comment: 'N/A'});
+  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle, year: year}, rating:'?', comment: 'N/A'});
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);

@@ -10,7 +10,7 @@ angular.module('main-app') // copied mostly from ng-cast
     controller: function(searchOMDB) {
       this.$onInit = function() {
         this.OMDBService = searchOMDB
-        this.OMDBService.search({t: this.movie.details.title}, (data) => {
+        this.OMDBService.search({t: this.movie.details.title, y: this.movie.details.year}, (data) => {
           this.movie.details = data
         })
       };

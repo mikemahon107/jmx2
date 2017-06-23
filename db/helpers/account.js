@@ -44,7 +44,7 @@ function removeMovieFromWatched(user, movie) {
     if (err) throw err;
     var index;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title) {
+      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
         index = i;
         break;
       }
@@ -77,7 +77,7 @@ function removeMovieFromFaves(user, movie) {
     if (err) throw err;
     var index;
     for (var i = 0; i < account.favorites.length; i++) {
-      if (account.favorites[i].title === movie.title) {
+      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
         index = i;
         break;
       }
