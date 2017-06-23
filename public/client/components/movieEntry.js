@@ -12,7 +12,17 @@ angular.module('main-app') // copied mostly from ng-cast
         this.OMDBService.search({t: this.movie.details.title}, (data) => {
           this.movie.details = data
         })
-      }
+      };
+
+      this.handleAddCommentClick = function() {
+        // console.log(this.movie.title);
+        // console.log(this.user);
+        // console.log('this', this);
+        console.log('movie title', this.movie.details.Title);
+        console.log('movie year', this.movie.details.Year);
+        console.log('input', this.input);
+        // $http.post('/addComment', {user: this.user, movieTitle: this.movie.title});
+      };
     },
     controllerAs: 'ctrl',
     bindToController: true,
