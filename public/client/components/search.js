@@ -57,7 +57,7 @@ angular.module('main-app')
         //   return;
         // }
           
-        scope.isPopupVisible = true;
+        scope.isPopupVisible = false;
         scope.$apply();
       });
     }
