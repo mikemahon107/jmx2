@@ -12,7 +12,7 @@ angular.module('main-app')
       }
     })
     .then(function(res) {
-      console.log('signed in');
+      // console.log('signed in');
       callback(null, res.data.apiToken);
       $location.path('/user');
     })
