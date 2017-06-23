@@ -20,7 +20,7 @@ angular.module('main-app')
     method: 'GET',
     dataType: 'json',
     }).then(function successCallback(response) {
-      // console.log(response.data.Search);
+
       if (callback) {
         callback(response.data);
       }

@@ -9,13 +9,13 @@ angular.module('main-app', ['ngRoute'])
             controllerAs: 'ctrl'
             // hideMenus: true
         })
- 
+
         .when('/', {
             controller: 'AuthPanelCtrl',
             templateUrl: 'public/client/templates/authPanel.html',
             controllerAs: 'ctrl'
         })
- 
+
         .otherwise({ redirectTo: '/' });
 
     $locationProvider.html5Mode(true);

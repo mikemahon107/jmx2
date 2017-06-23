@@ -6,7 +6,7 @@ angular.module('main-app')
   this.searchService = searchOMDB
 
   this.intendedUser;
-
+  
   $http.get('/sess').then((session) => {
     // console.log('hello', session);
     this.intendedUser = session;
@@ -15,9 +15,6 @@ angular.module('main-app')
     this.user.username = this.intendedUser.data.username;
     this.user.watched = this.intendedUser.data.watched;
   });
-
-  // console.log('current user', this.user);
-  // console.log('current users watched movies', this.user.watched);
 
 
 })
