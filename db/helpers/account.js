@@ -31,7 +31,7 @@ function insertMovieIntoWatched(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
-    account.watched.push(movie);
+    account.watched.unshift(movie);
     account.save();
     // console.log('adding movie: ', movie)
     // console.log('to Watched for account: ', account);

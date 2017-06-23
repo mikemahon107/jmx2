@@ -27,7 +27,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/sess', function(req, res) {
-  res.send(req.session.user);
+  accounts.findOne(req.session.user.username, (err, user) => {
+    res.send(user);
+  });
 });
 
 app.get('/signin', function (req, res) {
@@ -105,7 +107,11 @@ app.post('/addMovie', function (req, res) {
   // console.log(req.body);
   var user = req.body.user;
   var movieTitle = req.body.movieTitle;
-  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle}, rating:'?',comment: 'N/A'});
+
+  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle}, rating:'?', comment: 'N/A'});
+  //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
+  //console.log(req.session.user, 'hello');
+
 })
 
 app.use('/*', function(req, res){
