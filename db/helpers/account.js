@@ -93,6 +93,32 @@ function removeMovieFromFaves(user, movie) {
   });
 };
 
+function addCommentToWatchedMovie(user, movie, comment) {
+  findOne(user, function (err, account) {
+    if (err) throw err;
+    for (var i = 0; i < account.watched.length; i++) {
+      if (account.watched[i].title === movie.title) {
+        account.watched[i].comment === comment
+        break
+      }
+    }
+    account.save()
+  })
+}
+
+function addRatingToWatchedMovie(user, movie, rating) {
+  findOne(user, function (err, account) {
+    if (err) throw err;
+    for (var i = 0; i < account.watched.length; i++) {
+      if (account.watched[i].title === movie.title) {
+        account.watched[i].rating === rating
+        break
+      }
+    }
+    account.save()
+  })
+}
+
 exports.comparePassword = comparePassword;
 exports.findOne = findOne;
 exports.findAll = findAll;
@@ -101,4 +127,3 @@ exports.insertMovieIntoWatched = insertMovieIntoWatched;
 exports.removeMovieFromWatched = removeMovieFromWatched;
 exports.insertMovieIntoFaves = insertMovieIntoFaves;
 exports.removeMovieFromFaves = removeMovieFromFaves;
-
