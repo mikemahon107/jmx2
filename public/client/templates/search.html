@@ -3,6 +3,7 @@
     ng-model="ctrl.input"
     class="form-control"
     type="text"
+    ng-change="ctrl.handleClick(); toggleSelect()"
   />
   <button class="btn" ng-click="ctrl.handleClick(); ctrl.input = ''; toggleSelect()">
     <span class="glyphicon glyphicon-search" id="searchButton"></span>
