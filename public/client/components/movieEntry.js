@@ -3,7 +3,8 @@ angular.module('main-app') // copied mostly from ng-cast
 .directive('movieEntry', function() {
   return {
     scope: {
-      movie: '<'
+      movie: '<',
+      user: '<'
     },
     restrict: 'E',
     controller: function(searchOMDB) {
@@ -16,7 +17,7 @@ angular.module('main-app') // copied mostly from ng-cast
 
       this.handleAddCommentClick = function() {
         // console.log(this.movie.title);
-        // console.log(this.user);
+        console.log('username', this.user.username);
         // console.log('this', this);
         console.log('movie title', this.movie.details.Title);
         console.log('movie year', this.movie.details.Year);

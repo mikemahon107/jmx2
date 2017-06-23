@@ -3,7 +3,8 @@ angular.module('main-app') // copied mostly from ng-cast
 .directive('movieList', function() {
   return {
     scope: {
-      movies: '<'
+      movies: '<',
+      user: '<'
     },
     restrict: 'E',
     controller: function() {
