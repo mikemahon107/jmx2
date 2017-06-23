@@ -20,6 +20,7 @@ angular.module('main-app')
     method: 'GET',
     dataType: 'json',
     }).then(function successCallback(response) {
+
       if (callback) {
         callback(response.data);
       }

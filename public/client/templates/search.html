@@ -7,7 +7,7 @@
   <button class="btn" ng-click="ctrl.handleClick(); ctrl.input = ''">
     <span class="glyphicon glyphicon-search"></span>
   </button>
-  <search-result-list movies="ctrl.results"/>
+  <search-result-list movies="ctrl.results" user="ctrl.user" ng-show="isPopupVisible"/>
   <!-- <button class="btn">
     <span class="glyphicon glyphicon-search">add movie</span>
   </button> -->
