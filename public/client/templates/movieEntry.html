@@ -10,6 +10,16 @@
   <div>Rotten Tomatoes: {{ctrl.movie.details.Ratings[1].Value}}</div>
   <div>Metacritic: {{ctrl.movie.details.Ratings[2].Value}}</div>
   <div>Comment: {{ctrl.movie.comment}}</div>
+  <div class="search-bar form-inline">
+    <input
+      ng-model="ctrl.input"
+      class="form-control"
+      type="text"
+    />
+    <button class="btn">
+      <span>edit comment</span>
+    </button>
+  </div>
   <div>Your Rating: {{ctrl.movie.rating}}/10</div>
 
 </div>
