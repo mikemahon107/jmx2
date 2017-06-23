@@ -27,11 +27,12 @@ angular.module('main-app')
     templateUrl: 'public/client/templates/search.html',
     link: function(scope, element, attr){
       
-      scope.isPopupVisible = false;
+      scope.isPopupVisible = true;
 
       scope.toggleSelect = function(){
         // console.log('in toggleSelect');
-        scope.isPopupVisible = !scope.isPopupVisible;
+        // scope.isPopupVisible = !scope.isPopupVisible;
+        scope.isPopupVisible = true;
       }
 
       $document.bind('click', function(event){
@@ -45,10 +46,10 @@ angular.module('main-app')
 
         // console.log('isChild', isClickedElementChildOfPopup);
           
-        if (event.target.id === 'searchButton') {
-          console.log('true');
-          return;
-        }
+        // if (event.target.id === 'searchButton') {
+        //   console.log('true');
+        //   return;
+        // }
           
         scope.isPopupVisible = false;
         scope.$apply();
