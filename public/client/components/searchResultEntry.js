@@ -6,6 +6,17 @@ angular.module('main-app') // copied mostly from ng-cast
     // console.log(this.movie.title);
     // console.log(this.user);
     $http.post('/addMovie', {user: this.user, movieTitle: this.movie.title});
+
+    $http.get('/sess').then((session) => {
+      console.log('This is triggered', session, 'this is user: ', this.user);
+
+      // this.intendedUser = session;
+      // this.user.username = session.data.username;
+      this.user.watched = session.data.watched;
+
+      // $route.reload();
+    });
+
   }
   // console.log('search entry this', this);
   
@@ -14,7 +25,7 @@ angular.module('main-app') // copied mostly from ng-cast
   return {
     scope: {
       movie: '<',
-      user: '<'
+      user: '='
     },
     restrict: 'E',
     controller: 'SearchCtrl2',
