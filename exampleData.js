@@ -5,7 +5,8 @@ window.exampleData =
   watched: [
     {
       details: {
-        title: "X-Men: Days of Future Past"
+        title: "X-Men: Days of Future Past",
+        year: "2015"
       },
       rating: '5',
       comment: 'This movie rules!'

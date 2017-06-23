@@ -105,7 +105,7 @@ app.post('/addMovie', function (req, res) {
   // console.log(req.body);
   var user = req.body.user;
   var movieTitle = req.body.movieTitle;
-  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle},rating: '10',comment: 'WE ADDED THIS!'});
+  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle}, rating:'?',comment: 'N/A'});
 })
 
 app.use('/*', function(req, res){
