@@ -1,3 +1,45 @@
+.main-header {
+  height: 150px;
+  background-color: #c5d1e5;
+  padding: 50px 50px 50px 90px;
+}
+
+.main-header-text {
+  color: white;
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+/****** welcome message after header  *******/
+
+.welcome-container {
+  /*background-color: grey;*/
+  width: 100%;
+  height: 100%;
+}
+
+.user-welcome-message {
+  /*float: left;*/
+  /*background-color: grey;*/
+  display: inline-block;
+}
+
+#logout-button {
+  margin-top: 30px;
+  float: right;
+  background-color: grey;
+  display: inline-block;
+  /*border-style: solid;*/
+  /*float: right;*/
+}
+
+/*********/
+
+#main-search {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -36,3 +78,63 @@
 
 .dropdown a:hover {background-color: #f1f1f1}
 .show {display:block;}
+
+.movie-entry {
+  padding: 20px 20px 20px 0;
+}
+
+.movie-entry-poster {
+  width: 200px;
+  display: inline-block;
+  margin-right: 40px;
+ /* border-style: solid;
+  border-width: 5px;
+  border-color: #4286f4*/
+}
+
+.movie-entry-info {
+  /*padding-top: 100px;*/
+  display: inline-block;
+  vertical-align: bottom;
+  padding-bottom: 20px;
+}
+
+.comment-element {
+  /*background: black;*/
+  /*margin-left: 10px;*/
+  height: 25px;
+  line-height: 4.5px;
+  font-size: 12px;
+}
+
+#imdb-icon {
+  margin: 0 6px 0 4px;
+  width: 35px;
+}
+
+#rotten-tomato-icon {
+  width: 45px;
+}
+
+#metacritic-icon {
+  margin: 6px 6px 6px 6px;
+  width: 30px;
+}
+
+.movie-subhead {
+  display: inline-block;
+  margin: 0 6px 3px 0;
+  font-size: 15.5px;
+}
+
+.movie-staff {
+  font-size: 13px;
+}
+
+
+
+
+
+
+
+

@@ -1,25 +1,29 @@
 <div>
-  <h1>Welcome {{ctrl.user.username}}</h1>
-  <div id="auth-panel">
+  <div class="welcome-container">
+    <div id="logout-button">
+      <form action="/logout" method="get">
+        <button type="submit">Sign Out</button>
+      </form>
+    </div>
+    <h2 class="user-welcome-message">welcome {{ctrl.user.username}}</h2>
+    <div id="auth-panel">
+    </div>
   </div>
-  <form id="logout-button" action="/logout" method="get">
-    <button type="submit">Sign Out</button>
-  </form>
-  <nav>
+  <nav id="main-search">
     <search user="ctrl.user"/>
   </nav>
 
   <ul id="userTab" class="nav nav-tabs">
-    <li><a data-toggle="tab" href="#home" onclick="return false;">Home</a></li>
+    <!-- <li><a data-toggle="tab" href="#home" onclick="return false;">Home</a></li> -->
     <li class="active"><a data-toggle="tab" href="#menu1" onclick="return false;">Watched</a></li>
     <li><a data-toggle="tab" href="#menu2" onclick="return false;">Favorites</a></li>
     <li><a data-toggle="tab" href="#menu3" onclick="return false;">Recommendations</a></li>
   </ul>
   <div class="tab-content">
-    <div id="home" class="tab-pane fade">
+    <!-- <div id="home" class="tab-pane fade">
       <h3>Menu 1</h3>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+    </div> -->
     <div id="menu1" class="tab-pane fade in active">
       <div id="watched-list">
         <movie-list movies="ctrl.user.watched" user="ctrl.user"/>
