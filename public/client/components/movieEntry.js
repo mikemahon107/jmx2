@@ -42,7 +42,6 @@ angular.module('main-app') // copied mostly from ng-cast
             });
           });
         };
-      };
 
 
 
