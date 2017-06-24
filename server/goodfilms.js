@@ -74,8 +74,8 @@ app.get('/logout', function (req, res) {
 
 //DATABASE TESTING THINGS-- comment out if necessary
 
-accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 2017}, rating: '5',comment: 'This movie rules!'});
-accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
+// accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 2017}, rating: '5',comment: 'This movie rules!'});
+// accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
 // accounts.insertMovieIntoWatched("Minh2", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 
 // accounts.insertMovie("Jordan", {title: "Sailor Moon", year:"1994", director: "Usagi Tsukino"}); /* --for testing -JO */
