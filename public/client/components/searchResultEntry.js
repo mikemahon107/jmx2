@@ -9,7 +9,7 @@ angular.module('main-app') // copied mostly from ng-cast
 
       $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
         $http.get('/sess').then((session) => {
-          console.log('This is triggered', session, 'this is username: ', this.user.username);
+          // console.log('This is triggered', session, 'this is username: ', this.user.username);
 
           // this.intendedUser = session;
           // this.user.username = session.data.username;
@@ -21,7 +21,7 @@ angular.module('main-app') // copied mostly from ng-cast
 
     }
   // console.log('search entry this', this);
-   console.log('this.user', this.user)
+   // console.log('this.user', this.user)
     // body...
   }
 

@@ -8,7 +8,7 @@ angular.module('main-app')
   this.intendedUser;
   
   $http.get('/sess').then((session) => {
-    console.log('This is triggered', session);
+    // console.log('This is triggered', session);
     // console.log('hello', session);
     this.intendedUser = session;
     // console.log('intendedUser is now: ', this.intendedUser, 'this.user is ', this.user);
