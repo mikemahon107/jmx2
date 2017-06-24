@@ -96,7 +96,7 @@ app.post('/signup', function (req, res) {
       accounts.insertOne({username: username, password: password}, (err, user) => {
         if (err) throw err;
         console.log('Account created.');
-        // res.redirect('/');
+        res.redirect('/user');
       });
     }
   });
