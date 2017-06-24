@@ -33,6 +33,7 @@ function insertMovieIntoWatched(user, movie) {
     if (err) throw err;
     account.watched.unshift(movie);
     account.save();
+    // console.log(account.watched);
     // console.log('adding movie: ', movie)
     // console.log('to Watched for account: ', account);
     // console.log('for user: ', username);
@@ -97,10 +98,14 @@ function addCommentToWatchedMovie(user, title, year, comment) {
       console.log('THIS IS AN ENTRY', account.watched[i])
       if (account.watched[i].details.title === title && account.watched[i].details.year === year) {
         account.watched[i].comment = comment;
+        account.watched.unshift({});
+        account.watched.shift({});
+        break
       }
     }
     console.log('ARRE we getting HWEW???', account.watched)
-    account.save()
+    account.save();
+    console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   })
 }
 
