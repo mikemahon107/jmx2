@@ -16,18 +16,18 @@ angular.module('main-app')
     });
   }
 
-  // this.getDetail = function(id, path, callback) {
-  //   $http({
-  //   url: 'https://api.themoviedb.org/3/search/movie/' + id + '/?api_key=' + API_KEYS + (path || '')
-  //   method: 'GET',
-  //   dataType: 'json',
-  //   }).then(function successCallback(response) {
-  //     if (callback) {
-  //       callback(response.data);
-  //     }
-  //   }, function errorCallback(response) {
-  //     console.log('Error')
-  //   });
-  // }
+  this.searchById = function(id, callback) {
+    $http({
+    url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + API_KEYS,
+    method: 'GET',
+    dataType: 'json',
+    }).then(function successCallback(response) {
+      if (callback) {
+        callback(response.data);
+      }
+    }, function errorCallback(response) {
+      console.log('Error')
+    });
+  }
 
 });

@@ -1,15 +1,13 @@
 angular.module('main-app')
 
 .controller('SearchController', function(searchTheMovieDB, searchOMDB) {
-  this.results;
+  this.results = []
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
-  // console.log('this.user is ', this);
   this.handleClick = () => {
     this.TMDBservice.search(this.input, (data) => {
       this.results = data.results.slice(0,5)
       this.results.map(item => {
-        // console.log(item.poster_path === null);
         if (item.poster_path === null) {
           item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
         } else {
@@ -17,7 +15,6 @@ angular.module('main-app')
         }
       })
     });
-    // console.log('search this', this);
   }
 })
 
@@ -32,7 +29,7 @@ angular.module('main-app')
     bindToController: true,
     templateUrl: 'public/client/templates/search.html',
     link: function(scope, element, attr){
-      
+
       scope.isPopupVisible = true;
 
       scope.toggleSelect = function(){
@@ -51,12 +48,12 @@ angular.module('main-app')
         //   .length > 0;
 
         // console.log('isChild', isClickedElementChildOfPopup);
-          
+
         // if (event.target.id === 'searchButton') {
         //   console.log('true');
         //   return;
         // }
-          
+
         scope.isPopupVisible = false;
         scope.$apply();
       });

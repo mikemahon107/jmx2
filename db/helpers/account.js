@@ -31,6 +31,7 @@ function insertMovieIntoWatched(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
+    console.log('this user is', user)
     account.watched.unshift(movie);
     account.save();
     // console.log(account.watched);
@@ -40,14 +41,11 @@ function insertMovieIntoWatched(user, movie) {
   });
 };
 
-function removeMovieFromWatched(user, movie) {
+function removeMovieFromWatched(user, imdb_id) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      console.log(movie)
-      console.log(account.watched[i].details.title)
-      console.log(account.watched[i].details.year)
-      if (account.watched[i].details.title === movie.title && account.watched[i].details.year === movie.year) {
+      if (account.watched[i].imdb_id === imdb_id) {
           account.watched.splice(i, 1);
           console.log('matched')
         break;
@@ -69,58 +67,53 @@ function insertMovieIntoFaves(user, movie) {
   });
 };
 
-function removeMovieFromFaves(user, movie) {
+function removeMovieFromFaves(user, imdb_id) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    var index;
     for (var i = 0; i < account.favorites.length; i++) {
-      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
-        index = i;
+      if (account.favorites[i].imdb_id === imdb_id) {
+          account.favorites.splice(i, 1);
         break;
       }
     }
-    if (index !== undefined) {
-      account.favorites.splice(index, 1);
-    }
     account.save();
-    // console.log('removing movie: ', movie);
-    // console.log('from Watched for account: ', account);
-    // console.log('at index: ', index);
-    // console.log('for user: ', user);
   });
 };
 
-function addCommentToWatchedMovie(user, title, year, comment) {
+function addCommentToWatchedMovie(user, imdb_id, comment) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    console.log('THIS IS THE INFO', user, title, year, comment);
     for (var i = 0; i < account.watched.length; i++) {
-      console.log('THIS IS AN ENTRY', account.watched[i])
-      if (account.watched[i].details.title === title && account.watched[i].details.year === year) {
+      if (account.watched[i].imdb_id === imdb_id) {
         account.watched[i].comment = comment;
         account.watched.unshift({});
         account.watched.shift({});
         break
       }
     }
-    console.log('ARRE we getting HWEW???', account.watched)
+    // console.log('ARRE we getting HWEW???', account.watched)
     account.save();
-    console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
+    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   })
 }
 
-function addRatingToWatchedMovie(user, title, year, rating) {
+function addRatingToWatchedMovie(user, imdb_id, rating) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === title && account.watched[i].year === year) {
-        account.watched[i].rating === rating
+      if (account.watched[i].imdb_id === imdb_id) {
+        account.watched[i].comment = rating;
+        account.watched.unshift({});
+        account.watched.shift({});
         break
       }
     }
-    account.save()
+    // console.log('ARRE we getting HWEW???', account.watched)
+    account.save();
+    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   })
 }
+
 
 exports.comparePassword = comparePassword;
 exports.findOne = findOne;

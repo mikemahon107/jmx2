@@ -63,7 +63,7 @@ app.post('/signin', function (req, res) {
 
 app.get('/signup', function (req, res) {
   console.log('test /signup get');
-  res.redirect('/login');
+  res.redirect('/user');
 });
 
 app.get('/logout', function (req, res) {
@@ -104,12 +104,11 @@ app.post('/signup', function (req, res) {
 });
 
 app.post('/addMovie', function (req, res) {
-  // console.log(req.body);
+  console.log(req.body.imdb_id);
   var user = req.body.user;
-  var movieTitle = req.body.movieTitle;
-  var year = req.body.year
+  var imdb_id = req.body.imdb_id
 
-  accounts.insertMovieIntoWatched(user, {details: {title: movieTitle, year: year}, rating:'?', comment: 'N/A'});
+  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'N/A'});
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);
@@ -121,12 +120,11 @@ app.post('/addComment', function (req, res) {
   console.log('about to add comment goodfilms')
   console.log('req.body', req.body);
   var user = req.body.user;
-  var movieTitle = req.body.movieTitle;
-  var year = req.body.year;
+  var imdb_id = req.body.imdb_id
   var comment = req.body.comment;
 
 
-  accounts.addCommentToWatchedMovie(user, movieTitle, year, comment);
+  accounts.addCommentToWatchedMovie(user, imdb_id, comment);
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);
@@ -136,10 +134,9 @@ app.post('/addComment', function (req, res) {
 app.post('/removeFromWatched', function (req, res) {
   // console.log("REQUEST BODY HERE",req.body.user, req.body.year, req.body.title);
   var user = req.body.user;
-  var movieTitle = req.body.title;
-  var year = req.body.year
+  var imdb_id = req.body.imdb_id
 
-  accounts.removeMovieFromWatched(user, {title: movieTitle, year: year})
+  accounts.removeMovieFromWatched(user, imdb_id)
   res.sendStatus(200);
 
 })
