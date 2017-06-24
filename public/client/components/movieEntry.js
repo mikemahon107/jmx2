@@ -12,6 +12,7 @@ angular.module('main-app') // copied mostly from ng-cast
         this.OMDBService = searchOMDB
         this.OMDBService.search({t: this.movie.details.title, y: this.movie.details.year}, (data) => {
           this.movie.details = data
+          this.movie.details.Poster === "N/A" || !this.movie.details.Poster ? this.movie.details.Poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : this.movie.details.Poster
         })
 
         this.handleAddCommentClick = function() {
@@ -34,6 +35,15 @@ angular.module('main-app') // copied mostly from ng-cast
         
       };
 
+
+      this.handleRemoveClick = function() {
+        $http.post('/removeFromWatched', {user: this.user.username, title: this.movie.title, year: this.movie.year}).then(() => {
+          $http.get('/sess').then((session) => {
+            this.user.watched = session.data.watched;
+          });
+        });
+      };
+
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
       //     $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
@@ -46,6 +56,7 @@ angular.module('main-app') // copied mostly from ng-cast
       // // console.log('search entry this', this);
       //   // body...
       // }
+
     },
     controllerAs: 'ctrl',
     bindToController: true,
