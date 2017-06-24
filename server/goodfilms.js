@@ -114,6 +114,23 @@ app.post('/addMovie', function (req, res) {
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);
 
+});
+
+app.post('/addComment', function (req, res) {
+  // console.log(req.body);
+  console.log('about to add comment goodfilms')
+  console.log('req.body', req.body);
+  var user = req.body.user;
+  var movieTitle = req.body.movieTitle;
+  var year = req.body.year;
+  var comment = req.body.comment;
+
+
+  accounts.addCommentToWatchedMovie(user, movieTitle, year, comment);
+  //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
+  //console.log(req.session.user, 'hello');
+  res.sendStatus(200);
+
 })
 
 app.post('/removeFromWatched', function (req, res) {

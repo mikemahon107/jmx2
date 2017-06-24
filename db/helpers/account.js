@@ -93,24 +93,26 @@ function removeMovieFromFaves(user, movie) {
   });
 };
 
-function addCommentToWatchedMovie(user, movie, year, comment) {
+function addCommentToWatchedMovie(user, title, year, comment) {
   findOne(user, function (err, account) {
     if (err) throw err;
+    console.log('THIS IS THE INFO', user, title, year, comment);
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
-        account.watched[i].comment === comment
-        break
+      console.log('THIS IS AN ENTRY', account.watched[i])
+      if (account.watched[i].details.title === title && account.watched[i].details.year === year) {
+        account.watched[i].comment = comment;
       }
     }
+    console.log('ARRE we getting HWEW???', account.watched)
     account.save()
   })
 }
 
-function addRatingToWatchedMovie(user, movie, year, rating) {
+function addRatingToWatchedMovie(user, title, year, rating) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
+      if (account.watched[i].title === title && account.watched[i].year === year) {
         account.watched[i].rating === rating
         break
       }
@@ -124,6 +126,7 @@ exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
 exports.insertMovieIntoWatched = insertMovieIntoWatched;
+exports.addCommentToWatchedMovie = addCommentToWatchedMovie;
 exports.removeMovieFromWatched = removeMovieFromWatched;
 exports.insertMovieIntoFaves = insertMovieIntoFaves;
 exports.removeMovieFromFaves = removeMovieFromFaves;
