@@ -1,6 +1,6 @@
 <div>
   <img ng-src="{{ctrl.movie.details.Poster}}">
-  <div>{{ctrl.movie.details.title}}</div>
+  <div>{{ctrl.movie.details.Title || 'N/A'}}</div>
   <div>Genre: {{ctrl.movie.details.Genre}}</div>
   <div>Year: {{ctrl.movie.details.Year}}</div>
   <div>Rated: {{ctrl.movie.details.Rated}}</div>
@@ -18,7 +18,10 @@
     />
     <button class="btn" ng-click="ctrl.handleAddCommentClick()">
       <span>edit comment</span>
-    </button> 
+    </button>
+    <button class="btn" ng-click="ctrl.handleRemoveClick()">
+      <span>remove</span>
+    </button>
   </div>
   <div>Your Rating: {{ctrl.movie.rating}}/10</div>
 

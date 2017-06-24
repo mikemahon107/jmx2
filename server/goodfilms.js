@@ -74,9 +74,9 @@ app.get('/logout', function (req, res) {
 
 //DATABASE TESTING THINGS-- comment out if necessary
 
-// accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman"},rating: '5',comment: 'This movie rules!'});
-// accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Batman Begins"},rating: '5',comment: 'This movie rules!'});
-// accounts.insertMovieIntoWatched("Jeremy", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 2017}, rating: '5',comment: 'This movie rules!'});
+accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
+// accounts.insertMovieIntoWatched("Minh2", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 
 // accounts.insertMovie("Jordan", {title: "Sailor Moon", year:"1994", director: "Usagi Tsukino"}); /* --for testing -JO */
 // accounts.insertMovie("Jordan", {title: "Inception", year:"2010", director: "Christopher Nolan"}); /* --for testing -JB */
@@ -112,6 +112,17 @@ app.post('/addMovie', function (req, res) {
   accounts.insertMovieIntoWatched(user, {details: {title: movieTitle, year: year}, rating:'?', comment: 'N/A'});
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
+  res.sendStatus(200);
+
+})
+
+app.post('/removeFromWatched', function (req, res) {
+  // console.log(req.body);
+  var user = req.body.user;
+  var movieTitle = req.body.movieTitle;
+  var year = req.body.year
+
+  accounts.removeMovieFromWatched(user, {title: movieTitle, year: year})
   res.sendStatus(200);
 
 })

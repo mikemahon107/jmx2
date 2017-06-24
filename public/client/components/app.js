@@ -6,7 +6,7 @@ angular.module('main-app')
   this.searchService = searchOMDB
 
   this.intendedUser;
-  
+
   $http.get('/sess').then((session) => {
     console.log('This is triggered', session);
     // console.log('hello', session);
@@ -15,6 +15,7 @@ angular.module('main-app')
     // console.log('intendedUser name', this.intendedUser.data.username);
     this.user.username = this.intendedUser.data.username;
     this.user.watched = this.intendedUser.data.watched;
+    this.user.favorites = this.intendedUser.data.favorites;
   });
 
 
