@@ -42,21 +42,17 @@ function insertMovieIntoWatched(user, movie) {
 function removeMovieFromWatched(user, movie) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    var index;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
-        index = i;
+      console.log(movie)
+      console.log(account.watched[i].details.title)
+      console.log(account.watched[i].details.year)
+      if (account.watched[i].details.title === movie.title && account.watched[i].details.year === movie.year) {
+          account.watched.splice(i, 1);
+          console.log('matched')
         break;
       }
     }
-    if (index !== undefined) {
-      account.watched.splice(index, 1);
-    }
     account.save();
-    // console.log('removing movie: ', movie);
-    // console.log('from Watched for account: ', account);
-    // console.log('at index: ', index);
-    // console.log('for user: ', user);
   });
 };
 
