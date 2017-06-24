@@ -134,9 +134,9 @@ app.post('/addComment', function (req, res) {
 })
 
 app.post('/removeFromWatched', function (req, res) {
-  // console.log(req.body);
+  // console.log("REQUEST BODY HERE",req.body.user, req.body.year, req.body.title);
   var user = req.body.user;
-  var movieTitle = req.body.movieTitle;
+  var movieTitle = req.body.title;
   var year = req.body.year
 
   accounts.removeMovieFromWatched(user, {title: movieTitle, year: year})

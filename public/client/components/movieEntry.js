@@ -32,17 +32,17 @@ angular.module('main-app') // copied mostly from ng-cast
             });
           });
         };
-        
-      };
 
-
-      this.handleRemoveClick = function() {
-        $http.post('/removeFromWatched', {user: this.user.username, title: this.movie.title, year: this.movie.year}).then(() => {
-          $http.get('/sess').then((session) => {
-            this.user.watched = session.data.watched;
+        this.handleRemoveClick = function() {
+          $http.post('/removeFromWatched', {user: this.user.username, title: this.movie.details.Title, year: this.movie.details.Year}).then(() => {
+            $http.get('/sess').then((session) => {
+              this.user.watched = session.data.watched;
+            });
           });
-        });
+        };
       };
+
+
 
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
