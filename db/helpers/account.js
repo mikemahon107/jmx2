@@ -88,37 +88,40 @@ function removeMovieFromFaves(user, movie) {
   });
 };
 
-function addCommentToWatchedMovie(user, title, year, comment) {
+function addCommentToWatchedMovie(user, imdb_id, comment) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    console.log('THIS IS THE INFO', user, title, year, comment);
     for (var i = 0; i < account.watched.length; i++) {
-      console.log('THIS IS AN ENTRY', account.watched[i])
-      if (account.watched[i].details.title === title && account.watched[i].details.year === year) {
+      if (account.watched[i].imdb_id === imdb_id) {
         account.watched[i].comment = comment;
         account.watched.unshift({});
         account.watched.shift({});
         break
       }
     }
-    console.log('ARRE we getting HWEW???', account.watched)
+    // console.log('ARRE we getting HWEW???', account.watched)
     account.save();
-    console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
+    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   })
 }
 
-function addRatingToWatchedMovie(user, title, year, rating) {
+function addRatingToWatchedMovie(user, imdb_id, rating) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      if (account.watched[i].title === title && account.watched[i].year === year) {
-        account.watched[i].rating === rating
+      if (account.watched[i].imdb_id === imdb_id) {
+        account.watched[i].comment = rating;
+        account.watched.unshift({});
+        account.watched.shift({});
         break
       }
     }
-    account.save()
+    // console.log('ARRE we getting HWEW???', account.watched)
+    account.save();
+    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   })
 }
+
 
 exports.comparePassword = comparePassword;
 exports.findOne = findOne;

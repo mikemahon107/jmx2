@@ -4,27 +4,18 @@ angular.module('main-app')
   this.results = []
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
-  // console.log('this.user is ', this);
-  // this.handleClick = () => {
-  //   this.TMDBservice.search(this.input, (data) => {
-  // //     this.results = data.results.slice(0,5)
-  //     this.results.map(item => {
-  //       // console.log(item.poster_path === null);
-  //       if (item.poster_path === null) {
-  //         item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
-  //       } else {
-  //         item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
-  //       }
-  //     })
-  //   });
-  //   // console.log('search this', this);
-  // }
   this.handleClick = () => {
     this.TMDBservice.search(this.input, (data) => {
-      this.results = data.results.slice(0, 5)
-    })
+      this.results = data.results.slice(0,5)
+      this.results.map(item => {
+        if (item.poster_path === null) {
+          item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
+        } else {
+          item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
+        }
+      })
+    });
   }
-
 })
 
 .directive('search', function($document) {
