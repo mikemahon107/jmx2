@@ -67,24 +67,16 @@ function insertMovieIntoFaves(user, movie) {
   });
 };
 
-function removeMovieFromFaves(user, movie) {
+function removeMovieFromFaves(user, imdb_id) {
   findOne(user, function (err, account) {
     if (err) throw err;
-    var index;
     for (var i = 0; i < account.favorites.length; i++) {
-      if (account.watched[i].title === movie.title && account.watched[i].year === movie.year) {
-        index = i;
+      if (account.favorites[i].imdb_id === imdb_id) {
+          account.favorites.splice(i, 1);
         break;
       }
     }
-    if (index !== undefined) {
-      account.favorites.splice(index, 1);
-    }
     account.save();
-    // console.log('removing movie: ', movie);
-    // console.log('from Watched for account: ', account);
-    // console.log('at index: ', index);
-    // console.log('for user: ', user);
   });
 };
 

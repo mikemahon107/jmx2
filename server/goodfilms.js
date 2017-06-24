@@ -63,7 +63,7 @@ app.post('/signin', function (req, res) {
 
 app.get('/signup', function (req, res) {
   console.log('test /signup get');
-  res.redirect('/login');
+  res.redirect('/user');
 });
 
 app.get('/logout', function (req, res) {

@@ -6,18 +6,10 @@ angular.module('main-app') // copied mostly from ng-cast
     this.TMDBservice = searchTheMovieDB
     this.handleMovieClick = function() {
       this.TMDBservice.searchById(this.movie.id, (data) => {
-        console.log(data)
-        console.log('this imdb id is', data.imdb_id)
         this.imdb_id = data.imdb_id
         $http.post('/addMovie', {user: this.user.username, imdb_id: this.imdb_id}).then(() => {
           $http.get('/sess').then((session) => {
-            // console.log('This is triggered', session, 'this is username: ', this.user.username);
-
-            // this.intendedUser = session;
-            // this.user.username = session.data.username;
             this.user.watched = session.data.watched;
-
-            // $route.reload();
           });
         });
       })
