@@ -10,11 +10,11 @@ angular.module('main-app') // copied mostly from ng-cast
     controller: function(searchOMDB, $http) {
       this.$onInit = function() {
         this.OMDBService = searchOMDB
-        this.OMDBService.search({t: this.movie.details.title, y: this.movie.details.year}, (data) => {
+        this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
           this.movie.details = data
           this.movie.details.Poster === "N/A" || !this.movie.details.Poster ? this.movie.details.Poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : this.movie.details.Poster
         })
-        
+
       };
 
       this.handleAddCommentClick = function() {
@@ -36,7 +36,7 @@ angular.module('main-app') // copied mostly from ng-cast
       };
 
         this.handleRemoveClick = function() {
-          $http.post('/removeFromWatched', {user: this.user.username, title: this.movie.details.Title, year: this.movie.details.Year}).then(() => {
+          $http.post('/removeFromWatched', {user: this.user.username, imdb_id: this.movie.imdb_id}).then(() => {
             $http.get('/sess').then((session) => {
               this.user.watched = session.data.watched;
             });

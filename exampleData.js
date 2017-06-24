@@ -4,10 +4,7 @@ window.exampleData =
   password: 'password',
   watched: [
     {
-      details: {
-        title: "X-Men: Days of Future Past",
-        year: "2015"
-      },
+      imdb_id: "tt3783958",
       rating: '5',
       comment: 'This movie rules!'
     },

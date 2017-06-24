@@ -31,6 +31,7 @@ function insertMovieIntoWatched(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
+    console.log('this user is', user)
     account.watched.unshift(movie);
     account.save();
     // console.log(account.watched);
@@ -40,14 +41,11 @@ function insertMovieIntoWatched(user, movie) {
   });
 };
 
-function removeMovieFromWatched(user, movie) {
+function removeMovieFromWatched(user, imdb_id) {
   findOne(user, function (err, account) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
-      console.log(movie)
-      console.log(account.watched[i].details.title)
-      console.log(account.watched[i].details.year)
-      if (account.watched[i].details.title === movie.title && account.watched[i].details.year === movie.year) {
+      if (account.watched[i].imdb_id === imdb_id) {
           account.watched.splice(i, 1);
           console.log('matched')
         break;
