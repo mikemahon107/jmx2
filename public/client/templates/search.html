@@ -5,7 +5,7 @@
     type="text"
     ng-change="ctrl.handleClick(); toggleSelect()"
   />
-  <button class="btn" ng-click="ctrl.handleClick(); ctrl.input; toggleSelect()">
+  <button class="btn" ng-click="ctrl.handleClick(); ctrl.input=''; toggleSelect()">
     <span class="glyphicon glyphicon-search" id="searchButton"></span>
   </button>
   <search-result-list movies="ctrl.results" user="ctrl.user" ng-show="isPopupVisible"/>

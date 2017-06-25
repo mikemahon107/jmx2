@@ -53,7 +53,7 @@ angular.module('main-app')
         //   console.log('true');
         //   return;
         // }
-
+        scope.ctrl.input = null;
         scope.isPopupVisible = false;
         scope.$apply();
       });
