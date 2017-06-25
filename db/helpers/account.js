@@ -109,7 +109,7 @@ function addRatingToWatchedMovie(user, imdb_id, rating) {
     if (err) throw err;
     for (var i = 0; i < account.watched.length; i++) {
       if (account.watched[i].imdb_id === imdb_id) {
-        account.watched[i].comment = rating;
+        account.watched[i].rating = rating;
         account.watched.unshift({});
         account.watched.shift({});
         break
@@ -128,6 +128,7 @@ exports.findAll = findAll;
 exports.insertOne = insertOne;
 exports.insertMovieIntoWatched = insertMovieIntoWatched;
 exports.addCommentToWatchedMovie = addCommentToWatchedMovie;
+exports.addRatingToWatchedMovie = addRatingToWatchedMovie;
 exports.removeMovieFromWatched = removeMovieFromWatched;
 exports.toggleMovieFavorite = toggleMovieFavorite;
 // exports.removeMovieFromFaves = removeMovieFromFaves;
