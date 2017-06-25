@@ -220,6 +220,10 @@
   display:none;
 }
 
+#menu2 .favorite #remove-button {
+  display: none;
+}
+
 #menu2 .non-favorite {
   display:none;
 }
@@ -245,6 +249,18 @@
 #favorite-button {
   background-color: #d6d7d8;
   margin-bottom: 10px;
+}
+
+#remove-favorite-button {
+  background-color: #d6d7d8;
+  margin-top: 15px;
+}
+
+#add-favorite-button {
+  background-color: #d6d7d8;
+  vertical-align: 4px;
+  /*margin-top: 7px;*/
+  /*margin-bottom: 5px;*/
 }
 
 #footer {

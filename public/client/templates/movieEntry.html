@@ -3,6 +3,9 @@
   <img class="movie-entry-poster" ng-src="{{ctrl.movie.details.Poster}}">
   <div class="movie-entry-info">
     <h4 class="movie-entry-title inline-block">{{ctrl.movie.details.Title || 'N/A'}}</h4>
+    <button class="btn favorite-element comment-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
+      <span>make favorite</span>
+    </button>
     <div class="movie-info">
       <div class="year movie-subhead">{{ctrl.movie.details.Year}} </div>
       <div class="rating movie-subhead">{{ctrl.movie.details.Rated}}</div>
@@ -41,14 +44,21 @@
       </button>
     </div>
     <div id="user-rating">Your Rating: {{ctrl.movie.rating}}/10</div>
+    <select ng-model="ctrl.rating" name="carlist" form="carform">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button class="btn" ng-click="ctrl.handleRatingClick()" onclick="return false">
+      <span>edit rating</span>
+    </button>
     <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
       <span>remove movie</span>
     </button>
-    <button class="btn favorite-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
-      <span>Add to Favorites!</span>
-    </button>
-    <button class="btn favorite-element" id="remove-favorite-button" ng-click="ctrl.handleAddToFavorites()">
-      <span>Remove from Favorites!</span>
+    <button class="btn favorite-element comment-element" id="remove-favorite-button" ng-click="ctrl.handleAddToFavorites()">
+      <span>remove Favorite</span>
     </button>
   </div>
 </div>

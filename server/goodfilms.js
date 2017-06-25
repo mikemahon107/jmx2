@@ -150,6 +150,18 @@ app.post('/removeFromWatched', function (req, res) {
 
 })
 
+app.post('/editRating', function (req, res) {
+  // console.log("REQUEST BODY HERE",req.body.user, req.body.year, req.body.title);
+  console.log('edit rating req.body', req.body)
+  var user = req.body.user;
+  var imdb_id = req.body.imdb_id;
+  var rating = req.body.rating;
+
+  accounts.addRatingToWatchedMovie(user, imdb_id, rating);
+  res.sendStatus(200);
+
+})
+
 app.use('/*', function(req, res){
   res.sendFile(__dirname.slice(0, __dirname.length - 6) + 'index.html');
 });

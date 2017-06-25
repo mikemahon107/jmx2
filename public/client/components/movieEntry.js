@@ -48,6 +48,21 @@ angular.module('main-app') // copied mostly from ng-cast
         });
       };
 
+      this.handleRatingClick = function(rating) {
+          console.log('username', this.user.username);
+          console.log('this', this);
+          console.log('movie title', this.movie.details.Title);
+          console.log('movie year', this.movie.details.Year);
+          console.log('input this is a log', this.rating);
+          console.log('THE TRUE RATING IS ', rating)
+
+          $http.post('/editRating', {user: this.user.username, imdb_id: this.movie.imdb_id, rating: this.rating}).then(() => {
+            $http.get('/sess').then((session) => {
+              this.user.watched = session.data.watched;
+            });
+          });
+        };
+
         this.handleRemoveClick = function() {
           $http.post('/removeFromWatched', {user: this.user.username, imdb_id: this.movie.imdb_id}).then(() => {
             $http.get('/sess').then((session) => {
