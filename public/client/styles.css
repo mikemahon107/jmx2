@@ -237,6 +237,10 @@
   margin-top: 7px;
 }
 
+.rating-change {
+  margin-left: 10px;
+}
+
 #remove-button {
   background-color: #d6d7d8;
   margin-top: 15px;

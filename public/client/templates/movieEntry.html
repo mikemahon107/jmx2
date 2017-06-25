@@ -43,17 +43,25 @@
         <span>edit</span>
       </button>
     </div>
-    <div id="user-rating">Your Rating: {{ctrl.movie.rating}}/10</div>
-    <select ng-model="ctrl.rating" name="carlist" form="carform">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <button class="btn" ng-click="ctrl.handleRatingClick()" onclick="return false">
-      <span>edit rating</span>
-    </button>
+    <div class="inline-block" id="user-rating">Rating: {{ctrl.movie.rating}}/10</div>
+    <div class="rating-change inline-block">
+      <select ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <!-- <button class="btn" ng-click="ctrl.handleRatingClick()" onclick="return false">
+        <span>edit rating</span>
+      </button> -->
+    </div>
+    <div></div>
     <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
       <span>remove movie</span>
     </button>
