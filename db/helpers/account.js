@@ -55,7 +55,7 @@ function removeMovieFromWatched(user, imdb_id) {
   });
 };
 
-function insertMovieIntoFaves(user, movie) {
+function toggleMovieFavorite(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
@@ -74,18 +74,18 @@ function insertMovieIntoFaves(user, movie) {
   });
 };
 
-function removeMovieFromFaves(user, imdb_id) {
-  findOne(user, function (err, account) {
-    if (err) throw err;
-    for (var i = 0; i < account.favorites.length; i++) {
-      if (account.favorites[i].imdb_id === imdb_id) {
-          account.favorites.splice(i, 1);
-        break;
-      }
-    }
-    account.save();
-  });
-};
+// function removeMovieFromFaves(user, imdb_id) {
+//   findOne(user, function (err, account) {
+//     if (err) throw err;
+//     for (var i = 0; i < account.favorites.length; i++) {
+//       if (account.favorites[i].imdb_id === imdb_id) {
+//           account.favorites.splice(i, 1);
+//         break;
+//       }
+//     }
+//     account.save();
+//   });
+// };
 
 function addCommentToWatchedMovie(user, imdb_id, comment) {
   findOne(user, function (err, account) {
@@ -129,5 +129,5 @@ exports.insertOne = insertOne;
 exports.insertMovieIntoWatched = insertMovieIntoWatched;
 exports.addCommentToWatchedMovie = addCommentToWatchedMovie;
 exports.removeMovieFromWatched = removeMovieFromWatched;
-exports.insertMovieIntoFaves = insertMovieIntoFaves;
-exports.removeMovieFromFaves = removeMovieFromFaves;
+exports.toggleMovieFavorite = toggleMovieFavorite;
+// exports.removeMovieFromFaves = removeMovieFromFaves;

@@ -119,7 +119,7 @@ app.post('/addFavorite', function(req, res) {
   var user = req.body.user;
   var movie = req.body.movie;
 
-  accounts.insertMovieIntoFaves(user, movie);
+  accounts.toggleMovieFavorite(user, movie);
 
   res.sendStatus(200);
 });
