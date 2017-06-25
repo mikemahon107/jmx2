@@ -5,11 +5,20 @@
 }
 
 .main-header-text {
+  font-family: "Comic Sans MS", cursive, sans-serif;
   color: white;
   font-size: 55px;
   letter-spacing: 2px;
+  animation: rainbow 1s infinite;
 }
 
+@keyframes rainbow{
+  20%{color: red;}
+  40%{color: yellow;}
+  60%{color: green;}
+  80%{color: blue;}
+  100%{color: orange;}  
+}
 /****** welcome message after header  *******/
 
 .welcome-container {
@@ -170,6 +179,10 @@
   word-wrap: break-word;
 }
 
+#menu2 .favorite-element {  /* This hides the addFavorite button in the faves menu */
+  visibility: hidden;       /* Sincerely, */
+}                           /* Jeremy Odell */
+                            /* P.S. plz style my button thanks */
 /***************/
 
 .inline-block {

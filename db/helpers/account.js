@@ -59,7 +59,7 @@ function insertMovieIntoFaves(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
-    account.favorites.push(movie);
+    account.favorites.unshift(movie);
     account.save();
     // console.log('adding movie: ', movie)
     // console.log('to Favorites for account: ', account);
