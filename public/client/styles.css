@@ -6,7 +6,7 @@
 
 .main-header-text {
   color: white;
-  font-size: 50px;
+  font-size: 55px;
   letter-spacing: 2px;
 }
 
@@ -35,10 +35,21 @@
 
 /*********/
 
+.auth-panel {
+  margin-top: 50px;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+}
+
 #main-search {
   margin-top: 15px;
   margin-bottom: 30px;
 }
+
+/***************/
 
 .dropbtn {
     background-color: #4CAF50;
@@ -79,6 +90,10 @@
 .dropdown a:hover {background-color: #f1f1f1}
 .show {display:block;}
 
+/***************/
+
+/******* MOVIE ENTRY STYLING ********/
+
 .movie-entry {
   padding: 20px 20px 20px 0;
 }
@@ -96,15 +111,22 @@
   /*padding-top: 100px;*/
   display: inline-block;
   vertical-align: bottom;
-  padding-bottom: 20px;
+  padding-bottom: 7px;
 }
 
 .comment-element {
   /*background: black;*/
   /*margin-left: 10px;*/
-  height: 25px;
+  height: 20px;
   line-height: 4.5px;
-  font-size: 12px;
+  font-size: 11px;
+}
+
+.critic-element {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 #imdb-icon {
@@ -131,10 +153,56 @@
   font-size: 13px;
 }
 
+.user-movie-comment {
+  font-size: 17px;
+  margin: 0 0 5px 0;
+}
 
+.user-critic {
+  font-weight: 500;
+}
 
+.user-critic-comment {
+  /*background-color: grey;*/
+  /*font-weight: bold;*/
+  width: 500px;
+  font-style: italic;
+  word-wrap: break-word;
+}
 
+/***************/
 
+.inline-block {
+  display: inline-block;
+}
 
+#user-rating {
+  margin-top: 7px;
+}
 
+#remove-button {
+  background-color: #d6d7d8;
+  margin-top: 15px;
+}
 
+#edit-button {
+  background-color: #d6d7d8;
+}
+
+#footer {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  background-color: #f2ede6;
+  height: 75px;
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 50px;
+  color: grey;
+}
+
+#body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 125px;
+}
