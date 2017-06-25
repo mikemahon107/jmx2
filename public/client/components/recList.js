@@ -7,9 +7,6 @@ angular.module('main-app') // copied mostly from ng-cast
     },
     restrict: 'E',
     controller: function() {
-      this.$onInit = function() {
-        console.log(this.movies)
-      }
     },
     controllerAs: 'ctrl',
     bindToController: true,

@@ -4,15 +4,6 @@
   padding: 50px 50px 50px 90px;
 }
 
-<<<<<<< HEAD
-.main-header-text {
-  color: white;
-  font-size: 55px;
-  letter-spacing: 2px;
-}
-
->>>>>>> some style
-=======
 /*.main-header-text {
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: white;
@@ -28,7 +19,6 @@
   80%{color: blue;}
   100%{color: orange;}
 }
->>>>>>> added recommendation tab
 /****** welcome message after header  *******/
 
 .welcome-container {
@@ -226,13 +216,13 @@
   word-wrap: break-word;
 }
 
-#menu1 .favorite #add-favorite-button {  
-  display:none;         
-}    
+#menu1 .favorite #add-favorite-button {
+  display:none;
+}
 
-#menu1 #remove-favorite-button {  
-  display:none;         
-}                         
+#menu1 #remove-favorite-button {
+  display:none;
+}
 
 #menu2 .favorite #add-favorite-button {
   display:none;

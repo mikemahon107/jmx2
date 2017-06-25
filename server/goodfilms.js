@@ -74,7 +74,7 @@ app.get('/logout', function (req, res) {
 
 //DATABASE TESTING THINGS-- comment out if necessary
 
-accounts.insertMovieIntoWatched("m", {imdb_id: 'tt3315342', rating: '5', comment: 'This movie rules!', isFavorite: true});
+// accounts.insertMovieIntoWatched("m", {imdb_id: 'tt3315342', rating: '5', comment: 'This movie rules!', isFavorite: true});
 // accounts.insertMovieIntoFaves("M2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
 // accounts.insertMovieIntoWatched("Minh2", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 

@@ -15,29 +15,24 @@ angular.module('main-app')
     // console.log('intendedUser name', this.intendedUser.data.username);
     this.user.username = this.intendedUser.data.username;
     this.user.watched = this.intendedUser.data.watched;
+
     this.user.watched.forEach(item => {
       if (item.isFavorite) {
-        // console.log('true', item)
-        this.TMDBservice.searchById(item.imdb_id, (data) => {
-          // console.log(data)
-          this.TMDBservice.getRecommendations(data.id, (data) => {
-            var temp = data.results.sort((a, b) => b.popularity - a.popularity).slice(0, 5)
-            temp.forEach(item => {
-              // console.log(item.id)
-              this.TMDBservice.searchById(item.id, (data) => {
-                this.OMDBService.search({i: data.imdb_id}, (data) => {
-                  this.recommendations.push(data)
-                })
+        this.TMDBservice.searchById(item.imdb_id, data => {
+          this.TMDBservice.getRecommendations(data.id, data => {
+            var temp = data.results.sort((a, b) => b.popularity - a.popularity).slice(0, 5).map(item => item.id)
+            temp.forEach(id => {
+              this.TMDBservice.searchById(id, data => {
+                this.recommendations.push(data.imdb_id)
+                this.recommendations.sort()
               })
             })
           })
         })
       }
     })
-    console.log('app js', this.recommendations)
   });
-
-
+  this.recommendations = this.recommendations.filter((item, i, arr) => item !== arr[i + 1])
 })
 .directive('app', function() { // directive name is the HTML tag name REMEMBER THIS
   return {
