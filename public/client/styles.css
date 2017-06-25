@@ -1,13 +1,36 @@
 .main-header {
-  height: 150px;
-  background-color: #c5d1e5;
+  height: 160px;
+  /*background-size: 100%;*/
+  background-color: pink;
+  background-image: url("templates/flashlight1.jpg");
+  background-size: 100%;
   padding: 50px 50px 50px 90px;
+}
+
+.color-border {
+  height: 11px;
+  background-color: #f9ac04;
 }
 
 .main-header-text {
   color: white;
-  font-size: 55px;
+  font-size: 45px;
   letter-spacing: 2px;
+  margin-left: 50px;
+  height: 30px;
+}
+
+.header-sub-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-left: 55px;
+  height: 30px;
+}
+
+#home-image {
+  width: 100%;
 }
 
 >>>>>>> some style
