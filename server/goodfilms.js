@@ -115,6 +115,15 @@ app.post('/addMovie', function (req, res) {
 
 });
 
+app.post('/addFavorite', function(req, res) {
+  var user = req.body.user;
+  var movie = req.body.movie;
+
+  accounts.insertMovieIntoFaves(user, movie);
+
+  res.sendStatus(200);
+});
+
 app.post('/addComment', function (req, res) {
   // console.log(req.body);
   console.log('about to add comment goodfilms')

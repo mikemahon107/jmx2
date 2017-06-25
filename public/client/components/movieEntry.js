@@ -15,6 +15,17 @@ angular.module('main-app') // copied mostly from ng-cast
           this.movie.details.Poster === "N/A" || !this.movie.details.Poster ? this.movie.details.Poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : this.movie.details.Poster
         })
       };
+      this.handleAddToFavorites = function() {
+        var idList = this.user.watched.map((x) => x.imdb_id);
+
+        $http.post('/addFavorite', {user: this.user.username,
+        movie: this.user.watched[idList.indexOf(this.movie.imdb_id)]}).then(() => {
+          $http.get('/sess').then((session) => {
+            this.user.favorites = session.data.favorites;
+          });
+        });
+
+      };
 
       this.handleAddCommentClick = function() {
         // console.log(this.movie.title);
@@ -29,7 +40,10 @@ angular.module('main-app') // copied mostly from ng-cast
           console.log('trying to add a comment!')
           $http.get('/sess').then((session) => {
             this.user.watched = session.data.watched;
-            console.log(this.user, session.data);
+            // console.log('Movie is: ', this.movie, 'User is: ', this.user);
+            // //fruits.indexOf("Apple")
+            // console.log('the ids in movies are: ', this.user.watched.map((x) => x.imdb_id))
+            // console.log('the watched index of the movie is: ', this.user.watched.map((x) => x.imdb_id).indexOf(this.movie.imdb_id));
           });
         });
       };
