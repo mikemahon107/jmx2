@@ -2,7 +2,10 @@
 <div class="movie-entry">
   <img class="movie-entry-poster" ng-src="{{ctrl.movie.details.Poster}}">
   <div class="movie-entry-info">
-    <h4 class="movie-entry-title">{{ctrl.movie.details.Title || 'N/A'}}</h4>
+    <h4 class="movie-entry-title inline-block">{{ctrl.movie.details.Title || 'N/A'}}</h4>
+    <button class="btn comment-element favorite-element" id="favorite-button" ng-click="ctrl.handleAddToFavorites()">
+      <span>favorite</span>
+    </button>
     <div class="movie-info">
       <div class="year movie-subhead">{{ctrl.movie.details.Year}} </div>
       <div class="rating movie-subhead">{{ctrl.movie.details.Rated}}</div>
@@ -43,9 +46,6 @@
     <div id="user-rating">Your Rating: {{ctrl.movie.rating}}/10</div>
     <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
       <span>remove movie</span>
-    </button>
-    <button class="btn favorite-element" id="favorite-button" ng-click="ctrl.handleAddToFavorites()">
-      <span>Add to Favorites!</span>
     </button>
   </div>
 </div>

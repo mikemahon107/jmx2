@@ -9,16 +9,18 @@
   color: white;
   font-size: 55px;
   letter-spacing: 2px;
-  animation: rainbow 1s infinite;
-}
+  /*animation: rainbow 1s infinite;
+  -webkit-animation-duration: 2s;
+  animation-duration: 6s;
+*/}
 
-@keyframes rainbow{
-  20%{color: red;}
-  40%{color: yellow;}
+/*@keyframes rainbow{
+  20%{color: pink;}
+  40%{color: #353433;}
   60%{color: green;}
   80%{color: blue;}
   100%{color: orange;}  
-}
+}*/
 /****** welcome message after header  *******/
 
 .welcome-container {
@@ -123,6 +125,11 @@
   padding-bottom: 7px;
 }
 
+.movie-entry-title {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
 .comment-element {
   /*background: black;*/
   /*margin-left: 10px;*/
@@ -200,6 +207,11 @@
 
 #edit-button {
   background-color: #d6d7d8;
+}
+
+#favorite-button {
+  background-color: #d6d7d8;
+  margin-bottom: 10px;
 }
 
 #footer {
