@@ -4,6 +4,7 @@
   padding: 50px 50px 50px 90px;
 }
 
+<<<<<<< HEAD
 .main-header-text {
   color: white;
   font-size: 55px;
@@ -11,6 +12,23 @@
 }
 
 >>>>>>> some style
+=======
+/*.main-header-text {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
+  font-size: 55px;
+  letter-spacing: 2px;
+  animation: rainbow 1s infinite;
+}*/
+
+@keyframes rainbow{
+  20%{color: red;}
+  40%{color: yellow;}
+  60%{color: green;}
+  80%{color: blue;}
+  100%{color: orange;}
+}
+>>>>>>> added recommendation tab
 /****** welcome message after header  *******/
 
 .welcome-container {
