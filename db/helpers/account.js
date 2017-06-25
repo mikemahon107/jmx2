@@ -59,11 +59,18 @@ function insertMovieIntoFaves(user, movie) {
 
   findOne(user, function (err, account) {
     if (err) throw err;
-    account.favorites.unshift(movie);
+    for (var i = 0; i < account.watched.length; i++) {
+      console.log('MOVIE IS', movie, 'account.watched[i]', account.watched[i]);
+      if (account.watched[i].imdb_id === movie.imdb_id) {
+        account.watched[i].isFavorite = !account.watched[i].isFavorite;
+        account.watched.unshift({});
+        account.watched.shift({});
+        break
+      }
+    }
+    // console.log('ARRE we getting HWEW???', account.watched)
     account.save();
-    // console.log('adding movie: ', movie)
-    // console.log('to Favorites for account: ', account);
-    // console.log('for user: ', username);
+    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
   });
 };
 

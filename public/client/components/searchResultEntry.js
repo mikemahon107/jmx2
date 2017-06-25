@@ -4,6 +4,7 @@ angular.module('main-app') // copied mostly from ng-cast
   this.imdb_id;
   this.$onInit = function() {
     this.TMDBservice = searchTheMovieDB
+    
     this.handleMovieClick = function() {
       this.TMDBservice.searchById(this.movie.id, (data) => {
         this.imdb_id = data.imdb_id

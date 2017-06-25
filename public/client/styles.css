@@ -186,10 +186,21 @@
   word-wrap: break-word;
 }
 
-#menu2 .favorite-element {  /* This hides the addFavorite button in the faves menu */
-  visibility: hidden;       /* Sincerely, */
-}                           /* Jeremy Odell */
-                            /* P.S. plz style my button thanks */
+#menu1 .favorite #add-favorite-button {  
+  display:none;         
+}    
+
+#menu1 #remove-favorite-button {  
+  display:none;         
+}                         
+
+#menu2 .favorite #add-favorite-button {
+  display:none;
+}
+
+#menu2 .non-favorite {
+  display:none;
+}
 /***************/
 
 .inline-block {
