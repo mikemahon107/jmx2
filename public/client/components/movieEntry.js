@@ -21,7 +21,7 @@ angular.module('main-app') // copied mostly from ng-cast
         $http.post('/addFavorite', {user: this.user.username,
         movie: this.user.watched[idList.indexOf(this.movie.imdb_id)]}).then(() => {
           $http.get('/sess').then((session) => {
-            this.user.favorites = session.data.favorites;
+            this.user.watched = session.data.watched;
           });
         });
 

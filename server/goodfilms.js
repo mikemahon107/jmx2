@@ -108,7 +108,7 @@ app.post('/addMovie', function (req, res) {
   var user = req.body.user;
   var imdb_id = req.body.imdb_id
 
-  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'Seen it!'});
+  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'Seen it!', isFavorite: false});
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);
@@ -119,7 +119,7 @@ app.post('/addFavorite', function(req, res) {
   var user = req.body.user;
   var movie = req.body.movie;
 
-  accounts.insertMovieIntoFaves(user, movie);
+  accounts.toggleMovieFavorite(user, movie);
 
   res.sendStatus(200);
 });

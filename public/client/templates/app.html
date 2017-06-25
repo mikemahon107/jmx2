@@ -5,7 +5,7 @@
         <button type="submit">Sign Out</button>
       </form>
     </div>
-    <h2 class="user-welcome-message">welcome {{ctrl.user.username}}</h2>
+    <h2 class="user-welcome-message">Welcome {{ctrl.user.username}}</h2>
     <div id="auth-panel">
     </div>
   </div>
@@ -31,7 +31,7 @@
     </div>
     <div id="menu2" class="tab-pane fade">
       <div id="favorites-list">
-        <movie-list movies="ctrl.user.favorites" user="ctrl.user"/>
+        <movie-list movies="ctrl.user.watched" user="ctrl.user"/>
       </div>
     </div>
     <div id="menu3" class="tab-pane fade">
