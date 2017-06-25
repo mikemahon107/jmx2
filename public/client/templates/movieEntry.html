@@ -26,20 +26,23 @@
       </div>
       <!-- <div>Metacritic: {{ctrl.movie.details.Ratings[2].Value}}</div> -->
     </div>
-    <div class="user-movie-comment">Comment: {{ctrl.movie.comment}}</div>
+    <div class="user-movie-comment">
+      <div class="user-critic user-critic-element">{{ctrl.user.username}} says:</div>
+      <div class="user-critic-comment user-critic-element"> "{{ctrl.movie.comment}}"</div>
+    </div>
     <div class="search-bar form-inline comment-search-bar">
       <input
         ng-model="ctrl.input"
         class="form-control comment-element"
         type="text"
       />
-      <button class="btn comment-element" ng-click="ctrl.handleAddCommentClick()" onclick="return false">
-        <span>edit comment</span>
+      <button class="btn comment-element" id="edit-button" ng-click="ctrl.handleAddCommentClick()" onclick="return false">
+        <span>edit</span>
       </button>
     </div>
-    <div>Your Rating: {{ctrl.movie.rating}}/10</div>
-    <button class="btn comment-element" ng-click="ctrl.handleRemoveClick()">
-      <span>remove</span>
+    <div id="user-rating">Your Rating: {{ctrl.movie.rating}}/10</div>
+    <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
+      <span>remove movie</span>
     </button>
   </div>
 </div>
