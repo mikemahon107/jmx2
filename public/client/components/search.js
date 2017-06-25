@@ -30,7 +30,7 @@ angular.module('main-app')
     templateUrl: 'public/client/templates/search.html',
     link: function(scope, element, attr){
 
-      scope.isPopupVisible = true;
+      scope.isPopupVisible = false;
 
       scope.toggleSelect = function(){
         // console.log('in toggleSelect');
