@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var config = require('../db/config');
-var movies = require('../db/helpers/movie');
 var accounts = require('../db/helpers/account');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
