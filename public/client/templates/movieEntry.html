@@ -1,11 +1,13 @@
-
 <div class="movie-entry">
+
   <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.details.Poster}}">
+
   <div class="movie-entry-info">
     <h4 class="movie-entry-title inline-block">{{ctrl.movie.details.Title || 'N/A'}}</h4>
     <button class="btn favorite-element comment-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
       <span>make favorite</span>
     </button>
+
     <div class="movie-info">
       <div class="year movie-subhead">{{ctrl.movie.details.Year}} </div>
       <div class="rating movie-subhead">{{ctrl.movie.details.Rated}}</div>
@@ -13,12 +15,12 @@
       <div class="movie-staff">Director: {{ctrl.movie.details.Director}}</div>
       <div class="movie-staff">Cast: {{ctrl.movie.details.Actors}}</div>
     </div>
+
     <div class="movie-critic-info">
       <div class="critic-element">
         <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
         {{ctrl.movie.details.Ratings[0].Value}}
       </div>
-      <!-- <div>IMDB: {{ctrl.movie.details.Ratings[0].Value}}</div> -->
       <div class="critic-element">
         <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
         {{ctrl.movie.details.Ratings[1].Value}}
@@ -27,12 +29,13 @@
         <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
         {{ctrl.movie.details.Ratings[2].Value}}
       </div>
-      <!-- <div>Metacritic: {{ctrl.movie.details.Ratings[2].Value}}</div> -->
     </div>
+
     <div class="user-movie-comment">
       <div class="user-critic user-critic-element">{{ctrl.user.username}} says:</div>
       <div class="user-critic-comment user-critic-element"> "{{ctrl.movie.comment}}"</div>
     </div>
+
     <div class="search-bar form-inline comment-search-bar">
       <input
         ng-model="ctrl.input"
@@ -43,6 +46,7 @@
         <span>edit</span>
       </button>
     </div>
+
     <div class="inline-block" id="user-rating">Rating: {{ctrl.movie.rating}}/10</div>
     <div class="rating-change inline-block">
       <select class="rating-change-select" ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick(); ctrl.rating=''">
@@ -57,10 +61,8 @@
         <option value="9">9</option>
         <option value="10">10</option>
       </select>
-      <!-- <button class="btn" ng-click="ctrl.handleRatingClick()" onclick="return false">
-        <span>edit rating</span>
-      </button> -->
     </div>
+    
     <div></div>
     <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
       <span>remove movie</span>
@@ -69,4 +71,5 @@
       <span>remove Favorite</span>
     </button>
   </div>
+
 </div>
