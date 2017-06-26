@@ -1,11 +1,11 @@
 
 <div class="movie-entry">
-  <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.poster_path}}">
+  <img class="movie-entry-poster upcoming-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.poster_path}}">
   <div class="movie-entry-info">
     <h4 class="movie-entry-title inline-block">{{ctrl.movie.title || 'N/A'}}</h4>
     <div class="movie-info">
       <div class="year movie-subhead">Release date: {{ctrl.movie.release_date}} </div>
-      <p>{{ctrl.movie.overview}}</p>
+      <p class="user-critic-comment user-critic-element">{{ctrl.movie.overview}}</p>
     </div>
   </div>
   <hr />

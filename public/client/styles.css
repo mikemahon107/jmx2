@@ -213,6 +213,10 @@
   width: 125px;
 }
 
+.upcoming-poster {
+  width: 150px;
+}
+
 .movie-entry-info {
   /*padding-top: 100px;*/
   display: inline-block;
