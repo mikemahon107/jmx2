@@ -33,13 +33,13 @@
   width: 100%;
 }
 
-@keyframes rainbow{
+/*@keyframes rainbow{
   20%{color: red;}
   40%{color: yellow;}
   60%{color: green;}
   80%{color: blue;}
   100%{color: orange;}
-}
+}*/
 /****** welcome message after header  *******/
 
 .welcome-container {
@@ -74,6 +74,38 @@
 .auth-panel {
   margin-top: 50px;
 }
+
+.ugly-button {
+  border: none;
+  /*background: none;*/
+  background-image: none;
+  background-color: #d6d7d8;
+  /*display: inline-block;*/
+  /*margin-right: 20px;*/
+  /*font-weight: bold;*/
+  font-size: 13px;
+  padding: 4px;
+  outline: 0;
+  /*border-radius: 95px;*/
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-style: none;
+  /*height: 2px;*/
+}
+
+.login {
+  margin-right: 15px;
+  margin-bottom: 50px;
+}
+
+#login-image {
+  width: 100%;
+  /*background-image: url("http://cdn1.buuteeq.com/upload/27219/hotel-hollywood-splash-4-jpg-1.jpg.1920x807_0_355_10000.jpg");*/
+}
+
+/*.auth-panel {
+  width: 100%;
+}*/
 
 .container {
   height: 100%;
@@ -256,6 +288,13 @@
   box-shadow: none;
 }
 
+.ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 
 #menu1 .favorite #add-favorite-button {
   display:none;
@@ -316,21 +355,44 @@
   /*margin-bottom: 5px;*/
 }
 
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/*#main-container {
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+*/
+#body {
+  height: 100%;
+  padding-bottom: 125px;
+  /*background-color: grey;*/
+  /*margin: 0 auto;*/
+  margin-bottom: 50px;
+}
+
 #footer {
+  margin: 0 auto;
   position: absolute;
-  bottom:0;
+  bottom: 0;
   width: 100%;
-  background-color: #f2ede6;
+  background: #f2ede6;
   height: 75px;
   text-align: right;
   padding-top: 20px;
   padding-right: 50px;
   color: grey;
-}
-
-#body {
-  min-height: 100%;
-  position: relative;
-  padding-bottom: 125px;
-  /*background-color: #fcf9f4;*/
 }
