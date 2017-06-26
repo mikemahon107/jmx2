@@ -14,7 +14,7 @@ Last edited:
 Development Team
 ----------------
 - Jordan Bishop, product owner
-- Jeremy Odell, scrum leader
+- Jeremy Odell, Scrum Lord
 - Minh Nguyen & Misha Hoo, development team
 
 License
