@@ -11,10 +11,6 @@ angular.module('main-app') // copied mostly from ng-cast
       user: '<'
     },
     restrict: 'E',
-    // controller: function() {
-    //    console.log('hello', this.movies);
-    //    // console.log(this.movies);
-    // },
     controller: 'SearchCtrl',
     controllerAs: 'ctrl',
     bindToController: true,

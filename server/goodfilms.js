@@ -74,8 +74,8 @@ app.get('/logout', function (req, res) {
 
 //DATABASE TESTING THINGS-- comment out if necessary
 
-// accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 2017}, rating: '5',comment: 'This movie rules!'});
-// accounts.insertMovieIntoFaves("Minh2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
+// accounts.insertMovieIntoWatched("m", {imdb_id: 'tt3315342', rating: '5', comment: 'This movie rules!', isFavorite: true});
+// accounts.insertMovieIntoFaves("M2", {details: {title: "Beauty and The Beast", year: 1991}, rating: '5',comment: 'This movie rules!'});
 // accounts.insertMovieIntoWatched("Minh2", {details: {title: "Superman"},rating: '5',comment: 'This movie rules!'});
 
 // accounts.insertMovie("Jordan", {title: "Sailor Moon", year:"1994", director: "Usagi Tsukino"}); /* --for testing -JO */
@@ -108,7 +108,7 @@ app.post('/addMovie', function (req, res) {
   var user = req.body.user;
   var imdb_id = req.body.imdb_id
 
-  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'Seen it!', isFavorite: false});
+  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'N/A'});
   //req.session.user.watched.unshift({details: {title: movieTitle}, rating: '10',comment: 'WE ADDED THIS!'});
   //console.log(req.session.user, 'hello');
   res.sendStatus(200);

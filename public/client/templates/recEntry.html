@@ -1,0 +1,33 @@
+
+<div class="movie-entry">
+  <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.Poster}}">
+  <div class="movie-entry-info">
+    <h4 class="movie-entry-title inline-block">{{ctrl.movie.Title || 'N/A'}}</h4>
+    <button class="btn favorite-element comment-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
+      <span>make favorite</span>
+    </button>
+    <div class="movie-info">
+      <div class="year movie-subhead">{{ctrl.movie.Year}} </div>
+      <div class="rating movie-subhead">{{ctrl.movie.Rated}}</div>
+      <div class="genre movie-subhead">{{ctrl.movie.Genre}}</div>
+      <div class="movie-staff">Director: {{ctrl.movie.Director}}</div>
+      <div class="movie-staff">Cast: {{ctrl.movie.Actors}}</div>
+    </div>
+    <div class="movie-critic-info">
+      <div class="critic-element">
+        <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
+        {{ctrl.movie.Ratings[0].Value}}
+      </div>
+      <!-- <div>IMDB: {{ctrl.movie.Ratings[0].Value}}</div> -->
+      <div class="critic-element">
+        <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
+        {{ctrl.movie.Ratings[1].Value}}
+      </div>
+      <div class="critic-element">
+        <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
+        {{ctrl.movie.Ratings[2].Value}}
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>

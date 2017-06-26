@@ -44,6 +44,7 @@ angular.module('main-app') // copied mostly from ng-cast
         $http.post('/addComment', {user: this.user.username, imdb_id: this.movie.imdb_id, comment: this.input}).then(() => {
           console.log('trying to add a comment!')
           $http.get('/sess').then((session) => {
+
             this.user.watched[i].comment = session.data.watched[i].comment;
             // console.log('Movie is: ', this.movie, 'User is: ', this.user);
             // //fruits.indexOf("Apple")

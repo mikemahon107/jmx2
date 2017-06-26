@@ -33,7 +33,13 @@
   width: 100%;
 }
 
->>>>>>> some style
+@keyframes rainbow{
+  20%{color: red;}
+  40%{color: yellow;}
+  60%{color: green;}
+  80%{color: blue;}
+  100%{color: orange;}
+}
 /****** welcome message after header  *******/
 
 .welcome-container {
@@ -243,9 +249,9 @@
   display:none;         
 }    
 
-#menu1 #remove-favorite-button {  
-  display:none;         
-}                         
+#menu1 #remove-favorite-button {
+  display:none;
+}
 
 #menu2 .favorite #add-favorite-button {
   display:none;
