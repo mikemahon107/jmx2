@@ -98,11 +98,9 @@ function addCommentToWatchedMovie(user, imdb_id, comment) {
         break
       }
     }
-    // console.log('ARRE we getting HWEW???', account.watched)
     account.save();
-    // console.log('ARRE we getting HWEW AFTER SAVE???', account.watched)
-  })
-}
+  });
+};
 
 function addRatingToWatchedMovie(user, imdb_id, rating) {
   findOne(user, function (err, account) {

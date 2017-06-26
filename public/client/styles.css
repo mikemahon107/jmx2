@@ -1,16 +1,37 @@
 .main-header {
-  height: 150px;
-  background-color: #c5d1e5;
+  height: 160px;
+  /*background-size: 100%;*/
+  background-color: pink;
+  background-image: url("templates/flashlight1.jpg");
+  background-size: 100%;
   padding: 50px 50px 50px 90px;
 }
 
-/*.main-header-text {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+.color-border {
+  height: 11px;
+  background-color: #f9ac04;
+}
+
+.main-header-text {
   color: white;
-  font-size: 55px;
+  font-size: 45px;
   letter-spacing: 2px;
-  animation: rainbow 1s infinite;
-}*/
+  margin-left: 50px;
+  height: 30px;
+}
+
+.header-sub-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-left: 55px;
+  height: 30px;
+}
+
+#home-image {
+  width: 100%;
+}
 
 @keyframes rainbow{
   20%{color: red;}
@@ -216,9 +237,17 @@
   word-wrap: break-word;
 }
 
-#menu1 .favorite #add-favorite-button {
-  display:none;
+.rating-change-select:focus, .rating-change-select:active, .rating-change-select.active, .rating-change-select:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
+
+
+#menu1 .favorite #add-favorite-button {  
+  display:none;         
+}    
 
 #menu1 #remove-favorite-button {
   display:none;
@@ -291,4 +320,5 @@
   min-height: 100%;
   position: relative;
   padding-bottom: 125px;
+  /*background-color: #fcf9f4;*/
 }

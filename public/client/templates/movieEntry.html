@@ -39,13 +39,13 @@
         class="form-control comment-element"
         type="text"
       />
-      <button class="btn comment-element" id="edit-button" ng-click="ctrl.handleAddCommentClick()" onclick="return false">
+      <button class="btn comment-element" id="edit-button" ng-click="ctrl.handleAddCommentClick(); ctrl.input=''" onclick="return false">
         <span>edit</span>
       </button>
     </div>
     <div class="inline-block" id="user-rating">Rating: {{ctrl.movie.rating}}/10</div>
     <div class="rating-change inline-block">
-      <select ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick()">
+      <select class="rating-change-select" ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick(); ctrl.rating=''">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
