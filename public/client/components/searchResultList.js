@@ -1,8 +1,6 @@
-angular.module('main-app') // copied mostly from ng-cast
+angular.module('main-app')
 
 .controller('SearchCtrl', function() {
-  // console.log('hello', this.movies);
-  // console.log('this', this);
  })
 .directive('searchResultList', function() {
   return {

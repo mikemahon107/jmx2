@@ -9,13 +9,13 @@ angular.module('main-app')
       this.results = data.results.slice(0,5)
       this.results.map(item => {
         if (item.poster_path === null) {
-          item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
+          item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png';
         } else {
-          item.poster_path = 'http://image.tmdb.org/t/p/w92/' + item.poster_path
+          item.poster_path = 'http://image.tmdb.org/t/p/w92/' + item.poster_path;
         }
       })
     });
-  }
+  };
 })
 
 .directive('search', function($document) {
@@ -33,26 +33,11 @@ angular.module('main-app')
       scope.isPopupVisible = false;
 
       scope.toggleSelect = function(){
-        // console.log('in toggleSelect');
-        // scope.isPopupVisible = !scope.isPopupVisible;
         scope.isPopupVisible = true;
-      }
+      };
 
+      // hide search bar on body click
       $document.bind('click', function(event){
-        // console.log('in link!', 'clicked');
-        // console.log('event target', event.target.id);
-        // console.log('element', element);
-        // console.log('attributes', attr);
-        // var isClickedElementChildOfPopup = element
-        //   .find(event.target)
-        //   .length > 0;
-
-        // console.log('isChild', isClickedElementChildOfPopup);
-
-        // if (event.target.id === 'searchButton') {
-        //   console.log('true');
-        //   return;
-        // }
         scope.ctrl.input = null;
         scope.isPopupVisible = false;
         scope.$apply();
@@ -60,14 +45,3 @@ angular.module('main-app')
     }
   };
 });
-
-// .directive('search', function() {
-//   return {
-//     scope: {},
-//     restrict: 'E',
-//     // controller: 'SearchCtrl',
-//     // controllerAs: 'ctrl',
-//     // bindToController: true,
-//     templateUrl: 'public/client/templates/search.html'
-//   };
-// });
