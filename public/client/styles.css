@@ -52,6 +52,12 @@
   /*float: left;*/
   /*background-color: grey;*/
   display: inline-block;
+  height: 10px;
+}
+
+.search-text {
+  /*font-weight: bold;*/
+  margin-bottom: 5px;
 }
 
 #logout-button {
