@@ -1,16 +1,23 @@
 <div class="auth-panel">
   <form ng-submit="ctrl.authorize()">
     
-    <label>Username: </label>
-    <input type="text" ng-model="ctrl.username">
+    <div class="inline-block login">
+      <label>Username: </label>
+      <input type="text" ng-model="ctrl.username">
+    </div>
 
-    <label>Password: </label>
-    <input type="password" ng-model="ctrl.password">
+    <div class="inline-block login">
+      <label>Password: </label>
+      <input type="password" ng-model="ctrl.password">
+    </div>
 
-    <input type="submit" ng-value="ctrl.mode ? 'Sign In' : 'Sign Up'">
+    <input class="ugly-button sign-in login" type="submit" ng-value="ctrl.mode ? 'Sign In' : 'Sign Up'">
      <!-- ng-click="ctrl.mode ? app.get" -->
 
-    <span ng-if="!ctrl.mode">Already have an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
-    <span ng-if="ctrl.mode">Need an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
+    <span class="login" ng-if="!ctrl.mode">Already have an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
+    <span class="login" ng-if="ctrl.mode">Need an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
   </form>
+  <!-- <div id="login-image"> -->
+    <image id="login-image" src="https://static01.nyt.com/images/2015/02/15/travel/15HOLLYWOOD/15HOLLYWOOD-superJumbo-v2.jpg">
+  <!-- </div> -->
 </div>
