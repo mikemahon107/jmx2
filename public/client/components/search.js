@@ -11,7 +11,7 @@ angular.module('main-app')
         if (item.poster_path === null) {
           item.poster_path = 'http://www.aliciburada.com/assets/image/site/icon-user.png'
         } else {
-          item.poster_path = 'http://image.tmdb.org/t/p/w45/' + item.poster_path
+          item.poster_path = 'http://image.tmdb.org/t/p/w92/' + item.poster_path
         }
       })
     });

@@ -14,7 +14,7 @@ angular.module('main-app') // copied mostly from ng-cast
       this.$onInit = function() {
         // console.log('entry here',this.movie)
         this.OMDBService.search({i: this.movie}, data => {
-          console.log(data)
+          // console.log(data)
           this.movie = data
         })
       }
