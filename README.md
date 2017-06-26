@@ -13,9 +13,9 @@ Last edited:
 
 Development Team
 ----------------
-Jordan Bishop, product owner
-Jeremy Odell, scrum leader
-Minh Nguyen & Misha Hoo, development team
+- Jordan Bishop, product owner
+- Jeremy Odell, scrum leader
+- Minh Nguyen & Misha Hoo, development team
 
 License
 -------
@@ -34,8 +34,8 @@ For authentication, we used bcrypt-nodejs and express-session from npm.
 Installation and Use
 --------------------
 To run this repo locally, clone it to your desired file and cd into it. In the
-terminal, run 'npm install'. In a new terminal tab, run the command 'mongo' from
-the command line and in another new tab, run 'npm start' to start the server.
+terminal, run `npm install`. In a new terminal tab, run the command `mongo` from
+the command line and in another new tab, run `npm start` to start the server.
 
-Go to localhost:3000 in your browser of choice to use the app. We hope you enjoy
+Go to `localhost:3000` in your browser of choice to use the app. We hope you enjoy
 searching and reviewing your favorite movies!
