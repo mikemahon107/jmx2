@@ -174,14 +174,6 @@
   margin-right: 40px;
 }
 
-.recommendation-poster {
-  width: 125px;
-}
-
-.upcoming-poster {
-  width: 150px;
-}
-
 .movie-entry-info {
   display: inline-block;
   vertical-align: bottom;
@@ -259,32 +251,6 @@
   box-shadow: none;
 }
 
-
-#menu1 .favorite #add-favorite-button {
-  display:none;
-}
-
-#menu1 #remove-favorite-button {
-  display:none;
-}
-
-#menu2 .favorite #add-favorite-button {
-  display:none;
-}
-
-#menu2 .favorite #remove-button {
-  display: none;
-}
-
-#menu2 .non-favorite {
-  display:none;
-}
-/***************/
-
-.inline-block {
-  display: inline-block;
-}
-
 #user-rating {
   margin-top: 7px;
 }
@@ -317,6 +283,43 @@
   vertical-align: 4px;
 }
 
+/*********** SOME OF THE EXTRA TAB STYLING *************/
+
+.recommendation-poster {
+  width: 125px;
+}
+
+.upcoming-poster {
+  width: 125px;
+}
+
+/****** deals with hiding NON-FAVORITES and correspoding buttons ******/
+
+#menu1 .favorite #add-favorite-button {
+  display:none;
+}
+
+#menu1 #remove-favorite-button {
+  display:none;
+}
+
+#menu2 .favorite #add-favorite-button {
+  display:none;
+}
+
+#menu2 .favorite #remove-button {
+  display: none;
+}
+
+#menu2 .non-favorite {
+  display:none;
+}
+
+/***************/
+
+.inline-block {
+  display: inline-block;
+}
 
 body {
     margin: 0;
