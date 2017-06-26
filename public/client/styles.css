@@ -1,6 +1,5 @@
 .main-header {
   height: 160px;
-  /*background-size: 100%;*/
   background-color: pink;
   background-image: url("templates/flashlight1.jpg");
   background-size: 100%;
@@ -33,30 +32,19 @@
   width: 100%;
 }
 
-/*@keyframes rainbow{
-  20%{color: red;}
-  40%{color: yellow;}
-  60%{color: green;}
-  80%{color: blue;}
-  100%{color: orange;}
-}*/
 /****** welcome message after header  *******/
 
 .welcome-container {
-  /*background-color: grey;*/
   width: 100%;
   height: 100%;
 }
 
 .user-welcome-message {
-  /*float: left;*/
-  /*background-color: grey;*/
   display: inline-block;
   height: 10px;
 }
 
 .search-text {
-  /*font-weight: bold;*/
   margin-bottom: 5px;
 }
 
@@ -65,8 +53,6 @@
   float: right;
   background-color: grey;
   display: inline-block;
-  /*border-style: solid;*/
-  /*float: right;*/
 }
 
 /*********/
@@ -77,20 +63,14 @@
 
 .ugly-button {
   border: none;
-  /*background: none;*/
   background-image: none;
   background-color: #d6d7d8;
-  /*display: inline-block;*/
-  /*margin-right: 20px;*/
-  /*font-weight: bold;*/
   font-size: 13px;
   padding: 4px;
   outline: 0;
-  /*border-radius: 95px;*/
   -webkit-box-shadow: none;
   box-shadow: none;
   border-style: none;
-  /*height: 2px;*/
 }
 
 .login {
@@ -100,12 +80,7 @@
 
 #login-image {
   width: 100%;
-  /*background-image: url("http://cdn1.buuteeq.com/upload/27219/hotel-hollywood-splash-4-jpg-1.jpg.1920x807_0_355_10000.jpg");*/
 }
-
-/*.auth-panel {
-  width: 100%;
-}*/
 
 .container {
   height: 100%;
@@ -138,7 +113,6 @@
 }
 
 .dropdown-content {
-    /*display: none;*/
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -160,17 +134,14 @@
 .show {display:block;}
 
 .searched-movie {
-  /*background-color: grey;*/
   margin: 0 0 5px 0;
 }
 
 .search-result-entry {
-  /*background-color: pink;*/
   margin-bottom: 20px;
 }
 
 .search-thumbnail {
-  /*background-color: grey;*/
   margin-right: 10px;
   vertical-align: bottom;
   width: 50px;
@@ -183,13 +154,10 @@
 }
 
 .search-movie-info {
-  /*background-color: grey;*/
 }
 
 .add-button {
-  /*margin-left: 10px;*/
   margin-top: 10px;
-  /*float: right;*/
 }
 
 /***************/
@@ -204,9 +172,6 @@
   width: 200px;
   display: inline-block;
   margin-right: 40px;
- /* border-style: solid;
-  border-width: 5px;
-  border-color: #4286f4*/
 }
 
 .recommendation-poster {
@@ -218,7 +183,6 @@
 }
 
 .movie-entry-info {
-  /*padding-top: 100px;*/
   display: inline-block;
   vertical-align: bottom;
   padding-bottom: 7px;
@@ -230,8 +194,6 @@
 }
 
 .comment-element {
-  /*background: black;*/
-  /*margin-left: 10px;*/
   height: 20px;
   line-height: 4.5px;
   font-size: 11px;
@@ -278,8 +240,6 @@
 }
 
 .user-critic-comment {
-  /*background-color: grey;*/
-  /*font-weight: bold;*/
   width: 500px;
   font-style: italic;
   word-wrap: break-word;
@@ -355,8 +315,6 @@
 #add-favorite-button {
   background-color: #d6d7d8;
   vertical-align: 4px;
-  /*margin-top: 7px;*/
-  /*margin-bottom: 5px;*/
 }
 
 
@@ -372,19 +330,9 @@ html {
     height: 100%;
 }
 
-
-/*#main-container {
-  min-height: 100%;
-  height: 100%;
-  position: relative;
-  margin: 0 auto;
-}
-*/
 #body {
   height: 100%;
   padding-bottom: 125px;
-  /*background-color: grey;*/
-  /*margin: 0 auto;*/
   margin-bottom: 50px;
 }
 
