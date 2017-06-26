@@ -177,6 +177,10 @@
   border-color: #4286f4*/
 }
 
+.recommendation-poster {
+  width: 125px;
+}
+
 .movie-entry-info {
   /*padding-top: 100px;*/
   display: inline-block;
