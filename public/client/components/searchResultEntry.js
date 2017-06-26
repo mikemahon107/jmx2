@@ -13,12 +13,9 @@ angular.module('main-app') // copied mostly from ng-cast
             this.user.watched = session.data.watched;
           });
         });
-      })
-    }
-  // console.log('search entry this', this);
-   // console.log('this.user', this.user)
-    // body...
-  }
+      });
+    };
+  };
 
 })
 .directive('searchResultEntry', function() {

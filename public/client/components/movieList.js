@@ -1,4 +1,4 @@
-angular.module('main-app') // copied mostly from ng-cast
+angular.module('main-app')
 
 .directive('movieList', function() {
   return {

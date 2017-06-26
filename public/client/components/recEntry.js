@@ -1,4 +1,4 @@
-angular.module('main-app') // copied mostly from ng-cast
+angular.module('main-app')
 
 .directive('recEntry', function() {
   return {
@@ -8,16 +8,12 @@ angular.module('main-app') // copied mostly from ng-cast
     },
     restrict: 'E',
     controller: function(searchOMDB) {
-      // console.log(this.movie)
-      // this.movie;
       this.OMDBService = searchOMDB
       this.$onInit = function() {
-        // console.log('entry here',this.movie)
         this.OMDBService.search({i: this.movie}, data => {
-          // console.log(data)
-          this.movie = data
-        })
-      }
+          this.movie = data;
+        });
+      };
     },
     controllerAs: 'ctrl',
     bindToController: true,
