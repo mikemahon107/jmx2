@@ -15,7 +15,7 @@ angular.module('main-app')
     AuthModel[action](this.username, this.password, (err, apiToken) => {
       if (err) {
         alert('Username taken!')
-        return console.log(err);
+        return console.log('authentication error: ', err);
       }
     });
   };
