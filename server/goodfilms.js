@@ -37,6 +37,7 @@ app.post('/signin', function (req, res) {
     if (err) throw err;
     if (!user) {
       console.log('username does not exist');
+      res.sendStatus(400);
     } else {
       accounts.comparePassword(password, user.password, function(err, match) {
         if (match) {
@@ -69,7 +70,7 @@ app.post('/signup', function (req, res) {
     if (err) throw err;
     if (user) {
       console.log('Username already exists!');
-      // res.redirect('/signup');
+      res.sendStatus(400);
     } else {
       accounts.insertOne({username: username, password: password}, (err, user) => {
         if (err) throw err;
