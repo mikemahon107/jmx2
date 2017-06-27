@@ -17,6 +17,7 @@ angular.module('main-app')
       $location.path('/user');
     })
     .catch(function(err) {
+      alert('Incorrect username or password')
       callback(err);
     });
   };
@@ -36,6 +37,7 @@ angular.module('main-app')
       $location.path('/user');
     })
     .catch(function(err) {
+      alert('Username taken')
       callback(err);
     });
   };
