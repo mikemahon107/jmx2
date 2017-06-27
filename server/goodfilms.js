@@ -46,6 +46,7 @@ app.post('/signin', function (req, res) {
           console.log('Everything works /signin');
         } else {
           console.log('A user was found, but the password did not match. /signin');
+          res.sendStatus(400);
           // res.redirect('/login');
         }
       });
