@@ -14,6 +14,7 @@ angular.module('main-app')
     this.user.watched = this.intendedUser.data.watched;
 
     // Creates the reccomendations
+    //please dont hate me for this block
     this.user.watched.forEach(item => {
       if (item.isFavorite) {
         this.TMDBservice.searchById(item.imdb_id, data => {

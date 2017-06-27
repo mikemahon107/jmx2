@@ -30,25 +30,26 @@
         {{ctrl.movie.details.Ratings[2].Value}}
       </div>
     </div>
+    <div id="user-comment">
+      <div class="user-movie-comment">
+        <div class="user-critic user-critic-element">{{ctrl.user.username}} says:</div>
+        <div class="user-critic-comment user-critic-element"> "{{ctrl.movie.comment}}"</div>
+      </div>
 
-    <div class="user-movie-comment">
-      <div class="user-critic user-critic-element">{{ctrl.user.username}} says:</div>
-      <div class="user-critic-comment user-critic-element"> "{{ctrl.movie.comment}}"</div>
-    </div>
-
-    <div class="search-bar form-inline comment-search-bar">
-      <input
-        ng-model="ctrl.input"
-        class="form-control comment-element"
-        type="text"
-      />
-      <button class="btn comment-element" id="edit-button" ng-click="ctrl.handleAddCommentClick(); ctrl.input=''" onclick="return false">
-        <span>edit</span>
-      </button>
+      <div class="search-bar form-inline comment-search-bar">
+        <input
+          ng-model="ctrl.input"
+          class="form-control comment-element"
+          type="text"
+        />
+        <button class="btn comment-element" id="edit-button" ng-click="ctrl.handleAddCommentClick(); ctrl.input=''" onclick="return false">
+          <span>edit</span>
+        </button>
+      </div>
     </div>
 
     <div class="inline-block" id="user-rating">Rating: {{ctrl.movie.rating}}/10</div>
-    <div class="rating-change inline-block">
+    <div class="rating-change inline-block" id="user-rate">
       <select class="rating-change-select" ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick(); ctrl.rating=''">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -62,7 +63,7 @@
         <option value="10">10</option>
       </select>
     </div>
-    
+
     <div></div>
     <button class="btn comment-element" id="remove-button" ng-click="ctrl.handleRemoveClick()">
       <span>remove movie</span>

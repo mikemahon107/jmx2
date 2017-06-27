@@ -314,6 +314,30 @@
   display:none;
 }
 
+#menu0 #add-favorite-button {
+  display:none;
+}
+
+#menu0 #remove-favorite-button {
+  display:none;
+}
+
+#menu0 #remove-button {
+  display: none;
+}
+
+#menu0 #user-rating {
+  display: none
+}
+
+#menu0 #user-rate {
+  display: none
+}
+
+#menu0 #user-comment {
+  display: none
+}
+
 /***************/
 
 .inline-block {

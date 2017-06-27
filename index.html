@@ -34,6 +34,7 @@
   <script src="public/client/components/upcomingEntry.js"></script>
   <script src="public/client/components/authPanel.js"></script>
 
+
   <script src="public/client/components/searchResultEntry.js"></script>
 
   <script src="public/client/components/searchResultList.js"></script>
@@ -49,5 +50,20 @@
  <!--  <footer>
     <h2 id="footer">jmx2</h2>
   </footer> -->
+  <div style="display: none">
+    <script type="text/javascript" language="javascript" src="http://www.boxofficemojo.com/data/js/wknd5.php?h=myclass1&r=myclass2"></script>
+    <script> var a = document.getElementsByClassName('myclass2');
+      var movies = {};
+      for (var i = 0; i < a.length; i++) {
+        if (i % 2 === 0) {
+          var movie = a[i].textContent.slice(3)
+        } else {
+          movies[movie] = a[i].textContent
+        }
+      }
+      window.movies = movies;
+    </script>
+  </div>
+  <script src="public/client/components/boxOffice.js"></script>
 </body>
 </html>

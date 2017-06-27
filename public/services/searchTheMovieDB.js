@@ -50,8 +50,8 @@ angular.module('main-app')
         if (callback) {
           callback(response.data);
         }
-      }, function errorCallback(response) {
-        console.log('Error')
+      }, function errorCallback() {
+        console.log('Error in getRecommendations')
       });
     }
 });
