@@ -1,7 +1,7 @@
 // this service is mostly used to retrieve useful infos about movies
 angular.module('main-app')
-.service('searchOMDB', function($http){
-  var API_KEYS = 'e30180a3';
+.service('searchOMDB', function($http, $window){
+  var API_KEYS = $window.OMDB_key;
   //this function make the url for the request
   var makeQueryString = function(url, params) {
     var paramsArray = []

@@ -6,8 +6,8 @@
 
 
 angular.module('main-app')
-.service('searchTheMovieDB', function($http) {
-  var API_KEYS = '4d3017fc8de9100e02bc619b7791f472'
+.service('searchTheMovieDB', function($http, $window) {
+  var API_KEYS = $window.theMovieDB_key
 
   // this is used to query search
   this.search = function(query, callback) {
