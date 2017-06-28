@@ -71,7 +71,7 @@ input {
 .ugly-button {
   border: none;
   background-image: none;
-  background-color: #d6d7d8;
+  /*background-color: #d6d7d8;*/
   font-size: 13px;
   padding: 4px;
   outline: 0;
@@ -257,6 +257,10 @@ input {
   box-shadow: none;
 }
 
+button {
+  background-color: #666;
+}
+
 .ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
   background-image: none;
   outline: none;
@@ -273,26 +277,21 @@ input {
 }
 
 #remove-button {
-  background-color: #d6d7d8;
   margin-top: 15px;
 }
 
 #edit-button {
-  background-color: #d6d7d8;
 }
 
 #favorite-button {
-  background-color: #d6d7d8;
   margin-bottom: 10px;
 }
 
 #remove-favorite-button {
-  background-color: #d6d7d8;
   margin-top: 15px;
 }
 
 #add-favorite-button {
-  background-color: #d6d7d8;
   vertical-align: 4px;
 }
 
@@ -313,7 +312,7 @@ input {
 }
 
 .nav-tabs li a:hover {
-  background-color: #444;
+  background-color: transparent;
   color: inherit;
   border-bottom-color: transparent;
 }
