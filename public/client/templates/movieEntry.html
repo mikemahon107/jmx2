@@ -14,12 +14,15 @@
       <div class="genre movie-subhead">{{ctrl.movie.details.Genre}}</div>
       <div class="movie-staff">Director: {{ctrl.movie.details.Director}}</div>
       <div class="movie-staff">Cast: {{ctrl.movie.details.Actors}}</div>
-      <div class="weekend-earnings">Weekend Earnings: {{ctrl.movie.weekend_earnings}}</div>
+      <div class="earnings-release">Release Date: {{ctrl.movie.details.Released}}</div>
+      <div class="earnings-release">Weekend Earnings: {{ctrl.movie.weekend_earnings}}</div>
     </div>
 
     <div class="movie-critic-info">
       <div class="critic-element">
-        <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
+        <a ng-href="http://www.imdb.com/title/{{ctrl.movie.imdb_id}}">
+          <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
+        </a>
         {{ctrl.movie.details.Ratings_Obj["Internet Movie Database"]}}
       </div>
       <div class="critic-element">
