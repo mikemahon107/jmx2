@@ -6,9 +6,24 @@ angular.module('main-app')
     },
     restrict: 'E',
     controller: function() {
-      this.showWriteReview = true;
+      this.review = ''
+      this.showWriteReview = false;
+      this.writeHideReview = "Write Review";
       this.writeReviewClick = function() {
         this.showWriteReview = !this.showWriteReview;
+        if (this.showWriteReview) {
+          this.writeHideReview = "Hide Review";
+        } else {
+          this.writeHideReview = "Write Review";
+        }
+      }
+
+      this.handleTextChange = function(item) {
+        this.review = item
+      }
+
+      this.handleSubmit = function() {
+        console.log('this.review: ', this.review)
       }
     },
     controllerAs: 'ctrl',
