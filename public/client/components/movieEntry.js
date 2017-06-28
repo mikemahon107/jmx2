@@ -12,10 +12,15 @@ angular.module('main-app')
         this.OMDBService = searchOMDB;
         this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
           this.movie.details = data;
+          console.log('OMBD data: ', data)
           this.movie.details.Poster === "N/A" || !this.movie.details.Poster ? this.movie.details.Poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : this.movie.details.Poster
+          this.movie.details.Ratings_Obj = {}
+          for (var rating of data.Ratings) {
+            this.movie.details.Ratings_Obj[rating.Source] = rating.Value
+          }
         });
       };
-      
+
 
       this.handleAddToFavorites = function() {
         var idList = this.user.watched.map((x) => x.imdb_id);

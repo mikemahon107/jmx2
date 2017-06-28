@@ -294,6 +294,18 @@
 
 /****** deals with hiding NON-FAVORITES and correspoding buttons ******/
 
+/*:not(.box-office) .weekend-earnings {
+  display: none;
+}*/
+
+#menu1 .weekend-earnings {
+  display: none;
+}
+
+#menu2 .weekend-earnings {
+  display: none;
+}
+
 #menu1 .favorite #add-favorite-button {
   display:none;
 }
