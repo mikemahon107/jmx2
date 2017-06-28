@@ -26,7 +26,7 @@
   <div class="tab-content">
     <div id="menu0" class="tab-pane fade in active">
       <div id="box-office">
-        <box-office user="ctrl.user"/>
+        <box-office user="ctrl.user" handle-title-click="ctrl.handleTitleClick"/>
       </div>
     </div>
     <div id="menu1" class="tab-pane fade">
@@ -36,14 +36,14 @@
     </div>
     <div id="menu2" class="tab-pane fade">
       <div id="favorites-list">
-        <movie-list movies="ctrl.user.watched" user="ctrl.user"/>
+        <movie-list movies="ctrl.user.watched" user="ctrl.user" handle-title-click="ctrl.handleTitleClick"/>
       </div>
     </div>
     <div id="menu3" class="tab-pane fade">
-      <rec-list movies="ctrl.recommendations" user="ctrl.user"/>
+      <rec-list movies="ctrl.recommendations" user="ctrl.user" handle-title-click="ctrl.handleTitleClick"/>
     </div>
     <div id="menu4" class="tab-pane fade">
-      <upcoming-list />
+      <upcoming-list handle-title-click="ctrl.handleTitleClick"/>
     </div>
     <div id="menu5" class="tab-pane fade">
       <video-player video="ctrl.video"/>

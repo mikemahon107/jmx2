@@ -52,7 +52,8 @@ angular.module('main-app')
 .directive('boxOffice', function() {
   return {
     scope: {
-      user: '<'
+      user: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: 'BoxOfficeCtrl',
