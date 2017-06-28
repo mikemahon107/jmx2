@@ -21,9 +21,6 @@ angular.module('main-app')
           title = title.toLowerCase().replace(':','').replace(')','').replace('(','').replace('.','').replace("'",'').replace("'",'').split(' ');
           this.movie.rotten_id = title.join('_');
           this.movie.meta_id = title.join('-');
-          console.log('rottenID: ', this.movie.rotten_id);
-          console.log('metaID: ', this.movie.meta_id);
-          console.log('title arr: ', title);
         });
       };
 

@@ -179,6 +179,12 @@
   padding-bottom: 7px;
 }
 
+#menu0 .movie-entry-info {
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 7px;
+}
+
 .movie-entry-title {
   font-size: 20px;
   margin-right: 15px;
