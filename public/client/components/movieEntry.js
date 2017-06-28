@@ -4,7 +4,8 @@ angular.module('main-app')
   return {
     scope: {
       movie: '<',
-      user: '<'
+      user: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: function(searchOMDB, $http) {
@@ -68,8 +69,6 @@ angular.module('main-app')
           });
         });
       };
-
-
 
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
