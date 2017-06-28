@@ -14,20 +14,21 @@
       <div class="genre movie-subhead">{{ctrl.movie.details.Genre}}</div>
       <div class="movie-staff">Director: {{ctrl.movie.details.Director}}</div>
       <div class="movie-staff">Cast: {{ctrl.movie.details.Actors}}</div>
+      <div class="weekend-earnings">Weekend Earnings: {{ctrl.movie.weekend_earnings}}</div>
     </div>
 
     <div class="movie-critic-info">
       <div class="critic-element">
         <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
-        {{ctrl.movie.details.Ratings[0].Value}}
+        {{ctrl.movie.details.Ratings_Obj["Internet Movie Database"]}}
       </div>
       <div class="critic-element">
         <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
-        {{ctrl.movie.details.Ratings[1].Value}}
+        {{ctrl.movie.details.Ratings_Obj["Rotten Tomatoes"]}}
       </div>
       <div class="critic-element">
         <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
-        {{ctrl.movie.details.Ratings[2].Value}}
+        {{ctrl.movie.details.Ratings_Obj["Metacritic"]}}
       </div>
     </div>
     <div id="user-comment">
