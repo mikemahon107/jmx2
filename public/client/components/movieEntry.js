@@ -68,16 +68,11 @@ angular.module('main-app')
         });
       };
 
-<<<<<<< HEAD
-=======
       this.handleTitleClick = function() {
         console.log('clickedit',this.movie)
         $('#menu5').addClass('in active');
       }
 
-
-
->>>>>>> Add movie view
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
       //     $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
