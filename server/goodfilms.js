@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var config = require('../db/config');
 var accounts = require('../db/helpers/account');
+var reviews = require('../db/helpers/review');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
@@ -105,6 +106,14 @@ app.post('/addComment', function (req, res) {
   var comment = req.body.comment;
 
   accounts.addCommentToWatchedMovie(user, imdb_id, comment);
+  res.sendStatus(200);
+});
+
+app.post('/addReview', function (req, res) {
+  var imdb_id = req.body.imdb_id
+  var review = req.body.review;
+  // review should be an object {user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED'}
+  reviews.insertReview(imdb_id, review);
   res.sendStatus(200);
 });
 
