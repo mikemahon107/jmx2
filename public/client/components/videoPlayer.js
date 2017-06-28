@@ -1,9 +1,7 @@
 angular.module('main-app')
 
 .controller('VideoPlayerController', function() {
-
-  //ASYNC PROBLEM HERE!! Fix it!!
-
+  
   this.videoUrl = () => {
     return this.video ? `https://www.youtube.com/embed/${this.video.id.videoId}` : '';
   };
