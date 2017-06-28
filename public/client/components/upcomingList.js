@@ -8,7 +8,9 @@ angular.module('main-app')
 })
 .directive('upcomingList', function() {
   return {
-    scope: {},
+    scope: {
+      handleTitleClick: '<'
+    },
     restrict: 'E',
     controller: 'upcomingController',
     controllerAs: 'ctrl',

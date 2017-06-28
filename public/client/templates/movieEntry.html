@@ -1,6 +1,6 @@
 <div class="movie-entry">
 
-  <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.details.Poster}}">
+  <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.details.Poster}}" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)">
 
   <div class="movie-entry-info">
     <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)">{{ctrl.movie.details.Title || 'N/A'}}</h4>

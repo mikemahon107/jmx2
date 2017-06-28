@@ -3,7 +3,8 @@ angular.module('main-app')
 .directive('upcomingEntry', function() {
   return {
     scope: {
-      movie: '<'
+      movie: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: function() {

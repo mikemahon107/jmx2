@@ -3,7 +3,8 @@ angular.module('main-app')
   return {
     scope: {
       movies: '<',
-      user: '<'
+      user: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: function() {
