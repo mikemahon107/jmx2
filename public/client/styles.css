@@ -306,6 +306,34 @@ input {
   width: 125px;
 }
 
+.nav-tabs li a {
+  background-color: inherit;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li a:hover {
+  background-color: #444;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li.active a {
+  background-color: #444;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li.active a:hover {
+  background-color: #444;
+  color: inherit;
+}
+
+.nav-tabs li.active a:focus {
+  background-color: #444;
+  color: inherit;
+}
+
 /****** deals with hiding NON-FAVORITES and correspoding buttons ******/
 
 /*:not(.box-office) .weekend-earnings {
@@ -382,4 +410,8 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+textarea {
+  color: #222;
 }
