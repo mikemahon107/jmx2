@@ -4,7 +4,6 @@ angular.module('main-app')
   this.results = []
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
-  console.log("$window.weekendBoxOffice", $window.weekendBoxOffice)
   this.weekend = $window.weekendBoxOffice;
 
   this.searchMovies = (searchStr, earnings) => {
@@ -26,10 +25,8 @@ angular.module('main-app')
           }
         })
         var result = data.results[0];
-        console.log('result: ', result)
         result.weekend_earnings = earnings;
         this.TMDBservice.searchById(result.id, (data) => {
-          console.log('data: ', searchStr, data)
           result.imdb_id = data.imdb_id
           this.results.push(result);
         })
@@ -50,7 +47,6 @@ angular.module('main-app')
     }
   })
 
-  console.log('this.results: ', this.results);
 
 })
 .directive('boxOffice', function() {

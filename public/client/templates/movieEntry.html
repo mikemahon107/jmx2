@@ -26,11 +26,15 @@
         {{ctrl.movie.details.Ratings_Obj["Internet Movie Database"]}}
       </div>
       <div class="critic-element">
-        <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
+        <a ng-href="https://www.rottentomatoes.com/m/{{ctrl.movie.rotten_id}}">
+          <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
+        </a>
         {{ctrl.movie.details.Ratings_Obj["Rotten Tomatoes"]}}
       </div>
       <div class="critic-element">
-        <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
+        <a ng-href="http://www.metacritic.com/movie/{{ctrl.movie.meta_id}}">
+          <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
+        </a>
         {{ctrl.movie.details.Ratings_Obj["Metacritic"]}}
       </div>
     </div>
