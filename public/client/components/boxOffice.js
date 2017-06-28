@@ -29,6 +29,18 @@ angular.module('main-app')
         this.TMDBservice.searchById(result.id, (data) => {
           result.imdb_id = data.imdb_id
           this.results.push(result);
+          // make sure results are always sorted desceding by weekend earnings
+          this.results.sort(function(a, b) {
+            var intA = Number(a.weekend_earnings.replace('$', '').replace('M', ''))
+            var intB = Number(b.weekend_earnings.replace('$', '').replace('M', ''))
+            if (intA < intB) {
+              return 1
+            } else if (intA > intB){
+              return -1
+            } else {
+              return 0
+            }
+          })
         })
       }
     });

@@ -10,6 +10,10 @@
   background-color: #f9ac04;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 .main-header-text {
   color: white;
   font-size: 45px;

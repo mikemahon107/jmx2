@@ -1,12 +1,16 @@
-<div ng-click="ctrl.writeReviewClick()">Write Review</div>
-<form ng-if="ctrl.showWriteReview">
+<br />
+<br />
+<a ng-click="ctrl.writeReviewClick()">{{ctrl.writeHideReview}}</a>
+<form ng-show="ctrl.showWriteReview">
   <fieldset>
     <p style="">
-      <label> Your Review: </label>
       <br />
-      <textarea ng-model="item.selected" ng-change="ctrl.handleDescChange(item.selected)" style="" id = "myTextArea"
+      <label > Your Review: </label>
+      <br />
+      <textarea ng-model="item.selected" ng-change="ctrl.handleTextChange(item.selected)" id = "myTextArea"
               rows = "8"
               cols = "80"></textarea>
+      <button ng-click='ctrl.handleSubmit()'>Submit Review</button>
     </p>
   </fieldset>
 </form>
