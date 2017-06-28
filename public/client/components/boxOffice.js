@@ -4,6 +4,8 @@ angular.module('main-app')
   this.results = []
   this.TMDBservice = searchTheMovieDB;
   this.OMDBService = searchOMDB;
+  console.log("$window.weekendBoxOffice", $window.weekendBoxOffice)
+  this.weekend = $window.weekendBoxOffice;
 
   this.searchMovies = (searchStr, earnings) => {
     this.TMDBservice.search(searchStr, (data) => {
