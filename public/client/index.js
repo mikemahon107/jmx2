@@ -1,24 +1,29 @@
 angular.module('main-app', ['ngRoute'])
 
-.config(function ($locationProvider, $routeProvider) {
+.config(function ($locationProvider, $routeProvider, $sceDelegateProvider) {
 
-    $routeProvider
-        .when('/user', {
-            controller: 'MainCtrl',
-            templateUrl: 'public/client/templates/app.html',
-            controllerAs: 'ctrl'
-            // hideMenus: true
-        })
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'self',
+    'https://www.youtube.com/**'
+  ]);
 
-        .when('/', {
-            controller: 'AuthPanelCtrl',
-            templateUrl: 'public/client/templates/authPanel.html',
-            controllerAs: 'ctrl'
-        })
+  $routeProvider
+      .when('/user', {
+          controller: 'MainCtrl',
+          templateUrl: 'public/client/templates/app.html',
+          controllerAs: 'ctrl'
+          // hideMenus: true
+      })
 
-        .otherwise({ redirectTo: '/' });
+      .when('/', {
+          controller: 'AuthPanelCtrl',
+          templateUrl: 'public/client/templates/authPanel.html',
+          controllerAs: 'ctrl'
+      })
 
-    $locationProvider.html5Mode(true);
+      .otherwise({ redirectTo: '/' });
+
+  $locationProvider.html5Mode(true);
 })
 .run(function($rootScope, $location, $http) {
   // console.log('hello guys!!!', $rootScope);
@@ -43,6 +48,6 @@ angular.module('main-app', ['ngRoute'])
       //     // not going to #login, we should redirect now
       //     $location.path( "/login" );
       //   }
-      // }         
+      // }
     });
  })

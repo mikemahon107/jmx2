@@ -1,6 +1,7 @@
 angular.module('main-app')
 
-.controller('MainCtrl', function(searchTheMovieDB, searchOMDB, $http) {
+.controller('MainCtrl', function(searchTheMovieDB, searchOMDB, $http, youTube) {
+
   this.user = {};
   this.recommendations = [];
   this.TMDBservice = searchTheMovieDB;
@@ -32,6 +33,18 @@ angular.module('main-app')
     });
   });
   this.recommendations = this.recommendations.filter((item, i, arr) => item !== arr[i + 1])
+
+  // set trailer for video player on details view
+
+  this.searchResults = (data) => {
+    this.video = data[0];
+  }
+
+  // need to write a handleTitleClick function that will swap out the query string based on click
+
+  youTube.search('wonder woman trailer', this.searchResults);
+
+
 })
 .directive('app', function() { // directive name is the HTML tag name REMEMBER THIS
   return {
