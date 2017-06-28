@@ -1,7 +1,7 @@
 angular.module('main-app')
 
 .service('youTube', function($http, $window) {
-  // query should be `${movie title} trailer`
+  // query should be `${movie title} trailer -- passed in via handleTitleClick function`
   this.search = function(query, callback) {
     $http.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
@@ -18,6 +18,7 @@ angular.module('main-app')
       if (callback) {
         // should only return the top response from the youtube API
         // this will be rendered in the video player in the movie detail view
+        console.log('TRAILER DATA', data)
         callback(data.items);
       }
     })
