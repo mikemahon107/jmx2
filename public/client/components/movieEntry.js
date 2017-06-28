@@ -68,11 +68,6 @@ angular.module('main-app')
         });
       };
 
-      this.handleTitleClick = function() {
-        console.log('clickedit',this.movie)
-        $('#menu5').addClass('in active');
-      }
-
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
       //     $http.post('/addMovie', {user: this.user.username, movieTitle: this.movie.title, year: this.movie.release_date.split('-')[0]}).then(() => {
