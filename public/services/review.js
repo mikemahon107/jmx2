@@ -27,7 +27,6 @@ angular.module('main-app')
       params: {imdb_id: imdb_id}
     }).then(function successCallback(response) {
       if (callback) {
-        callback('success', response);
         callback(response);
       }
     }, function errorCallback(response) {

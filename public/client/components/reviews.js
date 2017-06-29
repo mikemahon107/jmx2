@@ -3,6 +3,7 @@ angular.module('main-app')
 .directive('reviews', function() {
   return {
     scope: {
+      user: '<'
     },
     restrict: 'E',
     controller: function() {
@@ -19,31 +20,37 @@ angular.module('main-app')
         }
       }
 
-      this.handleTextChange = function(item) {
+      this.getReviews = function() {
+        review.getReviews(imdb_id, function(response) {
+          console.log('response in reviews.js get reviews: ', response)
+        })
+      }
+
+      this.handleTextChange = function(item, review) {
         this.writtenReview = item
       }
 
-      var date = new Date();
       console.log('date: ', date)
       console.log('Date: ', typeof date)
 
       // dummy data
-      this.reviews = [{user: 'mike', rating: '8', date: 'Thu Jun 29 2017 14:27:12 GMT-0500 (CDT)', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blah.'}]
+      this.reviews = [{imdb_id: '1', user: 'mike', rating: '8', date: 'Thu Jun 29 2017 14:27:12 GMT-0500 (CDT)', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blah.'}, {imdb_id: '1', user: 'mike', rating: '8', date: 'Thu Jun 29 2017 14:27:12 GMT-0500 (CDT)', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah\
+       blahblah blah blah blah \
+       blablahblah blah blah.'}]
 
       this.handleSubmit = function() {
+        var date = new Date();
         console.log('this.writtenReview: ', this.writtenReview)
+        var newReview = {imdb_id: '1', user: this.user.username, text: this.writtenReview, date: date.toString(), rating: this.rating, score: this.score, upvotes: [], downvotes[]};
+        review.postReview(newReview, function(response) {
+          console.log('response: ', response)
+          this.reviews.push(newReview);
+        })
       }
+
 
       this.handleRatingClick = function(rating) {
         console.log('this.rating: ', this.rating)
-        // var idList = this.user.watched.map((x) => x.imdb_id);
-        // var i = idList.indexOf(this.movie.imdb_id);
-
-        // $http.post('/editRating', {user: this.user.username, imdb_id: this.movie.imdb_id, rating: this.rating}).then(() => {
-        //   $http.get('/sess').then((session) => {
-        //     this.user.watched[i].rating = session.data.watched[i].rating;
-        //   });
-        // });
       };
     },
     controllerAs: 'ctrl',
