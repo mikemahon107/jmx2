@@ -126,13 +126,6 @@ app.get('/reviews', function(req, res) {
     console.log(movie);
     res.send(movie.reviews); // should send reviews array
   });
-  // reviews.findAll(function(err, res) {
-  //   if (err) {
-  //     console.log(err)
-  //   }
-  //   console.log('RES', res);
-  //   res.sendStatus(200);
-  // })
 });
 
 app.post('/removeFromWatched', function (req, res) {
