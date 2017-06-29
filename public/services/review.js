@@ -7,7 +7,7 @@ angular.module('main-app')
       url: 'http://localhost:3000/addReview',
       method: 'POST',
       dataType: 'json',
-      data: body, // should be an object structured like this: {id: 'UNIQUE ID', user: 'INSERT USERNAME HERE', text: 'INSERT TEXT HERE', score: 'SCORE', date: 'POSTED', rating: 'RATING'}
+      data: body, // should be an object structured like this: {user: 'INSERT USERNAME HERE', text: 'INSERT TEXT HERE', score: SCORE, votes: {username: +1 or -1}, date: 'POSTED', rating: 'RATING'}
     }).then(function successCallback(response) {
       if (callback) {
         console.log('success', response);
@@ -33,4 +33,21 @@ angular.module('main-app')
       console.log('error', response);
     });
   };
+
+// this needs to be changed
+  this.updateScore = function(body, callback) {
+    $http({
+      url: 'http://localhost:3000/updateScore',
+      method: 'POST',
+      dataType: 'json',
+      data: body, // this should include the imdb_id, the user within the review object, the vote value and index
+    }).then(function successCallback(response) {
+      if (callback) {
+        console.log('success', response);
+        callback(response);
+      }
+    }, function errorCallback(response) {
+      console.log('error', response);
+      callback(response);
+    });
 });
