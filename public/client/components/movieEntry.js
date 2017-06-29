@@ -54,7 +54,7 @@ angular.module('main-app')
       this.handleRatingClick = function(rating) {
         var idList = this.user.watched.map((x) => x.imdb_id);
         var i = idList.indexOf(this.movie.imdb_id);
-
+        
         $http.post('/editRating', {user: this.user.username, imdb_id: this.movie.imdb_id, rating: this.rating}).then(() => {
           $http.get('/sess').then((session) => {
             this.user.watched[i].rating = session.data.watched[i].rating;
