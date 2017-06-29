@@ -20,9 +20,21 @@ function insertReview(imdb_id, review) {
       console.log('ERROR', err)
       throw err;
     };
-    console.log('MOVIE', movie) // WHY IS THIS null????
-    movie.reviews.unshift(review);
-    movie.save();
+    if (movie) {
+      console.log('FOUND MOVIE')
+      movie.reviews.unshift(review);
+      movie.save();
+    } else {
+      //create entry with review
+      Review.create({'imdb_id':imdb_id, 'reviews': review}, (err, movie) => {
+        if (err) {
+          console.log('error!!', err)
+        } else {
+          // saved!
+          console.log("saved!")
+        }
+      });
+    }
   });
 };
 
