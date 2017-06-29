@@ -88,7 +88,7 @@ app.post('/addMovie', function (req, res) {
   var imdb_id = req.body.imdb_id;
 
   accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'N/A'});
-  res.sendStatus(200);
+  res.sendStatus(201);
 
 });
 
@@ -97,7 +97,7 @@ app.post('/addFavorite', function(req, res) {
   var movie = req.body.movie;
 
   accounts.toggleMovieFavorite(user, movie);
-  res.sendStatus(200);
+  res.sendStatus(201);
 });
 
 app.post('/addComment', function (req, res) {
@@ -106,26 +106,40 @@ app.post('/addComment', function (req, res) {
   var comment = req.body.comment;
 
   accounts.addCommentToWatchedMovie(user, imdb_id, comment);
-  res.sendStatus(200);
+  res.sendStatus(201);
 });
 
 app.post('/addReview', function (req, res) {
-  var imdb_id = req.body[0].imdb_id
-  var review = req.body[0].review;
-  console.log('REQ.BODY', req.body);
-  console.log('imdb_id in server', imdb_id)
-  console.log('review in server', review)
+  console.log('REQ.BODY', req.body)
+  // var imdb_id = req.body[0].imdb_id
+  // var review = req.body[0].review;
+  // console.log('REQ.BODY', req.body);
+  // console.log('imdb_id in server', imdb_id)
+  // console.log('review in server', review)
   // review should be an object {id: 'UNIQUE ID', user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED', rating: 'RATING'}
-  reviews.insertReview(imdb_id, review);
-  res.sendStatus(200);
+  reviews.insertReview(req.body);
+  res.sendStatus(201);
 });
 
 app.get('/reviews', function(req, res) {
   console.log('req.query', req.query)
-  reviews.findOne(req.query.imdb_id, (err, movie) => {
-    console.log(movie);
-    res.send(movie.reviews); // should send reviews array
-  });
+  // reviews.findOne(req.query.imdb_id, (err, movie) => {
+  //   console.log(movie);
+  //   res.send(movie.reviews); // should send reviews array
+  // });
+  reviews.findAll(req.query.imdb_id, (err, movie) => {
+    console.log('MOVIE', movie);
+    res.send(movie);
+  })
+});
+
+app.post('/updateScore', function(req, res) {
+  var imdb_id = req.body[0].imdb_id;
+  var user = req.body[0].user; // user from review object
+  var vote = req.body[0].vote; // the value of the vote - either +1, 0 or -1
+  var index = req.body[0].index; // index value within array
+  // call mongoose method here for updating score
+  res.sendStatus(201);
 });
 
 app.post('/removeFromWatched', function (req, res) {
