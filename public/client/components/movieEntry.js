@@ -12,6 +12,7 @@ angular.module('main-app')
       this.$onInit = function() {
         this.OMDBService = searchOMDB;
         this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
+          console.log('IMDB ID', this.movie.imdb_id)
           this.movie.details = data;
           this.movie.details.Poster === "N/A" || !this.movie.details.Poster ? this.movie.details.Poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png' : this.movie.details.Poster
           this.movie.details.Ratings_Obj = {}
@@ -28,6 +29,7 @@ angular.module('main-app')
       this.handleAddToFavorites = function() {
         var idList = this.user.watched.map((x) => x.imdb_id);
         var i = idList.indexOf(this.movie.imdb_id);
+        console.log('IMDB ID LIST', idList)
 
         $http.post('/addFavorite', {user: this.user.username,
         movie: this.user.watched[idList.indexOf(this.movie.imdb_id)]}).then(() => {
@@ -67,11 +69,6 @@ angular.module('main-app')
           });
         });
       };
-
-      this.handleTitleClick = function() {
-        console.log('clickedit',this.movie)
-        $('#menu5').addClass('in active');
-      }
 
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {

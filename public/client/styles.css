@@ -54,7 +54,7 @@ a:hover {
 #logout-button {
   margin-top: 30px;
   float: right;
-  background-color: grey;
+  /*background-color: grey;*/
   display: inline-block;
 }
 
@@ -71,7 +71,7 @@ input {
 .ugly-button {
   border: none;
   background-image: none;
-  background-color: #d6d7d8;
+  /*background-color: #d6d7d8;*/
   font-size: 13px;
   padding: 4px;
   outline: 0;
@@ -257,6 +257,10 @@ input {
   box-shadow: none;
 }
 
+button {
+  background-color: #666;
+}
+
 .ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
   background-image: none;
   outline: none;
@@ -273,26 +277,21 @@ input {
 }
 
 #remove-button {
-  background-color: #d6d7d8;
   margin-top: 15px;
 }
 
 #edit-button {
-  background-color: #d6d7d8;
 }
 
 #favorite-button {
-  background-color: #d6d7d8;
   margin-bottom: 10px;
 }
 
 #remove-favorite-button {
-  background-color: #d6d7d8;
   margin-top: 15px;
 }
 
 #add-favorite-button {
-  background-color: #d6d7d8;
   vertical-align: 4px;
 }
 
@@ -304,6 +303,34 @@ input {
 
 .upcoming-poster {
   width: 125px;
+}
+
+.nav-tabs li a {
+  background-color: inherit;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li a:hover {
+  background-color: transparent;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li.active a {
+  background-color: #444;
+  color: inherit;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs li.active a:hover {
+  background-color: #444;
+  color: inherit;
+}
+
+.nav-tabs li.active a:focus {
+  background-color: #444;
+  color: inherit;
 }
 
 /****** deals with hiding NON-FAVORITES and correspoding buttons ******/
@@ -384,9 +411,14 @@ html {
     height: 100%;
 }
 
+
 .review-entry {
   margin-top: 10px;
   margin-right: 10px;
   margin-bottom: 5px;
   margin-left: 10px;
+}
+
+textarea {
+  color: #222;
 }
