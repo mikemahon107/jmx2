@@ -110,18 +110,29 @@ app.post('/addComment', function (req, res) {
 });
 
 app.post('/addReview', function (req, res) {
-  var imdb_id = req.body.imdb_id
-  var review = req.body.review;
+  var imdb_id = req.body[0].imdb_id
+  var review = req.body[0].review;
   console.log('REQ.BODY', req.body);
+  console.log('imdb_id in server', imdb_id)
+  console.log('review in server', review)
   // review should be an object {id: 'UNIQUE ID', user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED', rating: 'RATING'}
   reviews.insertReview(imdb_id, review);
   res.sendStatus(200);
 });
 
 app.get('/reviews', function(req, res) {
+  console.log('req.query', req.query)
   reviews.findOne(req.query.imdb_id, (err, movie) => {
+    console.log(movie);
     res.send(movie.reviews); // should send reviews array
   });
+  // reviews.findAll(function(err, res) {
+  //   if (err) {
+  //     console.log(err)
+  //   }
+  //   console.log('RES', res);
+  //   res.sendStatus(200);
+  // })
 });
 
 app.post('/removeFromWatched', function (req, res) {
