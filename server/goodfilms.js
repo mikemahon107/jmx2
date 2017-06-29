@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var config = require('../db/config');
 var accounts = require('../db/helpers/account');
-var reviews = require('../db/helpers/review');
+var reviews = require('../db/helpers/review.js');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
@@ -112,9 +112,16 @@ app.post('/addComment', function (req, res) {
 app.post('/addReview', function (req, res) {
   var imdb_id = req.body.imdb_id
   var review = req.body.review;
-  // review should be an object {user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED'}
+  console.log('REQ.BODY', req.body);
+  // review should be an object {id: 'UNIQUE ID', user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED', rating: 'RATING'}
   reviews.insertReview(imdb_id, review);
   res.sendStatus(200);
+});
+
+app.get('/reviews', function(req, res) {
+  reviews.findOne(req.query.imdb_id, (err, movie) => {
+    res.send(movie.reviews); // should send reviews array
+  });
 });
 
 app.post('/removeFromWatched', function (req, res) {
