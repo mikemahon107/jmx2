@@ -1,9 +1,10 @@
 <br />
 <br />
+<div style='border-bottom: 1px solid white;'>
 <a ng-click="ctrl.writeReviewClick()">{{ctrl.writeHideReview}}</a>
 <form ng-show="ctrl.showWriteReview">
   <fieldset>
-    <p style="">
+    <p >
       <br />
       <label > Your Review: </label>
       <br />
@@ -14,3 +15,6 @@
     </p>
   </fieldset>
 </form>
+</div>
+<h1>Reviews: </h1>
+<review-entry ng-repeat='review in ctrl.reviews' review='review'/>

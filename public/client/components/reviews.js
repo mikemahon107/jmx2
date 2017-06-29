@@ -6,7 +6,7 @@ angular.module('main-app')
     },
     restrict: 'E',
     controller: function() {
-      this.review = ''
+      this.writtenReview = '';
       this.showWriteReview = false;
       this.writeHideReview = "Write Review";
       this.writeReviewClick = function() {
@@ -19,11 +19,14 @@ angular.module('main-app')
       }
 
       this.handleTextChange = function(item) {
-        this.review = item
+        this.writtenReview = item
       }
 
+      // dummy data
+      this.reviews = [{user: 'mike', rating: 8, date: '2012-06-30', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blah.'}]
+
       this.handleSubmit = function() {
-        console.log('this.review: ', this.review)
+        console.log('this.writtenReview: ', this.writtenReview)
       }
     },
     controllerAs: 'ctrl',
