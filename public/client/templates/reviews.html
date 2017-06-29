@@ -8,6 +8,25 @@
       <br />
       <label > Your Review: </label>
       <br />
+      <div>
+      <label >Rating: <span  id="user-rate">
+        <select style="color: black;" class="rating-change-select" value="ctrl.rating" ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick();">
+          <option value="-">-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </span>
+      </label>
+    </div>
+    </label>
       <textarea ng-model="item.selected" ng-change="ctrl.handleTextChange(item.selected)" id = "myTextArea"
               rows = "8"
               cols = "80"></textarea>
