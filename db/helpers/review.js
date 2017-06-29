@@ -21,8 +21,8 @@ function insertReview(imdb_id, review) {
       throw err;
     };
     console.log('MOVIE', movie) // WHY IS THIS null????
-    // movie.reviews.unshift(review);
-    // movie.save();
+    movie.reviews.unshift(review);
+    movie.save();
   });
 };
 
