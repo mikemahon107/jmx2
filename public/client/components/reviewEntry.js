@@ -3,10 +3,12 @@ angular.module('main-app')
 .directive('reviewEntry', function() {
   return {
     scope: {
-      review: '='
+      review: '=',
+      index: '<'
     },
     restrict: 'E',
-    controller: function() {
+    controller: function($scope) {
+      console.log('$scope.$parent.$index: ', $scope.$parent.$index)
       this.$onInit = () => {
         this.text = this.review.text.slice(0,100).concat('...');
         this.getTimeDiff()
