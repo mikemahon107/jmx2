@@ -8,6 +8,8 @@ angular.module('main-app')
     },
     restrict: 'E',
     controller: function(review) {
+      this.reviews = [];
+      this.filter = '0';
       this.rating = '-'
       this.writtenReview = '';
       this.showWriteReview = false;
@@ -25,6 +27,8 @@ angular.module('main-app')
         // change '1' once in movie view to imdb_id
         review.getReviews('1', (response) => {
           this.reviews = response.data;
+          this.filterBy();
+          console.log('this.reviews: ', this.reviews)
         })
       }
 
@@ -46,6 +50,46 @@ angular.module('main-app')
           })
         }
       }
+
+      this.filterBy = function() {
+        if (this.filter === '0') {
+          this.reviews.sort((a, b) => {
+            if (b.score > a.score) {
+              return 1;
+            } else if (b.score < a.score) {
+              return -1
+            } else {
+              return 0
+            }
+          })
+        } else if (this.filter === '1') {
+          this.reviews.sort((a, b) => {
+            var aa = new Date(a.date)
+            var bb = new Date(b.date)
+            if (bb > aa) {
+              return 1
+            } else if (bb < aa) {
+              return -1
+            } else {
+              return 0
+            }
+          })
+        } else if (this.filter === '2') {
+            this.reviews.sort((a, b) => {
+            var aa = new Date(a.date)
+            var bb = new Date(b.date)
+            if (bb > aa) {
+              return -1
+            } else if (bb < aa) {
+              return 1;
+            } else {
+              return 0
+            }
+          });
+        }
+      }
+
+
 
     },
     controllerAs: 'ctrl',
