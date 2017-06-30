@@ -3,7 +3,15 @@ angular.module('main-app')
   this.movies = []
   this.OMDBService = searchOMDB
   $http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=4d3017fc8de9100e02bc619b7791f472&language=en-US&page=1').then((data) => {
-    this.movies = data.data.results;
+    // this.movies = data.data.results;
+    var now = new Date();
+    var release;
+    for (var movie of data.data.results) {
+      release = new Date(movie.release_date)
+      if (release > now) {
+        this.movies.push(movie)
+      }
+    }
   })
 })
 .directive('upcomingList', function() {
