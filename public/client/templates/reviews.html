@@ -36,4 +36,14 @@
 </form>
 </div>
 <h1>Reviews: </h1>
-<review-entry ng-repeat='review in ctrl.reviews' index='$index' user='ctrl.user' review='review'/>
+<div>
+  <label >Filter By: <span  id="review-fliter">
+    <select style="color: black;" class="rating-change-select" value="ctrl.filter" ng-model="ctrl.filter" ng-change="ctrl.filterBy()" name="carlist" form="carform" >
+      <option value="0">score</option>
+      <option value="1">new</option>
+      <option value="2">old</option>
+    </select>
+  </span>
+  </label>
+</div>
+<review-entry ng-repeat='review in ctrl.reviews' user='ctrl.user' review='review'/>

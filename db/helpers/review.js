@@ -26,111 +26,83 @@ function insertReview(review) {
   })
 };
 
-function insertUserIntoUpvote(imdb_id, user, date, clickUser) {
+function upVote(req, res) {
   // search findOne with {user: USER, date: DATE}
   // push user into upvote array
+  var imdb_id = req.body.imdb_id;
+  var user = req.body.user;
+  var date = req.body.date;
+  var clickUser = req.body.clickUser;
+  console.log('in upVote!!!')
+
   Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
     if (err) {
       console.log('error in upvote', err);
+      res.sendStatus(400);
     } else {
       if (!review.upvotes.includes(clickUser)) {
         review.upvotes.push(clickUser)
-        review.save();
-        console.log('upvote saved!')
-      }
-    }
-  })
-}
-
-function removeUserFromUpvote(imdb_id, user, date, clickUser) {
-  // search findOne with {user: USER, date: DATE}
-  //splice user out of upvote array
-  Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
-    if (err) {
-      console.log('error in upvote', err);
-    } else {
-      for (var i = 0; i < review.upvotes.length; i++) {
-        if (review.upvotes[i] === clickUser) {
-            review.upvotes.splice(i, 1);
-            console.log('upvote removed')
-            break;
+        review.score += 1;
+        if (review.downvotes.includes(clickUser)) {
+          var i = review.downvotes.indexOf(clickUser)
+          review.downvotes.splice(i, 1)
+          review.score += 1
         }
+      } else {
+        var i = review.upvotes.indexOf(clickUser);
+        review.upvotes.splice(i, 1);
+        review.score -= 1;
       }
       review.save();
+      console.log('upvote saved!')
+      res.sendStatus(201);
     }
   })
 }
 
-function insertUserIntoDownvote(imdb_id, user, date, clickUser) {
+function downVote(req, res) {
   // search findOne with {user: USER, date: DATE}
-  //push user into downvote array
-  console.log('CLICKUSER', clickUser);
+  // push user into upvote array
+  var imdb_id = req.body.imdb_id;
+  var user = req.body.user;
+  var date = req.body.date;
+  var clickUser = req.body.clickUser;
+
   Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
     if (err) {
       console.log('error in upvote', err);
+      res.sendStatus(400);
     } else {
       if (!review.downvotes.includes(clickUser)) {
         review.downvotes.push(clickUser)
-        review.save();
-        console.log('downvotes saved!')
-      }
-    }
-  })
-}
-
-function removeUserFromDownvote(imdb_id, user, date, clickUser){
-  // search findOne with {user: USER, date: DATE}
-  //splice user out of upvote array
-  console.log('in REMOVE USER FROM DOWNVOTE')
-  Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
-    if (err) {
-      console.log('error in upvote', err);
-    } else {
-      for (var i = 0; i < review.downvotes.length; i++) {
-        if (review.downvotes[i] === clickUser) {
-            review.downvotes.splice(i, 1);
-            console.log('downvote removed')
-          break;
+        review.score -= 1;
+        if (review.upvotes.includes(clickUser)) {
+          var i = review.upvotes.indexOf(clickUser)
+          review.upvotes.splice(i, 1)
+          review.score -= 1
         }
+      } else {
+        var i = review.downvotes.indexOf(clickUser);
+        review.downvotes.splice(i, 1);
+        review.score += 1;
       }
       review.save();
+      console.log('upvote saved!')
+      res.sendStatus(201);
     }
   })
 }
 
-function incrementScore(imdb_id, user, date) {
-  // add one to score
-  Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
-    if (err) {
-      console.log('error in incrementScore', err);
-    } else {
-      review.score += 1;
-      review.save();
-      console.log('score incremented!');
-    }
-  })
-}
-
-function decrementScore(imdb_id, user, date) {
-  // subtract one from score
-  Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
-    if (err) {
-      console.log('error in decrementScore', err);
-    } else {
-      review.score -= 1;
-      review.save();
-      console.log('score decremented!');
-    }
-  })
-}
 
 
 exports.findAll = findAll;
 exports.findOne = findOne;
 exports.insertReview = insertReview;
-exports.insertUserIntoUpvote = insertUserIntoUpvote;
-exports.removeUserFromUpvote = removeUserFromUpvote;
-exports.insertUserIntoDownvote = insertUserIntoDownvote;
-exports.removeUserFromDownvote = removeUserFromDownvote;
-exports.incrementScore = incrementScore;
-exports.decrementScore = decrementScore;
+exports.upVote = upVote;
+exports.downVote = downVote;
+// exports.insertUserIntoUpvote = insertUserIntoUpvote;
+// exports.removeUserFromUpvote = removeUserFromUpvote;
+// exports.insertUserIntoDownvote = insertUserIntoDownvote;
+// exports.removeUserFromDownvote = removeUserFromDownvote;
+// exports.incrementScore = incrementScore;
+// exports.decrementScore = decrementScore;

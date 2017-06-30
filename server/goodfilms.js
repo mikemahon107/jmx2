@@ -124,52 +124,12 @@ app.get('/reviews', function(req, res) {
 });
 
 app.post('/upvote', function(req, res) {
-  // req.body should be {imdb_id: imdb_id, user: USER, date: DATE, clickUser: CLICKUSER}
-  // user req.session.user.username for clickUser
-  var imdb_id = req.body[0].imdb_id;
-  var user = req.body[0].user;
-  var date = req.body[0].date;
-
-  console.log('REQ.BODY - upvote', req.body[0]);
-
-  reviews.findOne({imdb_id: imdb_id, user: user, date: date}, (err, review) => {
-    if (err) {
-      console.log('error in upvote', err);
-    } else {
-      if (!review.upvotes.includes(req.body[0].clickUser)) {
-        reviews.insertUserIntoUpvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.removeUserFromDownvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.incrementScore(imdb_id, user, date);
-      } else {
-        reviews.removeUserFromUpvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.decrementScore(imdb_id, user, date);
-      }
-    }
-  })
-  res.sendStatus(201);
+  reviews.upVote(req, res);
 });
 
 app.post('/downvote', function(req, res) {
   // user req.session.user.username for clickUser
-  var imdb_id = req.body[0].imdb_id;
-  var user = req.body[0].user;
-  var date = req.body[0].date;
-
-  reviews.findOne({imdb_id: imdb_id, user: user, date: date}, (err, review) => {
-    if (err) {
-      console.log('error in downvote', err);
-    } else {
-      if (!review.downvotes.includes(req.body[0].clickUser)) {
-        reviews.insertUserIntoDownvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.removeUserFromUpvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.decrementScore(imdb_id, user, date);
-      } else {
-        reviews.removeUserFromDownvote(imdb_id, user, date, req.body[0].clickUser);
-        reviews.incrementScore(imdb_id, user, date);
-      }
-    }
-  })
-  res.sendStatus(201);
+  reviews.downVote(req, res);
 })
 
 app.post('/removeFromWatched', function (req, res) {
