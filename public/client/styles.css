@@ -402,6 +402,16 @@ button {
   display: none
 }
 
+/****** modals *******/
+
+.modal-content {
+  background-color: #444;
+  color: inherit;
+}
+
+.modal-body {
+  background-color: inherit;
+}
 /***************/
 
 .inline-block {
