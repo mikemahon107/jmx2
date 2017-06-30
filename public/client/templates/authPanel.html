@@ -1,6 +1,6 @@
 <div class="auth-panel">
   <form ng-submit="ctrl.authorize()">
-    
+
     <div class="inline-block login">
       <label>Username: </label>
       <input type="text" ng-model="ctrl.username">
@@ -11,11 +11,11 @@
       <input type="password" ng-model="ctrl.password">
     </div>
 
-    <input class="ugly-button sign-in login" type="submit" ng-value="ctrl.mode ? 'Sign In' : 'Sign Up'">
+    <input class="btn sign-in login" type="submit" ng-value="ctrl.mode ? 'Sign In' : 'Sign Up'" style="line-height: 1; vertical-align: inherit;">
      <!-- ng-click="ctrl.mode ? app.get" -->
     <span class="login" ng-if="!ctrl.mode">Already have an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
     <span class="login" ng-if="ctrl.mode">Need an account? <a href="#" ng-click="ctrl.toggleMode()" ng-submit="ctrl.toggleMode()">Click here.</a></span>
-    
+
   </form>
 
   <image id="login-image" src="https://static01.nyt.com/images/2015/02/15/travel/15HOLLYWOOD/15HOLLYWOOD-superJumbo-v2.jpg">
