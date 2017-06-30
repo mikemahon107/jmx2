@@ -35,12 +35,12 @@ angular.module('main-app')
   };
 
 // this needs to be changed
-  this.updateScore = function(body, callback) {
+  this.upVote = function(body, callback) {
     $http({
-      url: 'http://localhost:3000/updateScore',
+      url: 'http://localhost:3000/upvote',
       method: 'POST',
       dataType: 'json',
-      data: body, // this should include the imdb_id, the user within the review object, the vote value and index
+      data: body,
     }).then(function successCallback(response) {
       if (callback) {
         console.log('success', response);
@@ -50,4 +50,21 @@ angular.module('main-app')
       console.log('error', response);
       callback(response);
     });
+  }
+
+  this.downVote = function(body, callback) {
+    $http({
+      url: 'http://localhost:3000/downvote',
+      method: 'POST',
+      dataType: 'json',
+      data: body,
+    }).then(function successCallback(response) {
+      if (callback) {
+        console.log('success', response);
+        callback(response);
+      }
+    }, function errorCallback(response) {
+      console.log('error', response);
+    });
+  }
 });

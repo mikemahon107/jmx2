@@ -261,6 +261,14 @@ button {
   background-color: #666;
 }
 
+button:focus {
+}
+
+button .active {
+  color: blue;
+  border: 1px solid blue;
+}
+
 .ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
   background-image: none;
   outline: none;
