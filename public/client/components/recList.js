@@ -4,7 +4,8 @@ angular.module('main-app')
     scope: {
       movies: '<',
       user: '<',
-      handleTitleClick: '<'
+      handleTitleClick: '<',
+      video: '<'
     },
     restrict: 'E',
     controller: function() {

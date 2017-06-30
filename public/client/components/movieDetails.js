@@ -3,6 +3,8 @@ angular.module('main-app')
 .directive('movieDetails', function() {
   return {
     scope: {
+      movie: '<',
+      user: '<',
       details: '<',
       video: '<'
     },

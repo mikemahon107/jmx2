@@ -9,7 +9,9 @@ angular.module('main-app')
 .directive('upcomingList', function() {
   return {
     scope: {
-      handleTitleClick: '<'
+      handleTitleClick: '<',
+      video: '<',
+      movies: '<'
     },
     restrict: 'E',
     controller: 'upcomingController',
