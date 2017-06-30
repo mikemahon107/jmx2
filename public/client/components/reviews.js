@@ -2,6 +2,7 @@ angular.module('main-app')
 
 .directive('reviews', function() {
   return {
+    // must have imdb_id in scope
     scope: {
       user: '<'
     },
@@ -21,23 +22,13 @@ angular.module('main-app')
       }
 
       this.getReviews = function() {
+        // change '1' once in movie view to imdb_id
         review.getReviews('1', (response) => {
-          console.log('in get reviews')
           this.reviews = response.data;
         })
       }
 
       this.getReviews();
-
-      // this.handleTextChange = function(item) {
-      //   console.log("this.writtenReview: ", this.writtenReview)
-      // }
-
-
-      // dummy data
-      // this.reviews = [{imdb_id: '1', user: 'mike', rating: '8', date: 'Thu Jun 29 2017 14:27:12 GMT-0500 (CDT)', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blah.'}, {imdb_id: '1', user: 'mike', rating: '8', date: 'Thu Jun 29 2017 14:27:12 GMT-0500 (CDT)', score: 0, text: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah\
-      //  blahblah blah blah blah \
-      //  blablahblah blah blah.'}]
 
       this.handleSubmit = function() {
         if (this.writtenReview.trim() === '') {
@@ -56,9 +47,6 @@ angular.module('main-app')
         }
       }
 
-      // this.handleRatingClick = function(rating) {
-      //   console.log('this.rating: ', this.rating)
-      // };
     },
     controllerAs: 'ctrl',
     bindToController: true,

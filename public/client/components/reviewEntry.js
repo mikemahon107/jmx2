@@ -8,7 +8,7 @@ angular.module('main-app')
       user: '<'
     },
     restrict: 'E',
-    controller: function() {
+    controller: function(review) {
       this.$onInit = () => {
         if (this.review.text.length > 170) {
           this.text = '"'+this.review.text.slice(0,165).concat('...') + '"';
@@ -17,7 +17,11 @@ angular.module('main-app')
           this.text = '"' + this.review.text + '"'
         }
         this.getTimeDiff()
-        console.log('user: ', this.user.username)
+        if (this.review.upvotes.includes(this.user.username)) {
+          this.toggleUpVote = true;
+        } else if (this.review.downvotes.includes(this.user.username)) {
+          this.toggleDownVote = true;
+        }
       }
       this.timeStatement = ''
       this.showMoreLessText = '';
@@ -59,7 +63,8 @@ angular.module('main-app')
       }
 
       this.upVote = () => {
-        // help ticket on how to toggle .active class in angular
+        // review.upVote(body, function() {})
+
         if (!this.toggleDownVote) {
           this.toggleUpVote = !this.toggleUpVote
           if (this.toggleUpVote) {
@@ -75,6 +80,8 @@ angular.module('main-app')
       }
 
       this.downVote = () => {
+        // review.upVote(body, function() {})
+        
         if (!this.toggleUpVote) {
           this.toggleDownVote = !this.toggleDownVote
           if (this.toggleDownVote) {
