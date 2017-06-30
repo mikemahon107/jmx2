@@ -5,7 +5,8 @@ angular.module('main-app')
     scope: {
       movie: '<',
       user: '<',
-      handleTitleClick: '<'
+      handleTitleClick: '<',
+      video: '<'
     },
     restrict: 'E',
     controller: function(searchOMDB) {

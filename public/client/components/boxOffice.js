@@ -65,7 +65,8 @@ angular.module('main-app')
   return {
     scope: {
       user: '<',
-      handleTitleClick: '<'
+      handleTitleClick: '<',
+      video: '<'
     },
     restrict: 'E',
     controller: 'BoxOfficeCtrl',

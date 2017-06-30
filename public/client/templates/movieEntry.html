@@ -3,11 +3,11 @@
   <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.details.Poster}}" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)">
 
   <div class="movie-entry-info">
-    <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.details)">{{ctrl.movie.details.Title || 'N/A'}}</h4>
+    <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)" data-toggle="modal" data-target="#{{ctrl.movie.imdb_id}}">{{ctrl.movie.details.Title || 'N/A'}}</h4>
     <span>
-      <button type="button" class="btn" data-toggle="modal" data-target="#movieDetails">
+      <!-- <button type="button" class="btn" data-toggle="modal" data-target="#{{ctrl.movie.imdb_id}}">
         Details
-      </button>
+      </button> -->
     </span>
     <button class="btn favorite-element comment-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
       <span>make favorite</span>
@@ -86,15 +86,15 @@
       <span>remove Favorite</span>
     </button>
     <!-- Modal -->
-    <div class="modal fade" id="movieDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="{{ctrl.movie.imdb_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">{{ctrl.details.Title}}</h4>
           </div>
           <div class="modal-body">
-            <movie-details video="ctrl.video" movie="ctrl.movie" details="ctrl.movie.details"/>
+            <movie-details video="ctrl.video" movie="ctrl.movie" details="ctrl.movie.details" user="ctrl.user"/>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-dismiss="modal">Close</button>
