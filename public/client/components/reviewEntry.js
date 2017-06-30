@@ -4,7 +4,8 @@ angular.module('main-app')
   return {
     scope: {
       review: '=',
-      index: '<'
+      index: '<',
+      user: '<'
     },
     restrict: 'E',
     controller: function() {
@@ -16,6 +17,7 @@ angular.module('main-app')
           this.text = '"' + this.review.text + '"'
         }
         this.getTimeDiff()
+        console.log('user: ', this.user.username)
       }
       this.timeStatement = ''
       this.showMoreLessText = '';
@@ -60,7 +62,13 @@ angular.module('main-app')
         // help ticket on how to toggle .active class in angular
         if (!this.toggleDownVote) {
           this.toggleUpVote = !this.toggleUpVote
+          if (this.toggleUpVote) {
+            this.review.score += 1;
+          } else {
+            this.review.score -= 1;
+          }
         } else {
+          this.review.score += 2;
           this.toggleDownVote = false;
           this.toggleUpVote = true;
         }
@@ -69,7 +77,13 @@ angular.module('main-app')
       this.downVote = () => {
         if (!this.toggleUpVote) {
           this.toggleDownVote = !this.toggleDownVote
+          if (this.toggleDownVote) {
+            this.review.score -= 1
+          } else {
+            this.review.score += 1
+          }
         } else {
+          this.review.score -= 2
           this.toggleUpVote = false;
           this.toggleDownVote = true;
         }
