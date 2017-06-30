@@ -1,13 +1,14 @@
-<div class='review-entry'>
+<div class='review-entry' style="min-height: 120px; margin-bottom: 40px;">
   <div style='margin-left: 70px;'>
     <span>{{ctrl.review.user}}'s review </span>
     <span> {{ctrl.timeStatement}} </span>
     <span>rating: {{ctrl.review.rating}}</span>
   </div>
   <div style="margin: 0px; position: relative; width: 50px; overflow: hidden; float: left;">
-    <button ng-click='ctrl.downVote()' class="btn"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+    <button ng-click='ctrl.upVote();' class="btn" ng-class="{'active' : ctrl.toggleUpvote}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
     <div style="margin-left: 8px; font-size: 20px">{{ctrl.review.score}}</div>
-    <button ng-click='ctrl.upVote()' class="btn"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+    <button ng-click='ctrl.downVote()' class="btn" ng-class="ctrl.toggleUpvote ? 'active' : ''"><span class="glyphicon glyphicon-thumbs-down"></span></button>
   </div>
-  <div style="margin-left: 70px; margin-bottom: 70px; overflow: hidden; position: relative; width: 50%; ">{{ctrl.text}}<br /><a ng-click='ctrl.toggleTextLength()'>{{ctrl.showMoreLessText}}</a></div>
+  <br/ >
+  <div style="margin-left: 70px; overflow: hidden; position: relative; width: 50%;">{{ctrl.text}}<br /><a ng-click='ctrl.toggleTextLength()'>{{ctrl.showMoreLessText}}</a></div>
 </div>

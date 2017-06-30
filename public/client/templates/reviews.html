@@ -10,7 +10,7 @@
       <br />
       <div>
       <label >Rating: <span  id="user-rate">
-        <select style="color: black;" class="rating-change-select" value="ctrl.rating" ng-model="ctrl.rating" name="carlist" form="carform" ng-change="ctrl.handleRatingClick();">
+        <select style="color: black;" class="rating-change-select" value="ctrl.rating" ng-model="ctrl.rating" name="carlist" form="carform" >
           <option value="-">-</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -27,7 +27,7 @@
       </label>
     </div>
     </label>
-      <textarea ng-model="item.selected" ng-change="ctrl.handleTextChange(item.selected)" id = "myTextArea"
+      <textarea ng-model="ctrl.writtenReview" value="ctrl.writtenReview" id = "myTextArea"
               rows = "8"
               cols = "80"></textarea>
       <button ng-click='ctrl.handleSubmit()'>Submit Review</button>

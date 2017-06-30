@@ -7,23 +7,31 @@ angular.module('main-app')
       index: '<'
     },
     restrict: 'E',
-    controller: function($scope) {
-      console.log('$scope.$parent.$index: ', $scope.$parent.$index)
+    controller: function() {
       this.$onInit = () => {
-        this.text = this.review.text.slice(0,100).concat('...');
+        if (this.review.text.length > 170) {
+          this.text = '"'+this.review.text.slice(0,165).concat('...') + '"';
+          this.showMoreLessText = 'Show More';
+        } else {
+          this.text = '"' + this.review.text + '"'
+        }
         this.getTimeDiff()
       }
       this.timeStatement = ''
-      this.showMoreLessText = 'Show More'
+      this.showMoreLessText = '';
       this.showMore = true
+      this.toggleUpVote = false;
+      this.toggleDownVote = false;
       this.toggleTextLength = () => {
-        this.showMore = !this.showMore;
-        if (this.showMore) {
-          this.showMoreLessText = 'Show More';
-          this.text = this.review.text.slice(0,100).concat('...');
-        } else {
-          this.showMoreLessText = 'Show Less';
-          this.text = this.review.text;
+        if (this.review.text.length > 170) {
+          this.showMore = !this.showMore;
+          if (this.showMore) {
+            this.showMoreLessText = 'Show More';
+            this.text = '"' + this.review.text.slice(0,165).concat('...') + '"';
+          } else {
+            this.showMoreLessText = 'Show Less';
+            this.text = '"' + this.review.text + '"';
+          }
         }
       }
 
@@ -46,6 +54,25 @@ angular.module('main-app')
           unit_time = unit_time.concat('s')
         }
         this.timeStatement = factor.toString() + ' ' + unit_time + ' ago'
+      }
+
+      this.upVote = () => {
+        // help ticket on how to toggle .active class in angular
+        if (!this.toggleDownVote) {
+          this.toggleUpVote = !this.toggleUpVote
+        } else {
+          this.toggleDownVote = false;
+          this.toggleUpVote = true;
+        }
+      }
+
+      this.downVote = () => {
+        if (!this.toggleUpVote) {
+          this.toggleDownVote = !this.toggleDownVote
+        } else {
+          this.toggleUpVote = false;
+          this.toggleDownVote = true;
+        }
       }
 
     },
