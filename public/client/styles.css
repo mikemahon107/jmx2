@@ -261,13 +261,16 @@ button {
   background-color: #666;
 }
 
-button:focus {
+.btn:focus {
+  outline: none;
+  color: white;
 }
 
-button .active {
-  color: blue;
-  border: 1px solid blue;
+.btn:focus.voted {
+  color: #222;
 }
+
+
 
 .ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
   background-image: none;
@@ -428,5 +431,10 @@ html {
 }
 
 textarea {
+  color: #222;
+}
+
+.voted {
+  background-color: #f9ac04;
   color: #222;
 }
