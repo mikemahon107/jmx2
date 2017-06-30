@@ -111,22 +111,12 @@ app.post('/addComment', function (req, res) {
 
 app.post('/addReview', function (req, res) {
   console.log('REQ.BODY', req.body)
-  // var imdb_id = req.body[0].imdb_id
-  // var review = req.body[0].review;
-  // console.log('REQ.BODY', req.body);
-  // console.log('imdb_id in server', imdb_id)
-  // console.log('review in server', review)
-  // review should be an object {id: 'UNIQUE ID', user: 'INSERT USERNAME HERE', text: 'INSERT REVIEW HERE', score: 'SCORE', date: 'POSTED', rating: 'RATING'}
   reviews.insertReview(req.body);
   res.sendStatus(201);
 });
 
 app.get('/reviews', function(req, res) {
   console.log('req.query', req.query)
-  // reviews.findOne(req.query.imdb_id, (err, movie) => {
-  //   console.log(movie);
-  //   res.send(movie.reviews); // should send reviews array
-  // });
   reviews.findAll(req.query.imdb_id, (err, movie) => {
     console.log('MOVIE', movie);
     res.send(movie);
@@ -134,18 +124,51 @@ app.get('/reviews', function(req, res) {
 });
 
 app.post('/upvote', function(req, res) {
-  //check if upvotes array includes user
-  //if no, add user and increment score
-  //if yes, remove user and decrement score
-  //call necessary mongoose methods
+  // req.body should be {imdb_id: imdb_id, user: USER, date: DATE, clickUser: CLICKUSER}
+  // user req.session.user.username for clickUser
+  var imdb_id = req.body[0].imdb_id;
+  var user = req.body[0].user;
+  var date = req.body[0].date;
+
+  console.log('REQ.BODY - upvote', req.body[0]);
+
+  reviews.findOne({imdb_id: imdb_id, user: user, date: date}, (err, review) => {
+    if (err) {
+      console.log('error in upvote', err);
+    } else {
+      if (!review.upvotes.includes(req.body[0].clickUser)) {
+        reviews.insertUserIntoUpvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.removeUserFromDownvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.incrementScore(imdb_id, user, date);
+      } else {
+        reviews.removeUserFromUpvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.decrementScore(imdb_id, user, date);
+      }
+    }
+  })
   res.sendStatus(201);
 });
 
 app.post('/downvote', function(req, res) {
-  //check if upvotes array includes user
-  //if no, add user and decrement score
-  //if yes, remove user and increment score
-  //call necessary mongoose methods
+  // user req.session.user.username for clickUser
+  var imdb_id = req.body[0].imdb_id;
+  var user = req.body[0].user;
+  var date = req.body[0].date;
+
+  reviews.findOne({imdb_id: imdb_id, user: user, date: date}, (err, review) => {
+    if (err) {
+      console.log('error in downvote', err);
+    } else {
+      if (!review.downvotes.includes(req.body[0].clickUser)) {
+        reviews.insertUserIntoDownvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.removeUserFromUpvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.decrementScore(imdb_id, user, date);
+      } else {
+        reviews.removeUserFromDownvote(imdb_id, user, date, req.body[0].clickUser);
+        reviews.incrementScore(imdb_id, user, date);
+      }
+    }
+  })
   res.sendStatus(201);
 })
 
