@@ -133,14 +133,21 @@ app.get('/reviews', function(req, res) {
   })
 });
 
-app.post('/updateScore', function(req, res) {
-  var imdb_id = req.body[0].imdb_id;
-  var user = req.body[0].user; // user from review object
-  var vote = req.body[0].vote; // the value of the vote - either +1, 0 or -1
-  var index = req.body[0].index; // index value within array
-  // call mongoose method here for updating score
+app.post('/upvote', function(req, res) {
+  //check if upvotes array includes user
+  //if no, add user and increment score
+  //if yes, remove user and decrement score
+  //call necessary mongoose methods
   res.sendStatus(201);
 });
+
+app.post('/downvote', function(req, res) {
+  //check if upvotes array includes user
+  //if no, add user and decrement score
+  //if yes, remove user and increment score
+  //call necessary mongoose methods
+  res.sendStatus(201);
+})
 
 app.post('/removeFromWatched', function (req, res) {
   var user = req.body.user;
