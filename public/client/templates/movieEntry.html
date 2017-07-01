@@ -3,7 +3,7 @@
   <img class="movie-entry-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.details.Poster}}" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)">
 
   <div class="movie-entry-info">
-    <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)" data-toggle="modal" data-target="#{{ctrl.movie.imdb_id}}">{{ctrl.movie.details.Title || 'N/A'}}</h4>
+    <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)" data-toggle="modal" data-target="#{{ctrl.modal_id}}">{{ctrl.movie.details.Title || 'N/A'}}</h4>
     <span>
       <!-- <button type="button" class="btn" data-toggle="modal" data-target="#{{ctrl.movie.imdb_id}}">
         Details
@@ -86,7 +86,7 @@
       <span>remove Favorite</span>
     </button>
     <!-- Modal -->
-    <div class="modal fade" id="{{ctrl.movie.imdb_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="{{ctrl.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
