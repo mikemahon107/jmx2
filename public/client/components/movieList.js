@@ -5,7 +5,8 @@ angular.module('main-app')
     scope: {
       movies: '<',
       user: '<',
-      tab: '<'
+      tab: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: function() {

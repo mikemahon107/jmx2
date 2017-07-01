@@ -65,7 +65,8 @@ angular.module('main-app')
   return {
     scope: {
       user: '<',
-      tab: '<'
+      tab: '<',
+      handleTitleClick: '<'
 
     },
     restrict: 'E',
