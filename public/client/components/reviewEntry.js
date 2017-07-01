@@ -4,12 +4,12 @@ angular.module('main-app')
   return {
     scope: {
       review: '=',
-      user: '<'
+      user: '<',
+      imdb: '<'
     },
     restrict: 'E',
     controller: function(review) {
       this.$onInit = () => {
-        console.log('this.user: ', this.user)
         if (this.review.text.length > 170) {
           this.text = '"'+this.review.text.slice(0,165).concat('...') + '"';
           this.showMoreLessText = 'Show More';
@@ -63,7 +63,7 @@ angular.module('main-app')
       }
 
       this.upVote = () => {
-        review.upVote({imdb_id: '1', user: this.review.user, date: this.review.date, clickUser: this.user.username}, function(result) {console.log('result in upvote: ', result)})
+        review.upVote({imdb_id: this.imdb, user: this.review.user, date: this.review.date, clickUser: this.user.username}, function(result) {console.log('result in upvote: ', result)})
 
         if (!this.toggleDownVote) {
           this.toggleUpVote = !this.toggleUpVote
@@ -80,8 +80,7 @@ angular.module('main-app')
       }
 
       this.downVote = () => {
-        console.log('this.review: ', this.review);
-        review.downVote({imdb_id: '1', user: this.review.user, date: this.review.date, clickUser: this.user.username}, function(result) {console.log('result in downvote: ', result)})
+        review.downVote({imdb_id: this.imdb, user: this.review.user, date: this.review.date, clickUser: this.user.username}, function(result) {console.log('result in downvote: ', result)})
 
         if (!this.toggleUpVote) {
           this.toggleDownVote = !this.toggleDownVote

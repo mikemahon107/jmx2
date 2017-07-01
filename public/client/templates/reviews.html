@@ -24,7 +24,7 @@
           <option value="10">10</option>
         </select>
       </span>
-      </label>
+    </label>
     </div>
     </label>
       <textarea ng-model="ctrl.writtenReview" value="ctrl.writtenReview" id = "myTextArea"
@@ -46,4 +46,4 @@
   </span>
   </label>
 </div>
-<review-entry ng-repeat='review in ctrl.reviews' user='ctrl.user' review='review'/>
+<review-entry ng-repeat='review in ctrl.reviews' user='ctrl.user' review='review' imdb='ctrl.imdb'/>
