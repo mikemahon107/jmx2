@@ -3,7 +3,7 @@
   <div class="movie-entry-info">
     <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.title, ctrl.movie.id, ctrl.movie)" data-toggle="modal" data-target="#{{ctrl.movie.id}}">{{ctrl.movie.title || 'N/A'}}</h4>
     <button type="button" class="btn" data-toggle="modal" data-target="#trailerModal" ng-click="ctrl.handleTitleClick(ctrl.movie.title, ctrl.movie.id, ctrl.movie, ctrl.movie.overview)">
-      details
+      trailer
     </button>
     <div class="movie-info">
       <div class="year movie-subhead">Release date: {{ctrl.movie.release_date}} </div>
