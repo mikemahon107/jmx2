@@ -83,7 +83,7 @@ function downVote(req, res) {
 
   Review.findOne({imdb_id: imdb_id, user: user, date: date}, function(err, review) {
     if (err) {
-      console.log('error in upvote', err);
+      console.log('error in downvote', err);
       res.sendStatus(400);
     } else {
       if (!review.downvotes.includes(clickUser)) {
@@ -100,7 +100,7 @@ function downVote(req, res) {
         review.score += 1;
       }
       review.save();
-      console.log('upvote saved!')
+      console.log('downvote saved!')
       res.sendStatus(201);
     }
   })
