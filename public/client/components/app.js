@@ -8,6 +8,7 @@ angular.module('main-app')
   this.OMDBService = searchOMDB;
   this.intendedUser;
   this.showDetails = false;
+  this.movie = {};
 
   $http.get('/sess').then((session) => {
 
@@ -43,10 +44,13 @@ angular.module('main-app')
 
   // need to write a handleTitleClick function that will swap out the query string based on click
 
-  this.handleTitleClick = (title, imdb) => {
+  this.handleTitleClick = (title, imdb, details) => {
     console.log('title', title);
     console.log('imdb', imdb)
     youTube.search(`${title} official trailer`, this.searchResults);
+    this.movie.title = title;
+    this.movie.details = details;
+    console.log('deets',details)
   }
 
 
