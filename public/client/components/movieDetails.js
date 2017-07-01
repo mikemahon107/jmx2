@@ -10,7 +10,9 @@ angular.module('main-app')
       imdb: '<'
     },
     controller: function() {
-
+      this.$onInit = function() {
+        console.log('this.movie in movieDetails: ', this.movie)
+      }
     },
     controllerAs: 'ctrl',
     bindToController: true,
