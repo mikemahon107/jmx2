@@ -270,6 +270,10 @@ button {
   color: #222;
 }
 
+.one-line {
+  line-height: 1;
+}
+
 
 
 .ugly-button:focus, .ugly-button:active, .ugly-button.active, .ugly-button:focus:active {
