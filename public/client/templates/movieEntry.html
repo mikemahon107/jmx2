@@ -12,6 +12,9 @@
     <button class="btn favorite-element comment-element" id="add-favorite-button" ng-click="ctrl.handleAddToFavorites()">
       <span>make favorite</span>
     </button>
+    <button type="button" class="btn" data-toggle="modal" data-target="#detailsModal">
+      details
+    </button>
 
     <div class="movie-info">
       <div class="year movie-subhead">{{ctrl.movie.details.Year}} </div>
@@ -85,24 +88,6 @@
     <button class="btn favorite-element comment-element" id="remove-favorite-button" ng-click="ctrl.handleAddToFavorites()">
       <span>remove Favorite</span>
     </button>
-    <!-- Modal -->
-    <div class="modal fade" id="{{ctrl.modal_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">{{ctrl.movie.details.Title}}</h4>
-          </div>
-          <div class="modal-body">
-            <p>{{ctrl.movie.details.Plot}}</p>
-            <movie-details video="ctrl.video" imdb="ctrl.movie.imdb_id" details="ctrl.movie.details" user="ctrl.user"/>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 
