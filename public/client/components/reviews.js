@@ -4,7 +4,8 @@ angular.module('main-app')
   return {
     // must have imdb_id in scope
     scope: {
-      user: '<'
+      user: '<',
+      imdb: '<'
     },
     restrict: 'E',
     controller: function(review) {
@@ -25,10 +26,9 @@ angular.module('main-app')
 
       this.getReviews = function() {
         // change '1' once in movie view to imdb_id
-        review.getReviews('1', (response) => {
+        review.getReviews(this.imdb, (response) => {
           this.reviews = response.data;
           this.filterBy();
-          console.log('this.reviews: ', this.reviews)
         })
       }
 
@@ -41,7 +41,7 @@ angular.module('main-app')
           alert('Must give a rating, before submitting')
         } else {
           var date = new Date();
-          var newReview = {imdb_id: '1', user: this.user.username, text: this.writtenReview, date: date.toString(), rating: this.rating, score: 0, upvotes: [], downvotes: []};
+          var newReview = {imdb_id: this.imdb, user: this.user.username, text: this.writtenReview, date: date.toString(), rating: this.rating, score: 0, upvotes: [], downvotes: []};
           review.postReview(newReview, (response) => {
             alert('Your review was successfully submitted')
             this.reviews.push(newReview);

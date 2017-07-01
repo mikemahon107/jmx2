@@ -18,16 +18,22 @@
 
     <div class="movie-critic-info">
       <div class="critic-element">
-        <img id="imdb-icon" src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Cinema-Imdb-icon.png">
-        {{ctrl.movie.details.Ratings[0].Value}}
+        <a ng-href="http://www.imdb.com/title/{{ctrl.movie.imdb_id}}">
+          <img id="imdb-icon" src="http://ia.media-imdb.com/images/M/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@._V1_.png">
+        </a>
+        {{ctrl.movie.details.Ratings_Obj["Internet Movie Database"]}}
       </div>
       <div class="critic-element">
-        <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
-        {{ctrl.movie.details.Ratings[1].Value}}
+        <a ng-href="https://www.rottentomatoes.com/m/{{ctrl.movie.rotten_id}}">
+          <img id="rotten-tomato-icon" src="http://www.userlogos.org/files/logos/jumpordie/rottentomatoes_03.png">
+        </a>
+        {{ctrl.movie.details.Ratings_Obj["Rotten Tomatoes"]}}
       </div>
       <div class="critic-element">
-        <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
-        {{ctrl.movie.details.Ratings[2].Value}}
+        <a ng-href="http://www.metacritic.com/movie/{{ctrl.movie.meta_id}}">
+          <img id="metacritic-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/500px-Metacritic.svg.png">
+        </a>
+        {{ctrl.movie.details.Ratings_Obj["Metacritic"]}}
       </div>
     </div>
 
@@ -71,9 +77,8 @@
       <span>remove Favorite</span>
     </button>
   </div>
-  <p>name: {{ctrl.details.dvd}}</p>
   <video-player video="ctrl.video"/>
-  <reviews />
+  <reviews user='ctrl.user' imdb='ctrl.imdb'/>
 
 </div>
 
