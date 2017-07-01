@@ -10,7 +10,6 @@ angular.module('main-app')
     },
     restrict: 'E',
     controller: function() {
-      console.log('this.movies: ', this)
     },
     controllerAs: 'ctrl',
     bindToController: true,
