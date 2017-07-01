@@ -25,8 +25,10 @@ angular.module('main-app')
             var temp = data.results.sort((a, b) => b.popularity - a.popularity).slice(0, 5).map(item => item.id);
             temp.forEach(id => {
               this.TMDBservice.searchById(id, data => {
-                this.recommendations.push(data.imdb_id);
-                this.recommendations.sort();
+                if (!this.recommendations.includes(data.imdb_id)) {
+                  this.recommendations.push(data.imdb_id);
+                  this.recommendations.sort();
+                }
               });
             });
           });
