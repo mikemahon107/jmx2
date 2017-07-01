@@ -43,7 +43,7 @@
     </div>
 
     <div id="user-comment">
-      <div class="user-movie-comment">
+      <div class="user-movie-comment" ng-if="ctrl.movie.comment !== ''">
         <div class="user-critic user-critic-element">{{ctrl.user.username}} says:</div>
         <div class="user-critic-comment user-critic-element"> "{{ctrl.movie.comment}}"</div>
       </div>
