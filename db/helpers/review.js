@@ -5,20 +5,20 @@ var Review = require('../schema/review.js');
 // possibly add delete and edit method for reviews
 
 function findAll(req, res) {
-  console.log('req', req)
+  console.log('req.query', req.query)
   // reviews.findAll(req.query.imdb_id, (err, movie) => {
   //   console.log('MOVIE', movie);
   //   res.send(movie);
   // })
-  // Review.find({'imdb_id': imdb_id}, (err, movies) => {
-  //   if (err) {
-  //     console.log('err: ', err)
-  //     res.sendStatus(400)
-  //   } else {
-  //     console.log('Movies: ', movies)
-  //     res.send(movies)
-  //   }
-  // });
+  Review.find({'imdb_id': req.query.imdb_id}, (err, movies) => {
+    if (err) {
+      console.log('err: ', err)
+      res.sendStatus(400)
+    } else {
+      console.log('Movies: ', movies)
+      res.send(movies)
+    }
+  });
 };
 
 function findOne(params, cb) {

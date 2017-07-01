@@ -12,6 +12,7 @@ angular.module('main-app')
     restrict: 'E',
     controller: function(searchOMDB, $http) {
       this.$onInit = function() {
+        console.log('this.movie in movie entry controller: ', this.movie)
         this.OMDBService = searchOMDB;
         this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
           this.movie.details = data;

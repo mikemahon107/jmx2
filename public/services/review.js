@@ -2,6 +2,14 @@ angular.module('main-app')
 
 .service('review', function($http) {
   // query should be `${movie title} trailer -- passed in via handleTitleClick function`
+  var makeQueryString = function(url, params) {
+    var paramsArray = []
+    for (p in params) {
+      paramsArray.push(p + '=' + params[p]);
+    }
+    return url + paramsArray.join('&');
+  }
+
   this.postReview = function(body, callback) {
     $http({
       url: 'http://localhost:3000/addReview',
@@ -21,10 +29,9 @@ angular.module('main-app')
 
   this.getReviews = function(imdb_id, callback){
     $http({
-      url: 'http://localhost:3000/reviews',
+      url: makeQueryString('http://localhost:3000/reviews?', {imdb_id: imdb_id}),
       method: 'GET',
-      dataType: 'json',
-      params: {imdb_id: imdb_id}
+      dataType: 'json'
     }).then(function successCallback(response) {
       if (callback) {
         callback(response);
