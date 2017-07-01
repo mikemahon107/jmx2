@@ -45,12 +45,15 @@ angular.module('main-app')
   // need to write a handleTitleClick function that will swap out the query string based on click
 
   this.handleTitleClick = (title, imdb, details) => {
-    console.log('title', title);
-    console.log('imdb', imdb)
     youTube.search(`${title} official trailer`, this.searchResults);
     this.movie.title = title;
     this.movie.details = details;
-    console.log('deets',details)
+    this.movie.imdb = imdb;
+    console.log('this.movie', this.movie)
+  }
+
+  this.clearData = () => {
+    this.movie = {}
   }
 
 

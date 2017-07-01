@@ -12,8 +12,6 @@ angular.module('main-app')
     restrict: 'E',
     controller: function(searchOMDB, $http, youTube) {
       this.$onInit = function() {
-        this.modal_id = this.movie.imdb_id.concat(this.tab.toString())
-        console.log('this.modal_id: ', this.modal_id)
         this.OMDBService = searchOMDB;
         this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
           this.movie.details = data;

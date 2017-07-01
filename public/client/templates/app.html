@@ -57,10 +57,10 @@
         </div>
         <div class="modal-body">
           <p>{{ctrl.movie.details.Plot}}</p>
-          <movie-details video="ctrl.video" imdb="ctrl.movie.imdb_id" details="ctrl.movie.details" user="ctrl.user"/>
+          <movie-details video="ctrl.video" movie="ctrl.movie" details="ctrl.movie.details" user="ctrl.user"/>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn" data-dismiss="modal">Close</button>
+          <button type="button" class="btn" data-dismiss="modal" ng-click="ctrl.clearData()">Close</button>
         </div>
       </div>
     </div>

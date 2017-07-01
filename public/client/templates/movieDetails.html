@@ -1,4 +1,4 @@
 <div>
   <video-player video="ctrl.video"/>
-  <reviews user='ctrl.user' imdb='ctrl.imdb'/>
+  <reviews ng-if="ctrl.movie.imdb" user='ctrl.user' imdb='ctrl.movie.imdb'/>
 </div>
