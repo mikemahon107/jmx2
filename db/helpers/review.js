@@ -4,8 +4,21 @@ var Review = require('../schema/review.js');
 // add method for modifying score based on click
 // possibly add delete and edit method for reviews
 
-function findAll(imdb_id, cb) {
-  Review.find({'imdb_id': imdb_id}, cb);
+function findAll(req, res) {
+  console.log('req', req)
+  // reviews.findAll(req.query.imdb_id, (err, movie) => {
+  //   console.log('MOVIE', movie);
+  //   res.send(movie);
+  // })
+  // Review.find({'imdb_id': imdb_id}, (err, movies) => {
+  //   if (err) {
+  //     console.log('err: ', err)
+  //     res.sendStatus(400)
+  //   } else {
+  //     console.log('Movies: ', movies)
+  //     res.send(movies)
+  //   }
+  // });
 };
 
 function findOne(params, cb) {
