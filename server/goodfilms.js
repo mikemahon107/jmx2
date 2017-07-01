@@ -87,7 +87,7 @@ app.post('/addMovie', function (req, res) {
   var user = req.body.user;
   var imdb_id = req.body.imdb_id;
 
-  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: 'N/A'});
+  accounts.insertMovieIntoWatched(user, {imdb_id: imdb_id, rating:'?', comment: ''});
   res.sendStatus(201);
 
 });
