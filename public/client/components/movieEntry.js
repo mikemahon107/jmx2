@@ -6,7 +6,8 @@ angular.module('main-app')
       movie: '<',
       user: '<',
       details: '<',
-      tab: '<'
+      tab: '<',
+      handleTitleClick: '<'
     },
     restrict: 'E',
     controller: function(searchOMDB, $http, youTube) {
