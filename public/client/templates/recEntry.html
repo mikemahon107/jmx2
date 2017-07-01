@@ -1,8 +1,10 @@
 <div class="movie-entry">
   <img class="movie-entry-poster recommendation-poster" src="http://martjackassests.azureedge.net/css/themes/mjt02012429/images/main/show_loader.gif" ng-src="{{ctrl.movie.Poster}}" ng-click="ctrl.handleTitleClick(ctrl.movie.details.Title)">
   <div class="movie-entry-info">
-
-    <h4 class="movie-entry-title inline-block" ng-click="ctrl.handleTitleClick(ctrl.movie.Title, ctrl.movie.imdbID)">{{ctrl.movie.Title || 'N/A'}}</h4>
+    <h4 class="movie-entry-title inline-block">{{ctrl.movie.Title || 'N/A'}}</h4>
+    <button type="button" class="btn" data-toggle="modal" data-target="#detailsModal" ng-click="ctrl.handleTitleClick(ctrl.movie.Title, ctrl.movie.imdbID, ctrl.movie)">
+      details
+    </button>
     <div class="movie-info">
       <div class="year movie-subhead">{{ctrl.movie.Year}} </div>
       <div class="rating movie-subhead">{{ctrl.movie.Rated}}</div>

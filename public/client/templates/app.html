@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Details Modal -->
   <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -61,6 +61,25 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn" data-dismiss="modal" ng-click="ctrl.clearData()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trailer Modal -->
+  <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">{{ctrl.movie.title}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{ctrl.movie.details.Plot}}</p>
+          <video-player video="ctrl.video" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
