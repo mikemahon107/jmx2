@@ -10,8 +10,8 @@ angular.module('main-app')
     restrict: 'E',
     controller: function(review) {
       this.$onInit = () => {
-        if (this.review.text.length > 170) {
-          this.text = '"'+this.review.text.slice(0,165).concat('...') + '"';
+        if (this.review.text.length > 120) {
+          this.text = '"'+this.review.text.slice(0,115).concat('...') + '"';
           this.showMoreLessText = 'Show More';
         } else {
           this.text = '"' + this.review.text + '"'
@@ -29,11 +29,11 @@ angular.module('main-app')
       this.toggleUpVote = false;
       this.toggleDownVote = false;
       this.toggleTextLength = () => {
-        if (this.review.text.length > 170) {
+        if (this.review.text.length > 120) {
           this.showMore = !this.showMore;
           if (this.showMore) {
             this.showMoreLessText = 'Show More';
-            this.text = '"' + this.review.text.slice(0,165).concat('...') + '"';
+            this.text = '"' + this.review.text.slice(0,115).concat('...') + '"';
           } else {
             this.showMoreLessText = 'Show Less';
             this.text = '"' + this.review.text + '"';

@@ -2,13 +2,12 @@
   <div style='margin-left: 70px;'>
     <span>{{ctrl.review.user}}'s review </span>
     <span> {{ctrl.timeStatement}} </span>
-    <span>rating: {{ctrl.review.rating}}</span>
   </div>
   <div style="margin: 0px; position: relative; width: 50px; overflow: hidden; float: left;">
     <button ng-click='ctrl.upVote();' class='btn' ng-class="{voted: ctrl.toggleUpVote}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
     <div style="margin-left: 8px; font-size: 20px">{{ctrl.review.score}}</div>
     <button ng-click='ctrl.downVote()' class="btn" ng-class="{voted: ctrl.toggleDownVote}"><span class="glyphicon glyphicon-thumbs-down"></span></button>
   </div>
-  <br/ >
-  <div style="margin-left: 70px; overflow: hidden; position: relative; width: 50%;">{{ctrl.text}}<br /><a ng-click='ctrl.toggleTextLength()'>{{ctrl.showMoreLessText}}</a></div>
+  <div style="margin-left: 70px; overflow: hidden; position: relative; width: 70%; font-size: 75%;">RATING: {{ctrl.review.rating}}/10</div>
+  <div style="margin-left: 70px; overflow: hidden; position: relative; width: 70%;">{{ctrl.text}}<br /><a ng-click='ctrl.toggleTextLength()'>{{ctrl.showMoreLessText}}</a></div>
 </div>
