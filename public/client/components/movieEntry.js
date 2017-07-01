@@ -5,14 +5,14 @@ angular.module('main-app')
     scope: {
       movie: '<',
       user: '<',
-      handleTitleClick: '<',
-      video: '<',
-      details: '<'
+      details: '<',
+      tab: '<'
     },
     restrict: 'E',
-    controller: function(searchOMDB, $http) {
+    controller: function(searchOMDB, $http, youTube) {
       this.$onInit = function() {
-        console.log('this.movie in movie entry controller: ', this.movie)
+        this.modal_id = this.movie.imdb_id.concat(this.tab.toString())
+        console.log('this.modal_id: ', this.modal_id)
         this.OMDBService = searchOMDB;
         this.OMDBService.search({i: this.movie.imdb_id}, (data) => {
           this.movie.details = data;
@@ -70,6 +70,19 @@ angular.module('main-app')
           });
         });
       };
+
+      // set trailer for video player on details view
+
+      this.searchResults = (data) => {
+        this.video = data[0];
+      }
+
+      // need to write a handleTitleClick function that will swap out the query string based on click
+
+      this.handleTitleClick = (title) => {
+        console.log('in handle title click', title);
+        youTube.search(`${title} official trailer`, this.searchResults);
+      }
 
       // this.$onInit = function() {
       //   this.handleMovieClick = function() {
