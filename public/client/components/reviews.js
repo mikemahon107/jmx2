@@ -31,8 +31,10 @@ angular.module('main-app')
           this.filterBy();
         })
       }
-
-      this.getReviews();
+      this.$onInit = function() {
+        console.log('this.imdb in reviews: ', this.imdb)
+        this.getReviews();
+      }
 
       this.handleSubmit = function() {
         if (this.writtenReview.trim() === '') {
@@ -47,6 +49,8 @@ angular.module('main-app')
             this.reviews.push(newReview);
             this.writtenReview = '';
             this.rating = '-'
+            this.showWriteReview = false;
+            this.writeHideReview = "Write Review";
           })
         }
       }
