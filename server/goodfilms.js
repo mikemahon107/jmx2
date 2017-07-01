@@ -116,11 +116,12 @@ app.post('/addReview', function (req, res) {
 });
 
 app.get('/reviews', function(req, res) {
-  console.log('req.query', req.query)
-  reviews.findAll(req.query.imdb_id, (err, movie) => {
-    console.log('MOVIE', movie);
-    res.send(movie);
-  })
+  reviews.findAll(req, res);
+  // console.log('req.query', req.query)
+  // reviews.findAll(req.query.imdb_id, (err, movie) => {
+  //   console.log('MOVIE', movie);
+  //   res.send(movie);
+  // })
 });
 
 app.post('/upvote', function(req, res) {
